@@ -1,6 +1,5 @@
 # diet_code
 
-https://github.com/rahulkantode26/diet_code/blob/main/ITSArch.drawio.png?raw=true![image](https://github.com/rahulkantode26/diet_code/assets/134963992/3098ab59-d59a-4f43-ac0c-f752c8a1bf84)
 
 
 Project Title:
