@@ -1,0 +1,28 @@
+1. Meeting Information:
+
+-12/06/2023
+- List of attendees: Jayesh, Kartik, Rahul, Rayyan, Ross, Sehba, Aprit (Mentor), Maria (Mentor)
+
+2. Opening and Introduction
+
+- Meeting was kicked off by short introduction of all the team members and Microsft Mentors.
+
+3. Discussion Summary:
+
+- Project objective and Ideas for the project was discussed in the meeting
+- Final product should be personalized.
+- Micrsoft to proivde us with an account to help us with the paid services.
+- Look at Azure devops project tool.
+- Videos (basic videos if any) needs to be embeded on site using Azure tools.
+
+4. Action Items:
+
+- To create collaborative space/sheet where everyone will post ideas.
+- ask the question "What is the problem we are solving?"
+- Decide on the language we are goining to use for the back-end? eg. Java or c#.
+- Check the Khan Academy article reagrding their on ITS.
+- To come up with features we can develop (example AI will give hints rather than the acutal answers.)
+
+5. Decisions Made:
+
+- To hold weekly 30-60mins meetings with the mentors. 
