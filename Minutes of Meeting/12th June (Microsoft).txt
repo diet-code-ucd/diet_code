@@ -20,7 +20,7 @@
 - To create collaborative space/sheet where everyone will post ideas.
 - ask the question "What is the problem we are solving?"
 - Decide on the language we are goining to use for the back-end? eg. Java or c#.
-- Check the Khan Academy article reagrding their on ITS.
+- Check the Khan Academy article reagrding their own ITS.
 - To come up with features we can develop (example AI will give hints rather than the acutal answers.)
 
 5. Decisions Made:
