@@ -6,7 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<QuestionContext>(opt => opt.UseInMemoryDatabase("TestDB"));
+//TODO: change this to take value from appsettings.json 
+builder.Services.AddDbContext<DatabaseContext>(opt => 
+    opt.UseNpgsql("Host=localhost;Database=its;Username=its;Password=testpw")
+);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
