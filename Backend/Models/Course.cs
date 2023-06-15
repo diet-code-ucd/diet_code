@@ -1,5 +1,6 @@
 namespace Backend.Models;
 
 public class Course {
-    public List<Question>? options { get; set; }
+    public int Id { get; set;}
+    public HashSet<Question> Questions { get; set; }
 }
