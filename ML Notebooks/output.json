@@ -1,0 +1,289 @@
+{
+  "questions": [
+    {
+      "question": "What is 2 + 2?",
+      "answer": 4,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the square root of 64?",
+      "answer": 8,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the value of x in the equation 3x + 5 = 14?",
+      "answer": 3,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the area of a rectangle with length 6 and width 4?",
+      "answer": 24,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of pi to two decimal places?",
+      "answer": 3.14,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the slope of the line y = 2x + 3?",
+      "answer": 2,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the product of 7 and 9?",
+      "answer": 63,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 2y - 4 = 10?",
+      "answer": 7,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the volume of a sphere with radius 5?",
+      "answer": 523.6,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 10 even numbers?",
+      "answer": 110,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 2x + 3 = 11?",
+      "answer": 4,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the hypotenuse of a right triangle with legs of length 3 and 4?",
+      "answer": 5,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the quotient of 24 and 6?",
+      "answer": 4,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 3y - 7 = 8?",
+      "answer": 5,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the circumference of a circle with radius 2?",
+      "answer": 12.57,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 15 odd numbers?",
+      "answer": 225,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 4x - 5 = 11?",
+      "answer": 4,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the diagonal of a square with side length 7?",
+      "answer": 9.9,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the product of 5 and 12?",
+      "answer": 60,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 5y + 2 = 27?",
+      "answer": 5,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the area of a circle with radius 3?",
+      "answer": 28.27,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 20 even numbers?",
+      "answer": 420,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 3x - 4 = 8?",
+      "answer": 4,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the hypotenuse of a right triangle with legs of length 5 and 12?",
+      "answer": 13,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the quotient of 36 and 9?",
+      "answer": 4,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 4y - 3 = 13?",
+      "answer": 4,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the circumference of a circle with radius 4?",
+      "answer": 25.13,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 25 odd numbers?",
+      "answer": 625,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 5x + 2 = 27?",
+      "answer": 5,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the diagonal of a square with side length 10?",
+      "answer": 14.14,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the product of 8 and 7?",
+      "answer": 56,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 6y - 5 = 19?",
+      "answer": 4,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the area of a circle with radius 5?",
+      "answer": 78.54,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 30 even numbers?",
+      "answer": 900,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 6x - 3 = 33?",
+      "answer": 6,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the hypotenuse of a right triangle with legs of length 8 and 15?",
+      "answer": 17,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the quotient of 48 and 12?",
+      "answer": 4,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 7y + 4 = 39?",
+      "answer": 5,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the circumference of a circle with radius 6?",
+      "answer": 37.7,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 35 odd numbers?",
+      "answer": 1225,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 7x - 2 = 45?",
+      "answer": 7,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the diagonal of a square with side length 15?",
+      "answer": 21.21,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the product of 9 and 6?",
+      "answer": 54,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 8y - 7 = 17?",
+      "answer": 3,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the area of a circle with radius 7?",
+      "answer": 153.94,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 40 even numbers?",
+      "answer": 1600,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 8x + 5 = 69?",
+      "answer": 8,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the hypotenuse of a right triangle with legs of length 10 and 24?",
+      "answer": 26,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the quotient of 60 and 15?",
+      "answer": 4,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 9y - 8 = 64?",
+      "answer": 8,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the circumference of a circle with radius 8?",
+      "answer": 50.27,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the sum of the first 45 odd numbers?",
+      "answer": 2025,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of x in the equation 9x - 4 = 76?",
+      "answer": 8,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the length of the diagonal of a square with side length 20?",
+      "answer": 28.28,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the product of 10 and 5?",
+      "answer": 50,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the value of y in the equation 10y + 3 = 73?",
+      "answer": 7,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the area of a circle with radius 10?",
+      "answer": 314.16,
+      "difficulty": "hard"
+    }
+  ]
+}
