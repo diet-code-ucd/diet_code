@@ -1,58 +1,88 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-interface Employee {
-  userId: string;
-  jobTitle: string;
-  firstName: string;
-  lastName: string;
-  employeeCode: string;
-  region: string;
-  phoneNumber: string;
-  emailAddress: string;
+interface Question {
+  question: string;
+  answer: number;
+  difficulty: string;
 }
 
 function Display() {
-  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(
+    null
+  );
+  const [userAnswer, setUserAnswer] = useState("");
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
 
   useEffect(() => {
-    fetchData()
-      .then((res) => {
-        setEmployees(res);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    fetchQuestions();
   }, []);
 
-  function fetchData(): Promise<Employee[]> {
-    return fetch("/Sample-employee-JSON-data.json")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Request failed");
-        }
-        return res.json();
+  const fetchQuestions = () => {
+    fetch("/TestQuestions.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setQuestions(data);
       })
-      .then((res) => {
-        return res.Employees as Employee[];
+      .catch((error) => {
+        console.error("Error fetching questions:", error);
       });
-  }
+  };
+
+  const handleDifficultyChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const difficulty = event.target.value;
+    const filteredQuestions = questions.filter(
+      (question) => question.difficulty === difficulty
+    );
+    const randomIndex = Math.floor(Math.random() * filteredQuestions.length);
+    setSelectedQuestion(filteredQuestions[randomIndex]);
+    setUserAnswer("");
+    setIsAnswerCorrect(null);
+  };
+
+  const handleAnswerSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (
+      selectedQuestion &&
+      selectedQuestion.answer === parseInt(userAnswer, 10)
+    ) {
+      setIsAnswerCorrect(true);
+    } else {
+      setIsAnswerCorrect(false);
+    }
+  };
 
   return (
     <div>
-      <h1>Employee List:</h1>
-      {employees.map((employee) => (
-        <div key={employee.userId}>
-          <p>
-            Name: {employee.firstName} {employee.lastName}
-          </p>
-          <p>Job Title: {employee.jobTitle}</p>
-          <p>Employee Code: {employee.employeeCode}</p>
-          <p>Region: {employee.region}</p>
-          <p>Phone Number: {employee.phoneNumber}</p>
-          <p>Email Address: {employee.emailAddress}</p>
-          <hr />
+      <h1>Question:</h1>
+      {selectedQuestion && (
+        <div>
+          <p>{selectedQuestion.question}</p>
+          <form onSubmit={handleAnswerSubmit}>
+            <label htmlFor="answer">Your Answer:</label>
+            <input
+              type="text"
+              id="answer"
+              value={userAnswer}
+              onChange={(event) => setUserAnswer(event.target.value)}
+            />
+            <button type="submit">Submit</button>
+          </form>
+          {isAnswerCorrect !== null && (
+            <p>Your answer is {isAnswerCorrect ? "correct" : "incorrect"}.</p>
+          )}
         </div>
-      ))}
+      )}
+      <h2>Select Difficulty:</h2>
+      <select onChange={handleDifficultyChange}>
+        <option value="">Select</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+        {/* Add more difficulty options based on your data */}
+      </select>
     </div>
   );
 }
