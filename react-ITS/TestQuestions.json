@@ -1,0 +1,1147 @@
+[
+    {
+        "question": "What is 2 + 2?",
+        "answer": 4,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the square root of 64?",
+        "answer": 8,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is 3 x 5?",
+        "answer": 15,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the value of pi?",
+        "answer": 3.1415926536,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the next number in the sequence: 1, 3, 5, 7, ...?",
+        "answer": 9,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is 10% of 200?",
+        "answer": 20,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the area of a rectangle with length 6 and width 4?",
+        "answer": 24,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the slope of the line y = 2x + 3?",
+        "answer": 2,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the value of x in the equation 2x + 5 = 11?",
+        "answer": 3,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the next number in the sequence: 1, 4, 9, 16, ...?",
+        "answer": 25,
+        "difficulty": "Easy"
+    },
+    {
+        "question": "What is the value of x in the equation 3x - 7 = 8x + 5?",
+        "answer": -3,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the volume of a sphere with radius 5?",
+        "answer": 523.6,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the derivative of x^2?",
+        "answer": "2x",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the value of sin(30 degrees)?",
+        "answer": 0.5,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the next number in the sequence: 2, 3, 5, 7, 11, ...?",
+        "answer": 13,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the value of x in the equation 2x^2 + 5x - 3 = 0?",
+        "answer": 0.5,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the limit of (x^2 - 1)/(x - 1) as x approaches 1?",
+        "answer": 2,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the integral of 2x dx?",
+        "answer": "x^2 + C",
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the value of cos(pi/3)?",
+        "answer": 0.5,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the next number in the sequence: 1, 2, 4, 7, 11, ...?",
+        "answer": 16,
+        "difficulty": "Medium"
+    },
+    {
+        "question": "What is the value of x in the equation 3^(2x+1) = 27?",
+        "answer": 0,
+        "difficulty": "Hard"
+    },
+    {
+        "question": "What is the value of lim(x->0) (sin(x)/x)?",
+        "answer": 1,
+        "difficulty": "Hard"
+    },
+    {
+        "question": "What is the derivative of e^x?",
+        "answer": "e^x",
+        "difficulty": "Hard"
+    },
+    {
+        "question": "What is the value of tan(pi/4)?",
+        "answer": 1,
+        "difficulty": "Hard"
+    },
+    {
+        "question": "What is the next number in the sequence: 1, 3, 7, 15, 31, ...?",
+        "answer": 63,
+        "difficulty": "Hard"
+    },
+    {
+        "question": "What is 5 + 7?",
+        "answer": 12.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the square root of 64?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 2x + 5 = 15?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the area of a rectangle with length 6 and width 4?",
+        "answer": 24.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of pi to two decimal places?",
+        "answer": 3.14,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (2, 3) and (4, 5)?",
+        "answer": 1.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 6 and 7?",
+        "answer": 42.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 3y - 7 = 8?",
+        "answer": 5.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the volume of a sphere with radius 3?",
+        "answer": 113.1,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 10 positive integers?",
+        "answer": 55.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 4x - 3 = 9?",
+        "answer": 3.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 3 and 4?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 8 and 9?",
+        "answer": 72.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 2y + 4 = 10?",
+        "answer": 3.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the circumference of a circle with radius 5?",
+        "answer": 31.4,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 20 positive integers?",
+        "answer": 210.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 3x + 2 = 11?",
+        "answer": 3.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 5 and 12?",
+        "answer": 13.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 10 and 11?",
+        "answer": 110.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 5y - 3 = 22?",
+        "answer": 5.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the area of a circle with radius 6?",
+        "answer": 113.1,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 30 positive integers?",
+        "answer": 465.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 2x - 5 = 7?",
+        "answer": 6.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 8 and 15?",
+        "answer": 17.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 12 and 13?",
+        "answer": 156.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 4y + 7 = 31?",
+        "answer": 6.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the volume of a cone with radius 4 and height 6?",
+        "answer": 100.5,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 50 positive integers?",
+        "answer": 1275.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 3x - 4 = 8?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 10 and 24?",
+        "answer": 26.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 14 and 15?",
+        "answer": 210.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 6y - 2 = 34?",
+        "answer": 6.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the surface area of a sphere with radius 5?",
+        "answer": 314.2,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 100 positive integers?",
+        "answer": 5050.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 4x + 3 = 15?",
+        "answer": 3.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 15 and 36?",
+        "answer": 39.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 16 and 17?",
+        "answer": 272.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 7y - 5 = 58?",
+        "answer": 9.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the volume of a cylinder with radius 3 and height 8?",
+        "answer": 226.2,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 200 positive integers?",
+        "answer": 20100.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 5x - 2 = 23?",
+        "answer": 5.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 20 and 21?",
+        "answer": 29.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 18 and 19?",
+        "answer": 342.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 8y + 4 = 68?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the surface area of a cylinder with radius 4 and height 10?",
+        "answer": 301.6,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 500 positive integers?",
+        "answer": 125250.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 6x - 7 = 29?",
+        "answer": 6.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 24 and 45?",
+        "answer": 51.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 20 and 21?",
+        "answer": 420.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 9y - 3 = 78?",
+        "answer": 9.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the volume of a rectangular prism with length 5, width 6, and height 7?",
+        "answer": 210.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is 5 + 7?",
+        "answer": 12.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the square root of 64?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 2x + 5 = 15?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the area of a rectangle with length 6 and width 4?",
+        "answer": 24.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of pi to two decimal places?",
+        "answer": 3.14,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (2, 3) and (4, 5)?",
+        "answer": 1.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 6 and 7?",
+        "answer": 42.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 2 to the power of 5?",
+        "answer": 32.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of y in the equation 3y - 7 = 8?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the circumference of a circle with radius 3?",
+        "answer": 18.85,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of e to two decimal places?",
+        "answer": 2.72,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (2, 3) and (4, 5)?",
+        "answer": 1.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 24 and 6?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 10 factorial?",
+        "answer": 3628800.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of z in the equation 4z + 3 = 19?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the volume of a cube with side length 5?",
+        "answer": 125.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of log base 10 of 100?",
+        "answer": 2.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (3, 4) and (6, 8)?",
+        "answer": 1.33,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of 3 and 4?",
+        "answer": 7.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 3 squared?",
+        "answer": 9.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 5x - 2 = 23?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the perimeter of a rectangle with length 8 and width 3?",
+        "answer": 22.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of sin 30 degrees?",
+        "answer": 0.5,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (3, 4) and (6, 8)?",
+        "answer": 0.67,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the difference between 9 and 5?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 4 cubed?",
+        "answer": 64.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of y in the equation 2y + 7 = 15?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the area of a triangle with base 6 and height 4?",
+        "answer": 12.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of cos 60 degrees?",
+        "answer": 0.5,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (1, 2) and (5, 8)?",
+        "answer": 1.5,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 8 and 3?",
+        "answer": 24.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 2 to the power of 6?",
+        "answer": 64.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 3x - 4 = 8?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the circumference of a circle with diameter 10?",
+        "answer": 31.42,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of tan 45 degrees?",
+        "answer": 1.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (1, 2) and (5, 8)?",
+        "answer": 0.5,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 36 and 9?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 5 factorial?",
+        "answer": 120.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of y in the equation 6y - 2 = 28?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the volume of a sphere with radius 4?",
+        "answer": 268.08,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of log base 2 of 16?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (0, 1) and (2, 5)?",
+        "answer": 2.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of 6 and 8?",
+        "answer": 14.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 2 to the power of 8?",
+        "answer": 256.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 4x + 3 = 19?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the perimeter of a square with side length 7?",
+        "answer": 28.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of sin 45 degrees?",
+        "answer": 0.71,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (0, 1) and (2, 5)?",
+        "answer": 1.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is 5 + 7?",
+        "answer": 12.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the square root of 64?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 2x + 5 = 15?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the area of a rectangle with length 6 and width 4?",
+        "answer": 24.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of pi to two decimal places?",
+        "answer": 3.14,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (2, 3) and (4, 5)?",
+        "answer": 1.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 6 and 7?",
+        "answer": 42.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 2 to the power of 5?",
+        "answer": 32.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of y in the equation 3y - 7 = 8?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the circumference of a circle with radius 3?",
+        "answer": 18.85,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of e to two decimal places?",
+        "answer": 2.72,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (2, 3) and (4, 5)?",
+        "answer": 1.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 24 and 6?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 10 factorial?",
+        "answer": 3628800.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of z in the equation 4z + 3 = 19?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the volume of a cube with side length 5?",
+        "answer": 125.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of log base 10 of 100?",
+        "answer": 2.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (3, 4) and (6, 8)?",
+        "answer": 1.33,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of 3 and 4?",
+        "answer": 7.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 3 squared?",
+        "answer": 9.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 5x - 2 = 23?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the perimeter of a rectangle with length 8 and width 3?",
+        "answer": 22.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of sin 30 degrees?",
+        "answer": 0.5,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (3, 4) and (6, 8)?",
+        "answer": 0.67,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the difference between 9 and 5?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 4 cubed?",
+        "answer": 64.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of y in the equation 2y + 7 = 15?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the area of a triangle with base 6 and height 4?",
+        "answer": 12.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of cos 60 degrees?",
+        "answer": 0.5,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (1, 2) and (5, 8)?",
+        "answer": 1.5,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 8 and 3?",
+        "answer": 24.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 2 to the power of 6?",
+        "answer": 64.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 3x - 4 = 8?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the circumference of a circle with diameter 10?",
+        "answer": 31.42,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of tan 45 degrees?",
+        "answer": 1.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (1, 2) and (5, 8)?",
+        "answer": 0.5,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 36 and 9?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 5 factorial?",
+        "answer": 120.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of y in the equation 6y - 2 = 28?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the volume of a sphere with radius 4?",
+        "answer": 268.08,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of log base 2 of 16?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line passing through the points (0, 1) and (2, 5)?",
+        "answer": 2.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of 6 and 8?",
+        "answer": 14.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of 2 to the power of 8?",
+        "answer": 256.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 4x + 3 = 19?",
+        "answer": 4.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the perimeter of a square with side length 7?",
+        "answer": 28.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of sin 45 degrees?",
+        "answer": 0.71,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the y-intercept of the line passing through the points (0, 1) and (2, 5)?",
+        "answer": 1.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is 2 + 2?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the square root of 64?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the value of x in the equation 3x + 5 = 14?",
+        "answer": 3.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the area of a rectangle with length 6 and width 4?",
+        "answer": 24.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of pi to two decimal places?",
+        "answer": 3.14,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the slope of the line y = 2x + 3?",
+        "answer": 2.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 7 and 9?",
+        "answer": 63.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 2y - 4 = 10?",
+        "answer": 7.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the volume of a sphere with radius 5?",
+        "answer": 523.6,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 10 even numbers?",
+        "answer": 110.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 2x + 3 = 11?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 3 and 4?",
+        "answer": 5.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 24 and 6?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 3y - 7 = 8?",
+        "answer": 5.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the circumference of a circle with radius 2?",
+        "answer": 12.57,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 15 odd numbers?",
+        "answer": 225.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 4x - 5 = 11?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the diagonal of a square with side length 7?",
+        "answer": 9.9,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 5 and 12?",
+        "answer": 60.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 5y + 2 = 27?",
+        "answer": 5.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the area of a circle with radius 3?",
+        "answer": 28.27,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 20 even numbers?",
+        "answer": 420.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 3x - 4 = 8?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 5 and 12?",
+        "answer": 13.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 36 and 9?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 4y - 3 = 13?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the circumference of a circle with radius 4?",
+        "answer": 25.13,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 25 odd numbers?",
+        "answer": 625.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 5x + 2 = 27?",
+        "answer": 5.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the diagonal of a square with side length 10?",
+        "answer": 14.14,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 8 and 7?",
+        "answer": 56.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 6y - 5 = 19?",
+        "answer": 4.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the area of a circle with radius 5?",
+        "answer": 78.54,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 30 even numbers?",
+        "answer": 900.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 6x - 3 = 33?",
+        "answer": 6.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 8 and 15?",
+        "answer": 17.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 48 and 12?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 7y + 4 = 39?",
+        "answer": 5.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the circumference of a circle with radius 6?",
+        "answer": 37.7,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 35 odd numbers?",
+        "answer": 1225.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 7x - 2 = 45?",
+        "answer": 7.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the diagonal of a square with side length 15?",
+        "answer": 21.21,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 9 and 6?",
+        "answer": 54.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 8y - 7 = 17?",
+        "answer": 3.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the area of a circle with radius 7?",
+        "answer": 153.94,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 40 even numbers?",
+        "answer": 1600.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 8x + 5 = 69?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the hypotenuse of a right triangle with legs of length 10 and 24?",
+        "answer": 26.0,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the quotient of 60 and 15?",
+        "answer": 4.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 9y - 8 = 64?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the circumference of a circle with radius 8?",
+        "answer": 50.27,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the sum of the first 45 odd numbers?",
+        "answer": 2025.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of x in the equation 9x - 4 = 76?",
+        "answer": 8.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the length of the diagonal of a square with side length 20?",
+        "answer": 28.28,
+        "difficulty": "hard"
+    },
+    {
+        "question": "What is the product of 10 and 5?",
+        "answer": 50.0,
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the value of y in the equation 10y + 3 = 73?",
+        "answer": 7.0,
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the area of a circle with radius 10?",
+        "answer": 314.16,
+        "difficulty": "hard"
+    }
+]
