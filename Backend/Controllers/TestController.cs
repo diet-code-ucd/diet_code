@@ -11,55 +11,55 @@ namespace Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class TestController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public UserController(DatabaseContext context)
+        public TestController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/User
+        // GET: api/Test
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<Test>>> GetTest()
         {
-          if (_context.Users == null)
+          if (_context.Test == null)
           {
               return NotFound();
           }
-            return await _context.Users.ToListAsync();
+            return await _context.Test.ToListAsync();
         }
 
-        // GET: api/User/5
+        // GET: api/Test/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<Test>> GetTest(int id)
         {
-          if (_context.Users == null)
+          if (_context.Test == null)
           {
               return NotFound();
           }
-            var user = await _context.Users.FindAsync(id);
+            var test = await _context.Test.FindAsync(id);
 
-            if (user == null)
+            if (test == null)
             {
                 return NotFound();
             }
 
-            return user;
+            return test;
         }
 
-        // PUT: api/User/5
+        // PUT: api/Test/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> PutTest(int id, Test test)
         {
-            if (id != user.Id)
+            if (id != test.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(test).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace Backend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!TestExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace Backend.Controllers
             return NoContent();
         }
 
-        // POST: api/User
+        // POST: api/Test
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<Test>> PostTest(Test test)
         {
-          if (_context.Users == null)
+          if (_context.Test == null)
           {
-              return Problem("Entity set 'DatabaseContext.Users'  is null.");
+              return Problem("Entity set 'DatabaseContext.Test'  is null.");
           }
-            _context.Users.Add(user);
+            _context.Test.Add(test);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction("GetTest", new { id = test.Id }, test);
         }
 
-        // DELETE: api/User/5
+        // DELETE: api/Test/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteTest(int id)
         {
-            if (_context.Users == null)
+            if (_context.Test == null)
             {
                 return NotFound();
             }
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var test = await _context.Test.FindAsync(id);
+            if (test == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Test.Remove(test);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool UserExists(int id)
+        private bool TestExists(int id)
         {
-            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Test?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -11,55 +11,55 @@ namespace Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class CourseController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public UserController(DatabaseContext context)
+        public CourseController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/User
+        // GET: api/Course
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<Course>>> GetCourse()
         {
-          if (_context.Users == null)
+          if (_context.Course == null)
           {
               return NotFound();
           }
-            return await _context.Users.ToListAsync();
+            return await _context.Course.ToListAsync();
         }
 
-        // GET: api/User/5
+        // GET: api/Course/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<Course>> GetCourse(int id)
         {
-          if (_context.Users == null)
+          if (_context.Course == null)
           {
               return NotFound();
           }
-            var user = await _context.Users.FindAsync(id);
+            var course = await _context.Course.FindAsync(id);
 
-            if (user == null)
+            if (course == null)
             {
                 return NotFound();
             }
 
-            return user;
+            return course;
         }
 
-        // PUT: api/User/5
+        // PUT: api/Course/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> PutCourse(int id, Course course)
         {
-            if (id != user.Id)
+            if (id != course.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(course).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace Backend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!CourseExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace Backend.Controllers
             return NoContent();
         }
 
-        // POST: api/User
+        // POST: api/Course
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<Course>> PostCourse(Course course)
         {
-          if (_context.Users == null)
+          if (_context.Course == null)
           {
-              return Problem("Entity set 'DatabaseContext.Users'  is null.");
+              return Problem("Entity set 'DatabaseContext.Course'  is null.");
           }
-            _context.Users.Add(user);
+            _context.Course.Add(course);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction("GetCourse", new { id = course.Id }, course);
         }
 
-        // DELETE: api/User/5
+        // DELETE: api/Course/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteCourse(int id)
         {
-            if (_context.Users == null)
+            if (_context.Course == null)
             {
                 return NotFound();
             }
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var course = await _context.Course.FindAsync(id);
+            if (course == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Course.Remove(course);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool UserExists(int id)
+        private bool CourseExists(int id)
         {
-            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Course?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
