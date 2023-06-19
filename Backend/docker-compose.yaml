@@ -1,10 +1,9 @@
 services:
-  database:
+  db:
     image: postgres
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=its
       - POSTGRES_PASSWORD=testpw
   adminer:
     image: adminer
