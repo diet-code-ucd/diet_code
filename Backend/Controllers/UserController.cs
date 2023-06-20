@@ -11,55 +11,55 @@ namespace Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QuestionController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public QuestionController(DatabaseContext context)
+        public UserController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/Question
+        // GET: api/User
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Question>>> GetQuestion()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-          if (_context.Question == null)
+          if (_context.Users == null)
           {
               return NotFound();
           }
-            return await _context.Question.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Question/5
+        // GET: api/User/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Question>> GetQuestion(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-          if (_context.Question == null)
+          if (_context.Users == null)
           {
               return NotFound();
           }
-            var question = await _context.Question.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
-            if (question == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return question;
+            return user;
         }
 
-        // PUT: api/Question/5
+        // PUT: api/User/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutQuestion(int id, Question question)
+        public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != question.Id)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(question).State = EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace Backend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!QuestionExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace Backend.Controllers
             return NoContent();
         }
 
-        // POST: api/Question
+        // POST: api/User
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Question>> PostQuestion(Question question)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
-          if (_context.Question == null)
+          if (_context.Users == null)
           {
-              return Problem("Entity set 'DatabaseContext.Question'  is null.");
+              return Problem("Entity set 'DatabaseContext.Users'  is null.");
           }
-            _context.Question.Add(question);
+            _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
-        // DELETE: api/Question/5
+        // DELETE: api/User/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteQuestion(int id)
+        public async Task<IActionResult> DeleteUser(int id)
         {
-            if (_context.Question == null)
+            if (_context.Users == null)
             {
                 return NotFound();
             }
-            var question = await _context.Question.FindAsync(id);
-            if (question == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Question.Remove(question);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool QuestionExists(int id)
+        private bool UserExists(int id)
         {
-            return (_context.Question?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
