@@ -12,6 +12,10 @@ public class DatabaseContext : DbContext
         DbInitialiser.Initialise(this);
     }   
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder
+        .UseLazyLoadingProxies();
+
     public DbSet<Backend.Models.User> Users { get; set; }  = default!;
 
     public DbSet<Backend.Models.Course> Course { get; set; } = default!;

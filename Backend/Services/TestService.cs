@@ -5,7 +5,7 @@ using Backend.Utils;
 namespace Backend.Services;
 public class TestService
 {
-    public Test GenerateTest(Course course, User user, int numberOfQuestions)
+    public static Test GenerateTest(Course course, User user, int numberOfQuestions, DatabaseContext context)
     {
         List<Question> availableQuestions = GetAvailableQuestions(course, user);
         availableQuestions.ShuffleList();
@@ -18,9 +18,9 @@ public class TestService
         test.Questions = selectedQuestions;
         return test;
     }
-    private List<Question> GetAvailableQuestions(Course course, User user)
+    private static List<Question> GetAvailableQuestions(Course course, User user)
     {
-        List<Question> previousQuestions = user.Tests.SelectMany(t => t.Questions).ToList();
+        List<Question> previousQuestions = user.Tests.SelectMany(t => t.Questions).ToList() ?? new List<Question>();
         List<Question> availableQuestions = course.Questions.Except(previousQuestions).ToList() ?? new List<Question>();
         return availableQuestions;
     }

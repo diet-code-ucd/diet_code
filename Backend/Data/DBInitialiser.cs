@@ -12,29 +12,36 @@ public static class DbInitialiser {
             return;
         }
 
-        // Add some data to the database
-        AnswerOption answer1 = new AnswerOption {Option = "Answer 1", IsCorrect = true};
-        AnswerOption answer2 = new AnswerOption {Option = "Answer 2"};
-        AnswerOption answer3 = new AnswerOption {Option = "Answer 3"};
-        AnswerOption answer4 = new AnswerOption {Option = "Answer 4"};
 
-        List<AnswerOption> answers = new List<AnswerOption> {
-            answer1, answer2, answer3, answer4
-        };
+        List<AnswerOption> answersList = new List<AnswerOption>();
+        for (int i = 0; i < 4 * 60; i++) {
+            if (i % 4 == 0) {
+                AnswerOption answer = new AnswerOption {Option = $"Answer {i + 1}", IsCorrect = true};
+                answersList.Add(answer);
+                continue;
+            } else {
+                AnswerOption answer = new AnswerOption {Option = $"Answer {i + 1}"};
+                answersList.Add(answer);
+                continue;
+            }
+        }
 
-        context.AddRange(answers);
+        context.AddRange(answersList);
 
-        Question question1 = new Question {Query = "Question 1", Options = new List<AnswerOption> { answer1, answer2, answer3, answer4 }};
+        // divide the answersList into 4 answer options for each newly created question
+        List<Question> questionsList = new List<Question>();
+        for (int i = 0; i < 12; i++) {
+            Question question = new Question {QuestionText = $"Question {i + 1}", Options = answersList.GetRange(i * 4, (i * 4) + 4)};
+            questionsList.Add(question);
+        }
 
-        List<Question> questions = new List<Question> {
-            question1
-        };
+        context.AddRange(questionsList);
 
-        context.AddRange(questions);
+        Test test1 = new Test {Questions = questionsList.GetRange(0, 5)};
 
-        Test test1 = new Test {Questions = questions};
+        context.Add(test1);
 
-        Course math101 = new Course {Name = "Math 101"};
+        Course math101 = new Course {Name = "Math 101", Questions = questionsList};
         Course math102 = new Course {Name = "Math 102"};
         Course math103 = new Course {Name = "Math 103"};
 
