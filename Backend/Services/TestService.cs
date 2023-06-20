@@ -14,10 +14,12 @@ public class TestService
         {
             throw new Exception("Not enough questions available"); // Replace with OpenAI API call
         }
-        Test test = new Test();
-        test.Questions = selectedQuestions;
+        Test test = new Test{
+            Questions = selectedQuestions
+        };
         return test;
     }
+
     private static List<Question> GetAvailableQuestions(Course course, User user)
     {
         List<Question> previousQuestions = user.Tests.SelectMany(t => t.Questions).ToList() ?? new List<Question>();

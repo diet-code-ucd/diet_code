@@ -37,6 +37,20 @@ namespace Backend.Controllers
             Test test = TestService.GenerateTest(course, user, generateTest.NumberOfQuestions, _context);
 
             _context.Test.Add(test);
+            await _context.SaveChangesAsync();
+
+            user.Tests.Add(test);
+
+            _context.Entry(user).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
 
             return test;
         }
