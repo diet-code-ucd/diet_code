@@ -22,18 +22,20 @@ namespace Backend.Controllers
 
         // GET: api/Test
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Test>>> GetTest()
+        public async Task<ActionResult<IEnumerable<TestDTO>>> GetTest()
         {
           if (_context.Test == null)
           {
               return NotFound();
           }
-            return await _context.Test.ToListAsync();
+
+            var courses = await _context.Test.ToListAsync();
+            return courses.Select(c => TestDTO.FromTest(c)).ToList();
         }
 
         // GET: api/Test/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Test>> GetTest(int id)
+        public async Task<ActionResult<TestDTO>> GetTest(int id)
         {
           if (_context.Test == null)
           {
@@ -46,20 +48,27 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
-            return test;
+            return TestDTO.FromTest(test);
         }
 
         // PUT: api/Test/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTest(int id, Test test)
+        public async Task<IActionResult> PutTest(int id, TestDTO test)
         {
             if (id != test.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(test).State = EntityState.Modified;
+            var testEntity = await _context.Test.FindAsync(id);
+            if (testEntity == null)
+            {
+                return NotFound();
+            }
+            testEntity.Questions = test.Questions.Select(q => _context.Question.Find(q)).ToList();
+            testEntity.Answers = test.Answers.Select(a => _context.Answer.Find(a)).ToList();
+            _context.Entry(testEntity).State = EntityState.Modified;
 
             try
             {
@@ -83,13 +92,18 @@ namespace Backend.Controllers
         // POST: api/Test
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Test>> PostTest(Test test)
+        public async Task<ActionResult<TestDTO>> PostTest(TestDTO test)
         {
           if (_context.Test == null)
           {
               return Problem("Entity set 'DatabaseContext.Test'  is null.");
           }
-            _context.Test.Add(test);
+            var testObj = new Test {
+                Id = test.Id,
+                Questions = test.Questions.Select(q => _context.Question.Find(q)).ToList(),
+                Answers = test.Answers.Select(a => _context.Answer.Find(a)).ToList()
+            };
+            _context.Test.Add(testObj);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTest", new { id = test.Id }, test);

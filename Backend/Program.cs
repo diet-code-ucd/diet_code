@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Backend.Models;
+using Backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<ITestService, TestService>();
 
 builder.Services.AddControllers();
 //TODO: change this to take value from appsettings.json 

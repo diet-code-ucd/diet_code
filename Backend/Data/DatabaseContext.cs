@@ -22,5 +22,7 @@ public class DatabaseContext : DbContext
 
     public DbSet<Backend.Models.Question> Question { get; set; } = default!;
 
+    public DbSet<Backend.Models.AnswerOption> Answer { get; set; } = default!;
+
     public DbSet<Backend.Models.Test> Test { get; set; } = default!;
 }

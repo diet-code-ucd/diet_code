@@ -17,10 +17,12 @@ namespace Backend.Controllers
     public class GenerateTestController : ControllerBase
     {
         private readonly DatabaseContext _context;
+        private readonly ITestService _TestService;
 
-        public GenerateTestController(DatabaseContext context)
+        public GenerateTestController(DatabaseContext context, ITestService testService)
         {
             _context = context;
+            _TestService = testService;
         }
 
         // POST: api/User
@@ -34,7 +36,7 @@ namespace Backend.Controllers
             {
                 return NotFound();
             }
-            Test test = TestService.GenerateTest(course, user, generateTest.NumberOfQuestions, _context);
+            Test test = _TestService.GenerateTest(course, user, generateTest.NumberOfQuestions);
 
             _context.Test.Add(test);
             await _context.SaveChangesAsync();

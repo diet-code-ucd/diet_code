@@ -3,9 +3,14 @@ using Backend.Utils;
 
 
 namespace Backend.Services;
-public class TestService
+
+public interface ITestService
 {
-    public static Test GenerateTest(Course course, User user, int numberOfQuestions, DatabaseContext context)
+    public Test GenerateTest(Course course, User user, int numberOfQuestions);
+}
+public class TestService : ITestService
+{
+    public Test GenerateTest(Course course, User user, int numberOfQuestions)
     {
         List<Question> availableQuestions = GetAvailableQuestions(course, user);
         availableQuestions.ShuffleList();
@@ -20,7 +25,7 @@ public class TestService
         return test;
     }
 
-    private static List<Question> GetAvailableQuestions(Course course, User user)
+    private List<Question> GetAvailableQuestions(Course course, User user)
     {
         List<Question> previousQuestions = user.Tests.SelectMany(t => t.Questions).ToList() ?? new List<Question>();
         List<Question> availableQuestions = course.Questions.Except(previousQuestions).ToList() ?? new List<Question>();
