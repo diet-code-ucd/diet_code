@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Backend.Models;
+using Backend.Codecs;
 
 namespace Backend.Controllers
 {
@@ -22,18 +23,19 @@ namespace Backend.Controllers
 
         // GET: api/User
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetUsers()
         {
           if (_context.Users == null)
           {
               return NotFound();
           }
-            return await _context.Users.ToListAsync();
+          var users = await _context.Users.ToListAsync();
+            return users.Select(u => UserDTO.FromUser(u)).ToList();
         }
 
         // GET: api/User/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
           if (_context.Users == null)
           {
@@ -46,7 +48,7 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
-            return user;
+            return UserDTO.FromUser(user);
         }
 
         // PUT: api/User/5
@@ -93,26 +95,6 @@ namespace Backend.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
-        }
-
-        // DELETE: api/User/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
-        {
-            if (_context.Users == null)
-            {
-                return NotFound();
-            }
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
         }
 
         private bool UserExists(int id)

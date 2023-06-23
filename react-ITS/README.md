@@ -6,7 +6,7 @@
 
 # Run the FrontEnd
 
-- run: 'npm install vite@lates'
+- run: 'npm install vite@latest'
 - run: 'npm install'
 - run: 'npm run dev' ->
   ➜ Local: http://localhost:5173/
