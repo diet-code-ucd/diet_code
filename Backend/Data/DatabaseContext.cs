@@ -10,11 +10,12 @@ public class DatabaseContext : DbContext
         : base(options)
     {
         DbInitialiser.Initialise(this);
-    }   
 
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    => optionsBuilder
-        .UseLazyLoadingProxies();
+    {
+        optionsBuilder.UseSqlServer("Server=tcp:its-sql-db-server.database.windows.net,1433;Initial Catalog=ITS;Persist Security Info=False;User ID=itsadmin;Password=IT$project;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+    }
 
     public DbSet<Backend.Models.User> Users { get; set; }  = default!;
 
