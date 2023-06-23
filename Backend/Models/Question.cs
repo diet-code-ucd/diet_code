@@ -24,10 +24,16 @@ public class MyDbContext : DbContext
         {
             var math = db.Maths.Select(q => new { q.QuestionID, q.QuestionText, q.Difficulty }).ToList();
 
-            var tuples = math.Select(r => (r.QuestionID, r.QuestionText, r.Difficulty)).ToList();
+            //This is to eliminate conversion of some signs to unicode ex: '+' was converted to \u002
+            var serializeOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+            };
 
-            // Serialize the list of tuples to JSON
-            var json_questions = JsonSerializer.Serialize(tuples);
+
+            // Serialize the list JSON
+            var json_questions = JsonSerializer.Serialize(math,serializeOptions);
 
             return json_questions;
 
