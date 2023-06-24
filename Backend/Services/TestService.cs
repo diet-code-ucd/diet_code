@@ -1,3 +1,4 @@
+using Backend.Codecs;
 using Backend.Models;
 using Backend.Utils;
 
@@ -6,13 +7,19 @@ namespace Backend.Services;
 
 public interface ITestService
 {
-    public Test GenerateTest(Course course, User user, int numberOfQuestions);
+    public Test GenerateTest(Course course, User user, Difficulty difficulty, int numberOfQuestions);
+    public TestResult GradeTest(TestSubmission test);
 }
 public class TestService : ITestService
 {
-    public Test GenerateTest(Course course, User user, int numberOfQuestions)
+    private readonly DatabaseContext _context;
+    public TestService(DatabaseContext context)
     {
-        List<Question> availableQuestions = GetAvailableQuestions(course, user);
+        _context = context;
+    }
+    public Test GenerateTest(Course course, User user, Difficulty difficulty, int numberOfQuestions)
+    {
+        List<Question> availableQuestions = GetAvailableQuestions(course, user, difficulty);
         availableQuestions.ShuffleList();
         List<Question> selectedQuestions = availableQuestions.Take(numberOfQuestions).ToList();
         if (selectedQuestions.Count < numberOfQuestions)
@@ -25,10 +32,37 @@ public class TestService : ITestService
         return test;
     }
 
-    private List<Question> GetAvailableQuestions(Course course, User user)
+    public TestResult GradeTest(TestSubmission test)
+    {
+        TestResult result = new TestResult{
+            TestId = test.TestId,
+            NoOfQuestions = test.Questions.Count,
+            NoOfCorrectAnswers = 0,
+            Results = new List<QuestionResult>()
+        };
+        foreach (QuestionSubmission question in test.Questions)
+        {
+            Question q = _context.Questions.Find(question.QuestionId);
+            QuestionResult questionResult = new QuestionResult{
+                Question = q.QuestionText,
+                Answer = question.Answer,
+                Correct = q.Answer == question.Answer,
+                CorrectAnswer = q.Answer,
+                Explanation = q.Explanation
+            };
+            if (questionResult.Correct)
+            {
+                result.NoOfCorrectAnswers++;
+            }
+            result.Results.Add(questionResult);
+        }
+        return result;
+    }
+
+    private List<Question> GetAvailableQuestions(Course course, User user, Difficulty difficulty)
     {
         List<Question> previousQuestions = user.Tests.SelectMany(t => t.Questions).ToList() ?? new List<Question>();
-        List<Question> availableQuestions = course.Questions.Except(previousQuestions).ToList() ?? new List<Question>();
+        List<Question> availableQuestions = course.Questions.Where(q => q.Difficulty == difficulty).Except(previousQuestions).ToList() ?? new List<Question>();
         return availableQuestions;
     }
 }

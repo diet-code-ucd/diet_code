@@ -25,11 +25,11 @@ namespace Backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CourseDTO>>> GetCourse()
         {
-            if (_context.Course == null)
+            if (_context.Courses == null)
             {
                 return NotFound();
             }
-            var courses = await _context.Course.ToListAsync();
+            var courses = await _context.Courses.ToListAsync();
             return courses.Select(c => CourseDTO.FromCourse(c)).ToList();
         }
 
@@ -37,11 +37,11 @@ namespace Backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CourseDTO>> GetCourse(int id)
         {
-            if (_context.Course == null)
+            if (_context.Courses == null)
             {
                 return NotFound();
             }
-            var course = await _context.Course.FindAsync(id);
+            var course = await _context.Courses.FindAsync(id);
 
             if (course == null)
             {
@@ -61,13 +61,13 @@ namespace Backend.Controllers
                 return BadRequest();
             }
 
-            var courseEntity = await _context.Course.FindAsync(id);
+            var courseEntity = await _context.Courses.FindAsync(id);
             if (courseEntity == null)
             {
                 return NotFound();
             }
             courseEntity.Name = course.Name;
-            courseEntity.Questions = course.Questions?.Select(q => _context.Question.Find(q)).ToList();
+            courseEntity.Questions = course.Questions?.Select(q => _context.Questions.Find(q)).ToList();
             _context.Entry(courseEntity).State = EntityState.Modified;
 
             try
@@ -94,17 +94,17 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Course>> PostCourse(CourseDTO course)
         {
-            if (_context.Course == null)
+            if (_context.Courses == null)
             {
                 return Problem("Entity set 'DatabaseContext.Course'  is null.");
             }
             var courseEntity = new Course
             {
                 Name = course.Name,
-                Questions = course.Questions?.Select(q => _context.Question.Find(q)).ToList()
+                Questions = course.Questions?.Select(q => _context.Questions.Find(q)).ToList()
             };
 
-            _context.Course.Add(courseEntity);
+            _context.Courses.Add(courseEntity);
 
             await _context.SaveChangesAsync();
 
@@ -115,17 +115,17 @@ namespace Backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCourse(int id)
         {
-            if (_context.Course == null)
+            if (_context.Courses == null)
             {
                 return NotFound();
             }
-            var course = await _context.Course.FindAsync(id);
+            var course = await _context.Courses.FindAsync(id);
             if (course == null)
             {
                 return NotFound();
             }
 
-            _context.Course.Remove(course);
+            _context.Courses.Remove(course);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -133,7 +133,7 @@ namespace Backend.Controllers
 
         private bool CourseExists(int id)
         {
-            return (_context.Course?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Courses?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
