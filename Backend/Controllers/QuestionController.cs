@@ -24,22 +24,22 @@ namespace Backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Question>>> GetQuestion()
         {
-          if (_context.Question == null)
-          {
-              return NotFound();
-          }
-            return await _context.Question.ToListAsync();
+            if (_context.Questions == null)
+            {
+                return NotFound();
+            }
+            return await _context.Questions.ToListAsync();
         }
 
         // GET: api/Question/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Question>> GetQuestion(int id)
         {
-          if (_context.Question == null)
-          {
-              return NotFound();
-          }
-            var question = await _context.Question.FindAsync(id);
+            if (_context.Questions == null)
+            {
+                return NotFound();
+            }
+            var question = await _context.Questions.FindAsync(id);
 
             if (question == null)
             {
@@ -85,11 +85,11 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Question>> PostQuestion(Question question)
         {
-          if (_context.Question == null)
-          {
-              return Problem("Entity set 'DatabaseContext.Question'  is null.");
-          }
-            _context.Question.Add(question);
+            if (_context.Questions == null)
+            {
+                return Problem("Entity set 'DatabaseContext.Question'  is null.");
+            }
+            _context.Questions.Add(question);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetQuestion", new { id = question.Id }, question);
@@ -99,17 +99,17 @@ namespace Backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteQuestion(int id)
         {
-            if (_context.Question == null)
+            if (_context.Questions == null)
             {
                 return NotFound();
             }
-            var question = await _context.Question.FindAsync(id);
+            var question = await _context.Questions.FindAsync(id);
             if (question == null)
             {
                 return NotFound();
             }
 
-            _context.Question.Remove(question);
+            _context.Questions.Remove(question);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -117,7 +117,7 @@ namespace Backend.Controllers
 
         private bool QuestionExists(int id)
         {
-            return (_context.Question?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Questions?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

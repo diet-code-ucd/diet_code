@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Backend.Models;
+using Backend.Codecs;
+using Backend.Services;
 
 namespace Backend.Controllers
 {
@@ -14,22 +16,24 @@ namespace Backend.Controllers
     public class TestController : ControllerBase
     {
         private readonly DatabaseContext _context;
+        private readonly ITestService _testService;
 
-        public TestController(DatabaseContext context)
+        public TestController(DatabaseContext context, ITestService testService)
         {
             _context = context;
+            _testService = testService;
         }
 
         // GET: api/Test
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TestDTO>>> GetTest()
         {
-          if (_context.Test == null)
-          {
-              return NotFound();
-          }
+            if (_context.Tests == null)
+            {
+                return NotFound();
+            }
 
-            var courses = await _context.Test.ToListAsync();
+            var courses = await _context.Tests.ToListAsync();
             return courses.Select(c => TestDTO.FromTest(c)).ToList();
         }
 
@@ -37,11 +41,11 @@ namespace Backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TestDTO>> GetTest(int id)
         {
-          if (_context.Test == null)
-          {
-              return NotFound();
-          }
-            var test = await _context.Test.FindAsync(id);
+            if (_context.Tests == null)
+            {
+                return NotFound();
+            }
+            var test = await _context.Tests.FindAsync(id);
 
             if (test == null)
             {
@@ -56,18 +60,18 @@ namespace Backend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTest(int id, TestDTO test)
         {
-            if (id != test.Id)
+            if (id != test.TestId)
             {
                 return BadRequest();
             }
 
-            var testEntity = await _context.Test.FindAsync(id);
+            var testEntity = await _context.Tests.FindAsync(id);
             if (testEntity == null)
             {
                 return NotFound();
             }
-            testEntity.Questions = test.Questions.Select(q => _context.Question.Find(q)).ToList();
-            testEntity.Answers = test.Answers.Select(a => _context.Answer.Find(a)).ToList();
+            //TODO: fix these for nulls
+            testEntity.Questions = test.Questions.Select(q => _context.Questions.Find(q)).ToList();
             _context.Entry(testEntity).State = EntityState.Modified;
 
             try
@@ -89,41 +93,79 @@ namespace Backend.Controllers
             return NoContent();
         }
 
+        [HttpPost("generate")]
+        public async Task<ActionResult<TestDTO>> PostGenerateTest(GenerateTest generateTest)
+        {
+            var course = await _context.Courses.FindAsync(generateTest.CourseId);
+            var user = await _context.Users.FindAsync(generateTest.UserId);
+            if (course == null || user == null)
+            {
+                return NotFound();
+            }
+            
+            Test test = _testService.GenerateTest(course, user, generateTest.Difficulty, generateTest.NumberOfQuestions);
+            _context.Tests.Add(test);
+            
+            user.Tests.Add(test);
+
+            _context.Entry(user).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+
+            return TestDTO.FromTest(test);
+        }
+
+        [HttpPost("submit")]
+        public async Task<ActionResult<TestResult>> PostSubmitTest(TestSubmission test)
+        {
+            TestResult testResult = _testService.GradeTest(test);
+
+            return testResult;
+        }
+
         // POST: api/Test
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<TestDTO>> PostTest(TestDTO test)
         {
-          if (_context.Test == null)
-          {
-              return Problem("Entity set 'DatabaseContext.Test'  is null.");
-          }
-            var testObj = new Test {
-                Id = test.Id,
-                Questions = test.Questions.Select(q => _context.Question.Find(q)).ToList(),
-                Answers = test.Answers.Select(a => _context.Answer.Find(a)).ToList()
+            if (_context.Tests == null)
+            {
+                return Problem("Entity set 'DatabaseContext.Test'  is null.");
+            }
+            var testObj = new Test
+            {
+                Id = test.TestId,
+                //TODO: fix these for nulls
+                Questions = test.Questions.Select(q => _context.Questions.Find(q.QuestionId)).ToList()
             };
-            _context.Test.Add(testObj);
+            _context.Tests.Add(testObj);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTest", new { id = test.Id }, test);
+            return CreatedAtAction("GetTest", new { id = test.TestId }, test);
         }
 
         // DELETE: api/Test/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTest(int id)
         {
-            if (_context.Test == null)
+            if (_context.Tests == null)
             {
                 return NotFound();
             }
-            var test = await _context.Test.FindAsync(id);
+            var test = await _context.Tests.FindAsync(id);
             if (test == null)
             {
                 return NotFound();
             }
 
-            _context.Test.Remove(test);
+            _context.Tests.Remove(test);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -131,7 +173,7 @@ namespace Backend.Controllers
 
         private bool TestExists(int id)
         {
-            return (_context.Test?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Tests?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
