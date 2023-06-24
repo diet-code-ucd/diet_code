@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface SignUpProps {
   togglePage: () => void;
 }
 
-function SignUp(props: SignUpProps) {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,7 +17,8 @@ function SignUp(props: SignUpProps) {
   };
 
   const handlePageToggle = () => {
-    props.togglePage();
+    //props.togglePage();
+    navigate("/Login", { replace: true });
   };
 
   return (

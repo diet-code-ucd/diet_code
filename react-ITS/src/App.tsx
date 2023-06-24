@@ -2,28 +2,29 @@ import { useState } from "react";
 import Display from "./TestDisplayData";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Login");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
-  const handlePageSwitch = (pageName: string) => {
-    setCurrentPage(pageName);
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
 
   return (
     <Router>
       <Routes>
         <Route path="/Display" element={<Display />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Login" element={<Login onLogin={handleLogin} />} />
       </Routes>
-      <div>
-        {currentPage === "Login" ? (
-          <Login togglePage={() => handlePageSwitch("SignUp")} />
-        ) : (
-          <SignUp togglePage={() => handlePageSwitch("Login")} />
-        )}
-      </div>
+      <div>{isLoggedIn ? <Login onLogin={handleLogin} /> : <Display />}</div>
     </Router>
   );
 }

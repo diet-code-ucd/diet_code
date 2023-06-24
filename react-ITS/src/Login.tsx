@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface LoginProps {
-  togglePage: () => void;
+  onLogin: () => void;
 }
 
 function Login(props: LoginProps) {
@@ -14,17 +14,19 @@ function Login(props: LoginProps) {
     e.preventDefault();
     console.log(email);
 
-    navigate("/Display", { replace: true });
+    // Perform login logic here
+
+    props.onLogin(); // Invoke the onLogin function from props
   };
 
   const handlePageToggle = () => {
-    props.togglePage();
+    navigate("/SignUp", { replace: true });
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="Email">Email</label>
+        <label htmlFor="email">Email</label>
         <input
           value={email}
           type="email"
@@ -33,7 +35,7 @@ function Login(props: LoginProps) {
           name="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="Password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           value={password}
           type="password"
