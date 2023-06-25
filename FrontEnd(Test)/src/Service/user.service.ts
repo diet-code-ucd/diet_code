@@ -1,6 +1,6 @@
 //import {DocumentDefinition} from 'mongoose'
 
-import { get } from "config";
+//import { get } from "config";
 import userModel, { UserDocument, UserInput } from "../models/user.model";
 import { omit } from "lodash";
 

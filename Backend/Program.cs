@@ -9,7 +9,7 @@ builder.Services.AddScoped<ITestService, TestService>();
 
 builder.Services.AddControllers();
 //TODO: change this to take value from appsettings.json 
-builder.Services.AddDbContext<DatabaseContext>(opt => 
+builder.Services.AddDbContext<DatabaseContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString(nameof(DatabaseContext)))
 );
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -32,3 +32,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
