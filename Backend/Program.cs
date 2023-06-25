@@ -7,6 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddScoped<ITestService, TestService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173");
+        });
+});
+
 builder.Services.AddControllers();
 //TODO: change this to take value from appsettings.json 
 builder.Services.AddDbContext<DatabaseContext>(opt =>
@@ -25,7 +34,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 
