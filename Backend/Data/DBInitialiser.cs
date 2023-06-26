@@ -19,15 +19,9 @@ public static class DbInitialiser
 
         // Read the json file containing the questions Data/combined_df.json
         string jsonString = File.ReadAllText("Data/combined_df.json");
-        Console.WriteLine(jsonString);
-        // wait for user input
-        Console.ReadLine();
 
         // Convert the json string to a list of Question objects
         List<Question> questions = JsonSerializer.Deserialize<List<Question>>(jsonString)!;
-        Console.WriteLine(questions.Count);
-        Console.WriteLine(questions.First().QuestionText);
-        Console.ReadLine();
         context.AddRange(questions);
 
         Test test1 = new Test { Questions = questions.GetRange(0, 5) };
