@@ -17,7 +17,7 @@ const CourseSelection: React.FC<CourseSelectionProps> = ({
   onSelectCourses,
 }) => {
   const [courses, setCourses] = useState<Course[]>([]);
-  const [selectedCourseId, setSelectedCourseId] = useState<number>(null);
+  const [selectedCourseId, setSelectedCourseId] = useState<number>();
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
   const [submitDifficulty, setsubmitDifficulty] = useState<number>(0);
 
@@ -63,7 +63,8 @@ const CourseSelection: React.FC<CourseSelectionProps> = ({
     }
   };
 
-  const handleTestStart = () => {
+  const handleTestStart = (event: React.FormEvent) => {
+    event.preventDefault();
     if (selectedCourseId && submitDifficulty) {
       onSelectCourses(selectedCourseId, submitDifficulty); // Pass the selected course ID and difficulty to the parent component
     }
