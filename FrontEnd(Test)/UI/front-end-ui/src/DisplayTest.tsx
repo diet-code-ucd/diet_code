@@ -25,7 +25,7 @@ interface TestPageProps {
 
 const TestPage: React.FC<TestPageProps> = ({
   userId = 1,
-  courseId = 3,
+  courseId = 1,
   numberOfQuestions = 5,
   difficulty = 0,
 }) => {
