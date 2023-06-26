@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CourseSelection from "./CourseSelection";
 
 interface TestQuestion {
   questionId: number;
   question: string;
   answer: string;
+}
+
+interface TestResult {
+  question: string;
+  answer: string;
+  correct: boolean;
+  correctAnswer: string;
+  explanation: string;
 }
 
 interface TestPageProps {
@@ -15,13 +24,15 @@ interface TestPageProps {
 }
 
 const TestPage: React.FC<TestPageProps> = ({
-  userId,
-  courseId,
-  numberOfQuestions,
-  difficulty,
+  userId = 1,
+  courseId = 3,
+  numberOfQuestions = 5,
+  difficulty = 0,
 }) => {
   const [testId, setTestId] = useState<number>(0);
   const [questions, setQuestions] = useState<TestQuestion[]>([]);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [results, setResults] = useState<TestResult[]>([]);
 
   // Function to generate the test
   const generateTest = async () => {
@@ -79,12 +90,17 @@ const TestPage: React.FC<TestPageProps> = ({
 
       // Make the API request to submit the answers
       const response = await axios.post(
-        `http://localhost:5057/api/Test/submit/${testId}`,
-        answers
+        `http://localhost:5057/api/Test/submit`,
+        {
+          testId,
+          questions: answers,
+        }
       );
 
-      // Handle the response as needed
-      console.log("Submit response:", response.data);
+      // Handle the response
+      const { results } = response.data;
+      setResults(results);
+      setSubmitted(true);
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
@@ -93,23 +109,51 @@ const TestPage: React.FC<TestPageProps> = ({
   return (
     <div>
       <h2>Test Page</h2>
-      <button onClick={generateTest}>Generate Test</button>
-
-      <div onSubmit={handleSubmit}>
-        {questions.map((question) => (
-          <div key={question.questionId}>
-            <p>{question.question}</p>
-            <input
-              type="text"
-              value={question.answer}
-              onChange={(event) =>
-                handleAnswerChange(event, question.questionId)
-              }
-            />
-          </div>
-        ))}
-        <button type="submit">Submit</button>
-      </div>
+      {!submitted ? (
+        <button onClick={generateTest}>Generate Test</button>
+      ) : (
+        <div>
+          <h3>Test Results</h3>
+          <p>Total Questions: {results.length}</p>
+          <p>
+            Correct Answers: {results.filter((result) => result.correct).length}
+          </p>
+          <p>
+            Incorrect Answers:{" "}
+            {results.filter((result) => !result.correct).length}
+          </p>
+          {results.map((result) => (
+            <div key={result.question}>
+              <p>Question: {result.question}</p>
+              <p>Your Answer: {result.answer}</p>
+              {!result.correct && (
+                <>
+                  <p>Correct Answer: {result.correctAnswer}</p>
+                  <p>Explanation: {result.explanation}</p>
+                </>
+              )}
+              <hr />
+            </div>
+          ))}
+        </div>
+      )}
+      {!submitted && (
+        <form onSubmit={handleSubmit}>
+          {questions.map((question) => (
+            <div key={question.questionId}>
+              <p>{question.question}</p>
+              <input
+                type="text"
+                value={question.answer}
+                onChange={(event) =>
+                  handleAnswerChange(event, question.questionId)
+                }
+              />
+            </div>
+          ))}
+          <button type="submit">Submit</button>
+        </form>
+      )}
     </div>
   );
 };
