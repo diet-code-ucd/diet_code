@@ -1,0 +1,1994 @@
+[
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 5 and 7?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 3 and 4?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the difference between 10 and 5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The difference between two numbers is the result of subtracting one from the other."
+  },
+  {
+    "QuestionText": "What is the quotient of 20 and 5?",
+    "Answer": "4",
+    "Difficulty": 0,
+    "Explanation": "The quotient of two numbers is the result of dividing one by the other."
+  },
+  {
+    "QuestionText": "What is the remainder when 10 is divided by 3?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The remainder is the amount left over after division that does not evenly divide the divisor."
+  },
+  {
+    "QuestionText": "What is the absolute value of -5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The absolute value of a number is its distance from zero on the number line."
+  },
+  {
+    "QuestionText": "What is the reciprocal of 2?",
+    "Answer": "0.5",
+    "Difficulty": 0,
+    "Explanation": "The reciprocal of a number is 1 divided by that number."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 3 = 9?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x, isolate it on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the slope of the line y = 2x + 1?",
+    "Answer": "2",
+    "Difficulty": 0,
+    "Explanation": "The slope of a line is the ratio of the change in y to the change in x."
+  },
+  {
+    "QuestionText": "What is the y-intercept of the line y = 2x + 1?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The y-intercept of a line is the point where it intersects the y-axis."
+  },
+  {
+    "QuestionText": "What is the equation of the line that passes through the points (2, 3) and (4, 5)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 0,
+    "Explanation": "To find the equation of a line, use the slope-intercept form y = mx + b, where m is the slope and b is the y-intercept."
+  },
+  {
+    "QuestionText": "What is the area of a square with side length 5?",
+    "Answer": "25",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side lengths."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with length 6 and width 4?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of its side lengths."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with side length 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side lengths cubed."
+  },
+  {
+    "QuestionText": "What is the surface area of a sphere with radius 2?",
+    "Answer": "50.2654824574",
+    "Difficulty": 0,
+    "Explanation": "The surface area of a sphere is 4 times pi times the radius squared."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with radius 3?",
+    "Answer": "18.8495559215",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is 2 times pi times the radius."
+  },
+  {
+    "QuestionText": "What is the equation of the parabola that opens upward and has vertex (2, 3)?",
+    "Answer": "y = a(x - 2)^2 + 3",
+    "Difficulty": 1,
+    "Explanation": "The equation of a parabola in vertex form is y = a(x - h)^2 + k, where (h, k) is the vertex and a determines the shape of the parabola."
+  },
+  {
+    "QuestionText": "What is the discriminant of the quadratic equation x^2 + 4x + 3 = 0?",
+    "Answer": "4",
+    "Difficulty": 1,
+    "Explanation": "The discriminant of a quadratic equation ax^2 + bx + c = 0 is b^2 - 4ac, which determines the number and nature of the roots."
+  },
+  {
+    "QuestionText": "What is the sum of the first 10 positive integers?",
+    "Answer": "55",
+    "Difficulty": 1,
+    "Explanation": "The sum of the first n positive integers is n(n+1)\/2."
+  },
+  {
+    "QuestionText": "What is the product of the first 5 prime numbers?",
+    "Answer": "2*3*5*7*11",
+    "Difficulty": 1,
+    "Explanation": "The prime numbers are the positive integers greater than 1 that have no positive integer divisors other than 1 and themselves."
+  },
+  {
+    "QuestionText": "What is the greatest common factor of 24 and 36?",
+    "Answer": "12",
+    "Difficulty": 1,
+    "Explanation": "The greatest common factor of two numbers is the largest positive integer that divides both of them without leaving a remainder."
+  },
+  {
+    "QuestionText": "What is the least common multiple of 6 and 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The least common multiple of two numbers is the smallest positive integer that is a multiple of both of them."
+  },
+  {
+    "QuestionText": "What is the slope-intercept form of the equation of the line that passes through the points (1, 2) and (3, 4)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 1,
+    "Explanation": "To find the equation of a line, use the point-slope form y - y1 = m(x - x1), where m is the slope and (x1, y1) is a point on the line."
+  },
+  {
+    "QuestionText": "What is the midpoint of the line segment that connects the points (1, 2) and (3, 4)?",
+    "Answer": "(2, 3)",
+    "Difficulty": 1,
+    "Explanation": "The midpoint of a line segment is the point that is equidistant from the endpoints and is the average of their coordinates."
+  },
+  {
+    "QuestionText": "What is the equation of the circle with center (2, -3) and radius 4?",
+    "Answer": "(x - 2)^2 + (y + 3)^2 = 16",
+    "Difficulty": 1,
+    "Explanation": "The equation of a circle with center (h, k) and radius r is (x - h)^2 + (y - k)^2 = r^2."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with base 6 and height 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with radius 2 and height 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area and height, which is pi times the radius squared times the height."
+  },
+  {
+    "QuestionText": "What is the surface area of a cube with side length 4?",
+    "Answer": "96",
+    "Difficulty": 1,
+    "Explanation": "The surface area of a cube is 6 times the area of one of its faces, which is the square of its side length."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is perpendicular to y = 2x + 1 and passes through the point (3, 5)?",
+    "Answer": "y = -0.5x + 6.5",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line perpendicular to another line is the negative reciprocal of its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is parallel to y = 2x + 1 and passes through the point (3, 5)?",
+    "Answer": "y = 2x - 1",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line parallel to another line is the same as its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the ellipse with center (2, -3), major axis length 8, and minor axis length 6?",
+    "Answer": "((x - 2)^2)\/16 + ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of an ellipse with center (h, k), major axis length 2a, and minor axis length 2b is ((x - h)^2)\/a^2 + ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the equation of the hyperbola with center (2, -3), transverse axis length 8, and conjugate axis length 6?",
+    "Answer": "((x - 2)^2)\/16 - ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of a hyperbola with center (h, k), transverse axis length 2a, and conjugate axis length 2b is ((x - h)^2)\/a^2 - ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the value of sin(pi\/4)?",
+    "Answer": "0.70710678118",
+    "Difficulty": 2,
+    "Explanation": "The sine of an angle is the ratio of the length of the opposite side to the length of the hypotenuse in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of cos(pi\/4)?",
+    "Answer": "0.70710678118",
+    "Difficulty": 2,
+    "Explanation": "The cosine of an angle is the ratio of the length of the adjacent side to the length of the hypotenuse in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of tan(pi\/4)?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The tangent of an angle is the ratio of the length of the opposite side to the length of the adjacent side in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of cot(pi\/4)?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The cotangent of an angle is the reciprocal of its tangent."
+  },
+  {
+    "QuestionText": "What is the value of sec(pi\/4)?",
+    "Answer": "1.41421356237",
+    "Difficulty": 2,
+    "Explanation": "The secant of an angle is the reciprocal of its cosine."
+  },
+  {
+    "QuestionText": "What is the value of csc(pi\/4)?",
+    "Answer": "1.41421356237",
+    "Difficulty": 2,
+    "Explanation": "The cosecant of an angle is the reciprocal of its sine."
+  },
+  {
+    "QuestionText": "What is the derivative of x^2 with respect to x?",
+    "Answer": "2x",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which it changes with respect to its input variable."
+  },
+  {
+    "QuestionText": "What is the integral of 2x with respect to x?",
+    "Answer": "x^2 + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under its curve with respect to its input variable."
+  },
+  {
+    "QuestionText": "What is the limit of (x^2 - 1)\/(x - 1) as x approaches 1?",
+    "Answer": "2",
+    "Difficulty": 2,
+    "Explanation": "The limit of a function is the value that it approaches as its input variable approaches a certain value."
+  },
+  {
+    "QuestionText": "What is the value of e^i*pi?",
+    "Answer": "-1",
+    "Difficulty": 2,
+    "Explanation": "Euler's formula states that e^(ix) = cos(x) + i*sin(x), where i is the imaginary unit and x is a real number."
+  },
+  {
+    "QuestionText": "What is the value of the Riemann zeta function at s = 2?",
+    "Answer": "1.64493406685",
+    "Difficulty": 2,
+    "Explanation": "The Riemann zeta function is a function of a complex variable that is closely related to the distribution of prime numbers."
+  },
+  {
+    "QuestionText": "What is the value of the gamma function at 1\/2?",
+    "Answer": "1.77245385091",
+    "Difficulty": 2,
+    "Explanation": "The gamma function is a generalization of the factorial function to complex and real numbers."
+  },
+  {
+    "QuestionText": "What is the value of the Bessel function of the first kind of order 0 at x = 1?",
+    "Answer": "0.76519768656",
+    "Difficulty": 2,
+    "Explanation": "The Bessel function is a family of functions that arise in the solution of certain differential equations."
+  },
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 5 and 7?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 3 and 4?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the difference between 10 and 5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The difference between two numbers is the result of subtracting one from the other."
+  },
+  {
+    "QuestionText": "What is the quotient of 20 and 5?",
+    "Answer": "4",
+    "Difficulty": 0,
+    "Explanation": "The quotient of two numbers is the result of dividing one by the other."
+  },
+  {
+    "QuestionText": "What is the remainder when 10 is divided by 3?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The remainder is the amount left over after division that does not evenly divide the divisor."
+  },
+  {
+    "QuestionText": "What is the absolute value of -5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The absolute value of a number is its distance from zero on the number line."
+  },
+  {
+    "QuestionText": "What is the reciprocal of 2?",
+    "Answer": "0.5",
+    "Difficulty": 0,
+    "Explanation": "The reciprocal of a number is 1 divided by that number."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 3 = 9?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x, isolate it on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the slope of the line y = 2x + 1?",
+    "Answer": "2",
+    "Difficulty": 0,
+    "Explanation": "The slope of a line is the ratio of the change in y to the change in x."
+  },
+  {
+    "QuestionText": "What is the y-intercept of the line y = 2x + 1?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The y-intercept of a line is the point where it intersects the y-axis."
+  },
+  {
+    "QuestionText": "What is the equation of the line that passes through the points (2, 3) and (4, 5)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 0,
+    "Explanation": "To find the equation of a line, use the slope-intercept form y = mx + b, where m is the slope and b is the y-intercept."
+  },
+  {
+    "QuestionText": "What is the area of a square with side length 5?",
+    "Answer": "25",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side lengths."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with length 6 and width 4?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of its side lengths."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with side length 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side lengths cubed."
+  },
+  {
+    "QuestionText": "What is the surface area of a sphere with radius 2?",
+    "Answer": "50.2654824574",
+    "Difficulty": 0,
+    "Explanation": "The surface area of a sphere is 4 times pi times the radius squared."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with radius 3?",
+    "Answer": "18.8495559215",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is 2 times pi times the radius."
+  },
+  {
+    "QuestionText": "What is the equation of the parabola that opens upward and has vertex (2, 3)?",
+    "Answer": "y = a(x - 2)^2 + 3",
+    "Difficulty": 1,
+    "Explanation": "The equation of a parabola in vertex form is y = a(x - h)^2 + k, where (h, k) is the vertex and a determines the shape of the parabola."
+  },
+  {
+    "QuestionText": "What is the discriminant of the quadratic equation x^2 + 4x + 3 = 0?",
+    "Answer": "4",
+    "Difficulty": 1,
+    "Explanation": "The discriminant of a quadratic equation ax^2 + bx + c = 0 is b^2 - 4ac, which determines the number and nature of the roots."
+  },
+  {
+    "QuestionText": "What is the sum of the first 10 positive integers?",
+    "Answer": "55",
+    "Difficulty": 1,
+    "Explanation": "The sum of the first n positive integers is n(n+1)\/2."
+  },
+  {
+    "QuestionText": "What is the product of the first 5 prime numbers?",
+    "Answer": "2*3*5*7*11",
+    "Difficulty": 1,
+    "Explanation": "The prime numbers are the positive integers greater than 1 that have no positive integer divisors other than 1 and themselves."
+  },
+  {
+    "QuestionText": "What is the greatest common factor of 24 and 36?",
+    "Answer": "12",
+    "Difficulty": 1,
+    "Explanation": "The greatest common factor of two numbers is the largest positive integer that divides both of them without leaving a remainder."
+  },
+  {
+    "QuestionText": "What is the least common multiple of 6 and 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The least common multiple of two numbers is the smallest positive integer that is a multiple of both of them."
+  },
+  {
+    "QuestionText": "What is the slope-intercept form of the equation of the line that passes through the points (1, 2) and (3, 4)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 1,
+    "Explanation": "To find the equation of a line, use the point-slope form y - y1 = m(x - x1), where m is the slope and (x1, y1) is a point on the line."
+  },
+  {
+    "QuestionText": "What is the midpoint of the line segment that connects the points (1, 2) and (3, 4)?",
+    "Answer": "(2, 3)",
+    "Difficulty": 1,
+    "Explanation": "The midpoint of a line segment is the point that is equidistant from the endpoints and is the average of their coordinates."
+  },
+  {
+    "QuestionText": "What is the equation of the circle with center (2, -3) and radius 4?",
+    "Answer": "(x - 2)^2 + (y + 3)^2 = 16",
+    "Difficulty": 1,
+    "Explanation": "The equation of a circle with center (h, k) and radius r is (x - h)^2 + (y - k)^2 = r^2."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with base 6 and height 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with radius 2 and height 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area and height, which is pi times the radius squared times the height."
+  },
+  {
+    "QuestionText": "What is the surface area of a cone with radius 3 and slant height 5?",
+    "Answer": "47.1238898038",
+    "Difficulty": 1,
+    "Explanation": "The surface area of a cone is the sum of the area of its base and the lateral area, which is pi times the radius times the slant height plus pi times the radius squared."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is perpendicular to y = 2x + 1 and passes through the point (3, 4)?",
+    "Answer": "y = -0.5x + 5.5",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line perpendicular to another line is the negative reciprocal of its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is parallel to y = 2x + 1 and passes through the point (3, 4)?",
+    "Answer": "y = 2x - 2",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line parallel to another line is the same as its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the ellipse with center (2, -3), major axis length 8, and minor axis length 6?",
+    "Answer": "((x - 2)^2)\/16 + ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of an ellipse with center (h, k), major axis length 2a, and minor axis length 2b is ((x - h)^2)\/a^2 + ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the equation of the hyperbola with center (2, -3), transverse axis length 8, and conjugate axis length 6?",
+    "Answer": "((x - 2)^2)\/16 - ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of a hyperbola with center (h, k), transverse axis length 2a, and conjugate axis length 2b is ((x - h)^2)\/a^2 - ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the value of sin(pi\/4)?",
+    "Answer": "0.70710678118",
+    "Difficulty": 2,
+    "Explanation": "The sine of an angle is the ratio of the length of the opposite side to the length of the hypotenuse in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of cos(pi\/4)?",
+    "Answer": "0.70710678118",
+    "Difficulty": 2,
+    "Explanation": "The cosine of an angle is the ratio of the length of the adjacent side to the length of the hypotenuse in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of tan(pi\/4)?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The tangent of an angle is the ratio of the length of the opposite side to the length of the adjacent side in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of cot(pi\/4)?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The cotangent of an angle is the reciprocal of the tangent, or the ratio of the length of the adjacent side to the length of the opposite side in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of sec(pi\/4)?",
+    "Answer": "1.41421356237",
+    "Difficulty": 2,
+    "Explanation": "The secant of an angle is the reciprocal of the cosine, or the ratio of the length of the hypotenuse to the length of the adjacent side in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of csc(pi\/4)?",
+    "Answer": "1.41421356237",
+    "Difficulty": 2,
+    "Explanation": "The cosecant of an angle is the reciprocal of the sine, or the ratio of the length of the hypotenuse to the length of the opposite side in a right triangle."
+  },
+  {
+    "QuestionText": "What is the value of log10(100)?",
+    "Answer": "2",
+    "Difficulty": 2,
+    "Explanation": "The logarithm of a number to a given base is the exponent to which the base must be raised to produce that number."
+  },
+  {
+    "QuestionText": "What is the value of ln(e^3)?",
+    "Answer": "3",
+    "Difficulty": 2,
+    "Explanation": "The natural logarithm of a number is the logarithm to the base e, where e is the mathematical constant approximately equal to 2.71828."
+  },
+  {
+    "QuestionText": "What is the value of e^(ln(5))?",
+    "Answer": "5",
+    "Difficulty": 2,
+    "Explanation": "The exponential function e^x is the inverse of the natural logarithm function ln(x), so e^(ln(x)) = x."
+  },
+  {
+    "QuestionText": "What is the value of the limit as x approaches 0 of sin(x)\/x?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The limit as x approaches 0 of sin(x)\/x is a fundamental limit in calculus that is used to define the derivative of the sine function."
+  },
+  {
+    "QuestionText": "What is the value of the derivative of x^2 with respect to x?",
+    "Answer": "2x",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which it changes with respect to its input variable, and is defined as the limit of the difference quotient as the change in the input variable approaches zero."
+  },
+  {
+    "QuestionText": "What is the value of the integral of x^2 with respect to x from 0 to 1?",
+    "Answer": "0.33333333333",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under its curve, and is defined as the limit of a sum of rectangles as their width approaches zero."
+  },
+  {
+    "QuestionText": "What is the value of the partial derivative of f(x, y) = x^2 + y^2 with respect to x?",
+    "Answer": "2x",
+    "Difficulty": 2,
+    "Explanation": "The partial derivative of a function of several variables is the derivative with respect to one of the variables, holding the others constant."
+  },
+  {
+    "QuestionText": "What is the value of the double integral of f(x, y) = x^2 + y^2 over the region bounded by x = 0, x = 1, y = 0, and y = 1?",
+    "Answer": "1.66666666667",
+    "Difficulty": 2,
+    "Explanation": "The double integral of a function over a region is the volume under its surface, and is defined as the limit of a sum of rectangular prisms as their volume approaches zero."
+  },
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 5 and 7?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 3 and 4?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the difference between 10 and 5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The difference between two numbers is the result of subtracting one from the other."
+  },
+  {
+    "QuestionText": "What is the quotient of 20 and 5?",
+    "Answer": "4",
+    "Difficulty": 0,
+    "Explanation": "The quotient of two numbers is the result of dividing one by the other."
+  },
+  {
+    "QuestionText": "What is the remainder when 10 is divided by 3?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The remainder is the amount left over after division that does not evenly divide the divisor."
+  },
+  {
+    "QuestionText": "What is the absolute value of -5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The absolute value of a number is its distance from zero on the number line."
+  },
+  {
+    "QuestionText": "What is the reciprocal of 2?",
+    "Answer": "0.5",
+    "Difficulty": 0,
+    "Explanation": "The reciprocal of a number is 1 divided by that number."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 3 = 9?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x, isolate it on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the slope of the line y = 2x + 1?",
+    "Answer": "2",
+    "Difficulty": 0,
+    "Explanation": "The slope of a line is the ratio of the change in y to the change in x."
+  },
+  {
+    "QuestionText": "What is the y-intercept of the line y = 2x + 1?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The y-intercept of a line is the point where it intersects the y-axis."
+  },
+  {
+    "QuestionText": "What is the equation of the line that passes through the points (2, 3) and (4, 5)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 0,
+    "Explanation": "To find the equation of a line, use the slope-intercept form y = mx + b, where m is the slope and b is the y-intercept."
+  },
+  {
+    "QuestionText": "What is the area of a square with side length 5?",
+    "Answer": "25",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side lengths."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with length 6 and width 4?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of its side lengths."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with side length 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side lengths cubed."
+  },
+  {
+    "QuestionText": "What is the surface area of a sphere with radius 2?",
+    "Answer": "50.2654824574",
+    "Difficulty": 0,
+    "Explanation": "The surface area of a sphere is 4 times pi times the radius squared."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with radius 3?",
+    "Answer": "18.8495559215",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is 2 times pi times the radius."
+  },
+  {
+    "QuestionText": "What is the equation of the parabola that opens upward and has vertex (2, 3)?",
+    "Answer": "y = a(x - 2)^2 + 3",
+    "Difficulty": 1,
+    "Explanation": "The equation of a parabola in vertex form is y = a(x - h)^2 + k, where (h, k) is the vertex and a determines the shape of the parabola."
+  },
+  {
+    "QuestionText": "What is the discriminant of the quadratic equation x^2 + 4x + 3 = 0?",
+    "Answer": "4",
+    "Difficulty": 1,
+    "Explanation": "The discriminant of a quadratic equation ax^2 + bx + c = 0 is b^2 - 4ac, which determines the number and nature of the roots."
+  },
+  {
+    "QuestionText": "What is the sum of the first 10 positive integers?",
+    "Answer": "55",
+    "Difficulty": 1,
+    "Explanation": "The sum of the first n positive integers is n(n+1)\/2."
+  },
+  {
+    "QuestionText": "What is the product of the first 5 prime numbers?",
+    "Answer": "2*3*5*7*11",
+    "Difficulty": 1,
+    "Explanation": "The prime numbers are the positive integers greater than 1 that have no positive integer divisors other than 1 and themselves."
+  },
+  {
+    "QuestionText": "What is the greatest common factor of 24 and 36?",
+    "Answer": "12",
+    "Difficulty": 1,
+    "Explanation": "The greatest common factor of two numbers is the largest positive integer that divides both of them without leaving a remainder."
+  },
+  {
+    "QuestionText": "What is the least common multiple of 6 and 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The least common multiple of two numbers is the smallest positive integer that is a multiple of both of them."
+  },
+  {
+    "QuestionText": "What is the slope-intercept form of the equation of the line that passes through the points (1, 2) and (3, 4)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 1,
+    "Explanation": "To find the equation of a line, use the point-slope form y - y1 = m(x - x1), where m is the slope and (x1, y1) is a point on the line."
+  },
+  {
+    "QuestionText": "What is the midpoint of the line segment that connects the points (1, 2) and (3, 4)?",
+    "Answer": "(2, 3)",
+    "Difficulty": 1,
+    "Explanation": "The midpoint of a line segment is the point that is equidistant from the endpoints and is the average of their coordinates."
+  },
+  {
+    "QuestionText": "What is the equation of the circle with center (2, -3) and radius 4?",
+    "Answer": "(x - 2)^2 + (y + 3)^2 = 16",
+    "Difficulty": 1,
+    "Explanation": "The equation of a circle with center (h, k) and radius r is (x - h)^2 + (y - k)^2 = r^2."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with base 6 and height 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with radius 2 and height 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area and height, which is pi times the radius squared times the height."
+  },
+  {
+    "QuestionText": "What is the surface area of a cube with side length 4?",
+    "Answer": "96",
+    "Difficulty": 1,
+    "Explanation": "The surface area of a cube is 6 times the area of one of its faces, which is the square of its side length."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is perpendicular to y = 2x + 1 and passes through the point (3, 5)?",
+    "Answer": "y = -0.5x + 6.5",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line perpendicular to another line is the negative reciprocal of its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is parallel to y = 2x + 1 and passes through the point (3, 5)?",
+    "Answer": "y = 2x - 1",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line parallel to another line is the same as its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the ellipse with center (2, -3), major axis length 8, and minor axis length 6?",
+    "Answer": "((x - 2)^2)\/16 + ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of an ellipse with center (h, k), major axis length 2a, and minor axis length 2b is ((x - h)^2)\/a^2 + ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the equation of the hyperbola with center (2, -3), transverse axis length 8, and conjugate axis length 6?",
+    "Answer": "((x - 2)^2)\/16 - ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of a hyperbola with center (h, k), transverse axis length 2a, and conjugate axis length 2b is ((x - h)^2)\/a^2 - ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the value of the limit lim(x->0) (sin(x)\/x)?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The limit of sin(x)\/x as x approaches 0 is 1, which is a fundamental result in calculus."
+  },
+  {
+    "QuestionText": "What is the derivative of f(x) = x^2 + 3x - 2?",
+    "Answer": "2x + 3",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the slope of its tangent line at a given point, which is the limit of the difference quotient as the interval between two points approaches 0."
+  },
+  {
+    "QuestionText": "What is the integral of f(x) = x^2 + 3x - 2?",
+    "Answer": "(1\/3)x^3 + (3\/2)x^2 - 2x + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under its curve between two points, which is the limit of a Riemann sum as the width of the intervals approaches 0."
+  },
+  {
+    "QuestionText": "What is the value of the sum 1 + 1\/2 + 1\/3 + ... + 1\/10?",
+    "Answer": "2.92896825397",
+    "Difficulty": 2,
+    "Explanation": "The sum of the reciprocals of the first n positive integers is the nth harmonic number, which grows logarithmically with n."
+  },
+  {
+    "QuestionText": "What is the value of the infinite series 1 + 1\/2 + 1\/4 + 1\/8 + ...?",
+    "Answer": "2",
+    "Difficulty": 2,
+    "Explanation": "The sum of an infinite geometric series with first term a and common ratio r is a\/(1-r), provided that |r| < 1."
+  },
+  {
+    "QuestionText": "What is the value of the integral of sin(x)\/x from 0 to infinity?",
+    "Answer": "pi\/2",
+    "Difficulty": 2,
+    "Explanation": "The integral of sin(x)\/x from 0 to infinity is a special function called the sine integral, which has the value pi\/2."
+  },
+  {
+    "QuestionText": "What is the value of the integral of e^(-x^2) from -infinity to infinity?",
+    "Answer": "sqrt(pi)",
+    "Difficulty": 2,
+    "Explanation": "The integral of e^(-x^2) from -infinity to infinity is a special function called the Gaussian integral, which has the value sqrt(pi)."
+  },
+  {
+    "QuestionText": "What is the value of the limit lim(x->infinity) (1 + 1\/x)^x?",
+    "Answer": "e",
+    "Difficulty": 2,
+    "Explanation": "The limit of (1 + 1\/x)^x as x approaches infinity is a fundamental result in calculus that defines the number e."
+  },
+  {
+    "QuestionText": "What is the value of the sum of the first 50 odd numbers?",
+    "Answer": "2500",
+    "Difficulty": 2,
+    "Explanation": "The sum of the first n odd numbers is n^2."
+  },
+  {
+    "QuestionText": "What is the value of the sum of the first 50 even numbers?",
+    "Answer": "2550",
+    "Difficulty": 2,
+    "Explanation": "The sum of the first n even numbers is n(n+1)."
+  },
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 5 and 7?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 3 and 4?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the difference between 10 and 5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The difference between two numbers is the result of subtracting one from the other."
+  },
+  {
+    "QuestionText": "What is the quotient of 20 and 5?",
+    "Answer": "4",
+    "Difficulty": 0,
+    "Explanation": "The quotient of two numbers is the result of dividing one by the other."
+  },
+  {
+    "QuestionText": "What is the remainder when 10 is divided by 3?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The remainder is the amount left over after division that does not evenly divide the divisor."
+  },
+  {
+    "QuestionText": "What is the absolute value of -5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The absolute value of a number is its distance from zero on the number line."
+  },
+  {
+    "QuestionText": "What is the reciprocal of 2?",
+    "Answer": "0.5",
+    "Difficulty": 0,
+    "Explanation": "The reciprocal of a number is 1 divided by that number."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 3 = 9?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x, isolate it on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the slope of the line y = 2x + 1?",
+    "Answer": "2",
+    "Difficulty": 0,
+    "Explanation": "The slope of a line is the ratio of the change in y to the change in x."
+  },
+  {
+    "QuestionText": "What is the y-intercept of the line y = 2x + 1?",
+    "Answer": "1",
+    "Difficulty": 0,
+    "Explanation": "The y-intercept of a line is the point where it intersects the y-axis."
+  },
+  {
+    "QuestionText": "What is the equation of the line that passes through the points (2, 3) and (4, 5)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 0,
+    "Explanation": "To find the equation of a line, use the slope-intercept form y = mx + b, where m is the slope and b is the y-intercept."
+  },
+  {
+    "QuestionText": "What is the area of a square with side length 5?",
+    "Answer": "25",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side lengths."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with length 6 and width 4?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of its side lengths."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with side length 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side lengths cubed."
+  },
+  {
+    "QuestionText": "What is the surface area of a sphere with radius 2?",
+    "Answer": "50.2654824574",
+    "Difficulty": 0,
+    "Explanation": "The surface area of a sphere is 4 times pi times the radius squared."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with radius 3?",
+    "Answer": "18.8495559215",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is 2 times pi times the radius."
+  },
+  {
+    "QuestionText": "What is the equation of the parabola that opens upward and has vertex (2, 3)?",
+    "Answer": "y = a(x - 2)^2 + 3",
+    "Difficulty": 1,
+    "Explanation": "The equation of a parabola in vertex form is y = a(x - h)^2 + k, where (h, k) is the vertex and a determines the shape of the parabola."
+  },
+  {
+    "QuestionText": "What is the discriminant of the quadratic equation x^2 + 4x + 3 = 0?",
+    "Answer": "4",
+    "Difficulty": 1,
+    "Explanation": "The discriminant of a quadratic equation ax^2 + bx + c = 0 is b^2 - 4ac, which determines the number and nature of the roots."
+  },
+  {
+    "QuestionText": "What is the sum of the first 10 positive integers?",
+    "Answer": "55",
+    "Difficulty": 1,
+    "Explanation": "The sum of the first n positive integers is n(n+1)\/2."
+  },
+  {
+    "QuestionText": "What is the product of the first 5 prime numbers?",
+    "Answer": "2*3*5*7*11",
+    "Difficulty": 1,
+    "Explanation": "The prime numbers are the positive integers greater than 1 that have no positive integer divisors other than 1 and themselves."
+  },
+  {
+    "QuestionText": "What is the greatest common factor of 24 and 36?",
+    "Answer": "12",
+    "Difficulty": 1,
+    "Explanation": "The greatest common factor of two numbers is the largest positive integer that divides both of them without leaving a remainder."
+  },
+  {
+    "QuestionText": "What is the least common multiple of 6 and 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The least common multiple of two numbers is the smallest positive integer that is a multiple of both of them."
+  },
+  {
+    "QuestionText": "What is the slope-intercept form of the equation of the line that passes through the points (1, 2) and (3, 4)?",
+    "Answer": "y = x + 1",
+    "Difficulty": 1,
+    "Explanation": "To find the equation of a line, use the point-slope form y - y1 = m(x - x1), where m is the slope and (x1, y1) is a point on the line."
+  },
+  {
+    "QuestionText": "What is the midpoint of the line segment that connects the points (1, 2) and (3, 4)?",
+    "Answer": "(2, 3)",
+    "Difficulty": 1,
+    "Explanation": "The midpoint of a line segment is the point that is equidistant from the endpoints and is the average of their coordinates."
+  },
+  {
+    "QuestionText": "What is the equation of the circle with center (2, -3) and radius 4?",
+    "Answer": "(x - 2)^2 + (y + 3)^2 = 16",
+    "Difficulty": 1,
+    "Explanation": "The equation of a circle with center (h, k) and radius r is (x - h)^2 + (y - k)^2 = r^2."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with base 6 and height 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with radius 2 and height 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area and height, which is pi times the radius squared times the height."
+  },
+  {
+    "QuestionText": "What is the surface area of a cube with side length 4?",
+    "Answer": "96",
+    "Difficulty": 1,
+    "Explanation": "The surface area of a cube is 6 times the area of one of its faces, which is the square of its side length."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is perpendicular to y = 2x + 1 and passes through the point (3, 5)?",
+    "Answer": "y = -0.5x + 6.5",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line perpendicular to another line is the negative reciprocal of its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the line that is parallel to y = 2x + 1 and passes through the point (3, 5)?",
+    "Answer": "y = 2x - 1",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line parallel to another line is the same as its slope."
+  },
+  {
+    "QuestionText": "What is the equation of the ellipse with center (2, -3), major axis length 8, and minor axis length 6?",
+    "Answer": "((x - 2)^2)\/16 + ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of an ellipse with center (h, k), major axis length 2a, and minor axis length 2b is ((x - h)^2)\/a^2 + ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the equation of the hyperbola with center (2, -3), transverse axis length 8, and conjugate axis length 6?",
+    "Answer": "((x - 2)^2)\/16 - ((y + 3)^2)\/9 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of a hyperbola with center (h, k), transverse axis length 2a, and conjugate axis length 2b is ((x - h)^2)\/a^2 - ((y - k)^2)\/b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the value of the limit lim(x->0) (sin(x)\/x)?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The limit of sin(x)\/x as x approaches 0 is 1, which is a fundamental result in calculus."
+  },
+  {
+    "QuestionText": "What is the derivative of f(x) = x^2 + 3x - 2?",
+    "Answer": "2x + 3",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the slope of its tangent line at a given point, which is the limit of the difference quotient as the interval between two points approaches 0."
+  },
+  {
+    "QuestionText": "What is the integral of f(x) = x^2 + 3x - 2?",
+    "Answer": "(1\/3)x^3 + (3\/2)x^2 - 2x + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under its curve between two points, which is the limit of a Riemann sum as the width of the intervals approaches 0."
+  },
+  {
+    "QuestionText": "What is the value of the sum 1 + 1\/2 + 1\/3 + ... + 1\/10?",
+    "Answer": "2.92896825397",
+    "Difficulty": 2,
+    "Explanation": "The sum of the reciprocals of the first n positive integers is the nth harmonic number, which grows logarithmically with n."
+  },
+  {
+    "QuestionText": "What is the value of the infinite series 1 + 1\/2 + 1\/4 + 1\/8 + ...?",
+    "Answer": "2",
+    "Difficulty": 2,
+    "Explanation": "The sum of an infinite geometric series with first term a and common ratio r is a\/(1-r), provided that |r| < 1."
+  },
+  {
+    "QuestionText": "What is the value of the integral of sin(x)\/x from 0 to infinity?",
+    "Answer": "pi\/2",
+    "Difficulty": 2,
+    "Explanation": "The integral of sin(x)\/x from 0 to infinity is a special function called the sine integral, which has the value pi\/2."
+  },
+  {
+    "QuestionText": "What is the value of the integral of e^(-x^2) from -infinity to infinity?",
+    "Answer": "sqrt(pi)",
+    "Difficulty": 2,
+    "Explanation": "The integral of e^(-x^2) from -infinity to infinity is a special function called the Gaussian integral, which has the value sqrt(pi)."
+  },
+  {
+    "QuestionText": "What is the value of the limit lim(x->infinity) (1 + 1\/x)^x?",
+    "Answer": "e",
+    "Difficulty": 2,
+    "Explanation": "The limit of (1 + 1\/x)^x as x approaches infinity is a fundamental result in calculus that defines the number e."
+  },
+  {
+    "QuestionText": "What is the value of the sum of the first 50 odd numbers?",
+    "Answer": "2500",
+    "Difficulty": 2,
+    "Explanation": "The sum of the first n odd numbers is n^2."
+  },
+  {
+    "QuestionText": "What is the value of the sum of the first 50 even numbers?",
+    "Answer": "2550",
+    "Difficulty": 2,
+    "Explanation": "The sum of the first n even numbers is n(n+1)."
+  },
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 2 and 3?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 4 and 5?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the difference between 10 and 5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The difference between two numbers is the result of subtracting one from the other."
+  },
+  {
+    "QuestionText": "What is the quotient of 20 and 4?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The quotient of two numbers is the result of dividing one by the other."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 3 = 9?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x in an equation, you need to isolate x on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the area of a square with a side length of 5?",
+    "Answer": "25",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side length multiplied by itself."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with a length of 6 and a width of 4?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of the lengths of all its sides."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with a side length of 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side length multiplied by itself three times."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with a radius of 2?",
+    "Answer": "12.5663706144",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is the product of its diameter multiplied by pi."
+  },
+  {
+    "QuestionText": "What is the slope of a line that passes through the points (2, 3) and (4, 5)?",
+    "Answer": "1",
+    "Difficulty": 1,
+    "Explanation": "The slope of a line is the ratio of the change in y over the change in x between any two points on the line."
+  },
+  {
+    "QuestionText": "What is the equation of a line that passes through the point (2, 3) and has a slope of 2?",
+    "Answer": "y = 2x - 1",
+    "Difficulty": 1,
+    "Explanation": "The equation of a line in slope-intercept form is y = mx + b, where m is the slope and b is the y-intercept."
+  },
+  {
+    "QuestionText": "What is the Pythagorean theorem?",
+    "Answer": "a^2 + b^2 = c^2",
+    "Difficulty": 1,
+    "Explanation": "The Pythagorean theorem states that in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x^2 + 5x - 3 = 0?",
+    "Answer": "1\/2, -3",
+    "Difficulty": 1,
+    "Explanation": "To solve a quadratic equation, you can use the quadratic formula or factor the equation into two binomials."
+  },
+  {
+    "QuestionText": "What is the probability of rolling a 6 on a standard die?",
+    "Answer": "1\/6",
+    "Difficulty": 1,
+    "Explanation": "The probability of an event is the ratio of the number of favorable outcomes to the total number of possible outcomes."
+  },
+  {
+    "QuestionText": "What is the mean of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The mean of a set of numbers is the sum of all the numbers divided by the total number of numbers."
+  },
+  {
+    "QuestionText": "What is the median of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The median of a set of numbers is the middle value when the numbers are arranged in order."
+  },
+  {
+    "QuestionText": "What is the mode of the numbers 2, 4, 6, and 8?",
+    "Answer": "No mode",
+    "Difficulty": 1,
+    "Explanation": "The mode of a set of numbers is the value that appears most frequently."
+  },
+  {
+    "QuestionText": "What is the range of the numbers 2, 4, 6, and 8?",
+    "Answer": "6",
+    "Difficulty": 1,
+    "Explanation": "The range of a set of numbers is the difference between the largest and smallest values."
+  },
+  {
+    "QuestionText": "What is the standard deviation of the numbers 2, 4, 6, and 8?",
+    "Answer": "2",
+    "Difficulty": 1,
+    "Explanation": "The standard deviation of a set of numbers is a measure of how spread out the numbers are from the mean."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with a base of 6 and a height of 4?",
+    "Answer": "12",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with a radius of 2 and a height of 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area and height."
+  },
+  {
+    "QuestionText": "What is the surface area of a sphere with a radius of 3?",
+    "Answer": "113.097335529",
+    "Difficulty": 1,
+    "Explanation": "The surface area of a sphere is four times the product of its radius squared and pi."
+  },
+  {
+    "QuestionText": "What is the equation of a circle with a center at (2, 3) and a radius of 4?",
+    "Answer": "(x - 2)^2 + (y - 3)^2 = 16",
+    "Difficulty": 1,
+    "Explanation": "The equation of a circle with a center at (h, k) and a radius of r is (x - h)^2 + (y - k)^2 = r^2."
+  },
+  {
+    "QuestionText": "What is the equation of a parabola with a vertex at (2, 3) and a focus at (2, 5)?",
+    "Answer": "(y - 5)^2 = 8(x - 2)",
+    "Difficulty": 2,
+    "Explanation": "The equation of a parabola with a vertex at (h, k) and a focus at (h, k + p) is (y - k)^2 = 4p(x - h)."
+  },
+  {
+    "QuestionText": "What is the equation of a hyperbola with a center at (2, 3), a vertex at (2, 5), and a focus at (2, 7)?",
+    "Answer": "(y - 3)^2 \/ 4 - (x - 2)^2 \/ 3 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of a hyperbola with a center at (h, k), a vertex at (h, k + a), and a focus at (h, k + c) is (y - k)^2 \/ a^2 - (x - h)^2 \/ b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the equation of a line that is perpendicular to y = 2x + 3 and passes through the point (4, 5)?",
+    "Answer": "y = -1\/2x + 7",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line perpendicular to another line is the negative reciprocal of the slope of the original line."
+  },
+  {
+    "QuestionText": "What is the equation of a line that is parallel to y = 2x + 3 and passes through the point (4, 5)?",
+    "Answer": "y = 2x - 3",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line parallel to another line is the same as the slope of the original line."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation log(x) = 2?",
+    "Answer": "100",
+    "Difficulty": 2,
+    "Explanation": "The logarithm of a number is the exponent to which a base must be raised to produce that number."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation e^x = 10?",
+    "Answer": "ln(10)",
+    "Difficulty": 2,
+    "Explanation": "The natural logarithm of a number is the logarithm to the base e, where e is a mathematical constant approximately equal to 2.71828."
+  },
+  {
+    "QuestionText": "What is the derivative of f(x) = x^2?",
+    "Answer": "2x",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which the function is changing at any given point."
+  },
+  {
+    "QuestionText": "What is the integral of f(x) = x^2?",
+    "Answer": "1\/3x^3 + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under the curve of the function between two points."
+  },
+  {
+    "QuestionText": "What is the limit of f(x) = 1\/x as x approaches infinity?",
+    "Answer": "0",
+    "Difficulty": 2,
+    "Explanation": "The limit of a function is the value that the function approaches as the input approaches a certain value."
+  },
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 2 and 3?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 4 and 5?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the difference between 10 and 5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The difference between two numbers is the result of subtracting one from the other."
+  },
+  {
+    "QuestionText": "What is the quotient of 20 and 4?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The quotient of two numbers is the result of dividing one by the other."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 3 = 9?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x in an equation, you need to isolate x on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the area of a square with a side length of 5?",
+    "Answer": "25",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side length multiplied by itself."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with a length of 6 and a width of 4?",
+    "Answer": "20",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of the lengths of all its sides."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with a side length of 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side length multiplied by itself three times."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with a radius of 2?",
+    "Answer": "12.5663706144",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is the product of its diameter multiplied by pi."
+  },
+  {
+    "QuestionText": "What is the slope of a line that passes through the points (2, 3) and (4, 5)?",
+    "Answer": "1",
+    "Difficulty": 1,
+    "Explanation": "The slope of a line is the ratio of the change in y over the change in x between any two points on the line."
+  },
+  {
+    "QuestionText": "What is the equation of a line that passes through the point (2, 3) and has a slope of 2?",
+    "Answer": "y = 2x - 1",
+    "Difficulty": 1,
+    "Explanation": "The equation of a line in slope-intercept form is y = mx + b, where m is the slope and b is the y-intercept."
+  },
+  {
+    "QuestionText": "What is the Pythagorean theorem?",
+    "Answer": "a^2 + b^2 = c^2",
+    "Difficulty": 1,
+    "Explanation": "The Pythagorean theorem states that in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x^2 + 5x - 3 = 0?",
+    "Answer": "1\/2, -3",
+    "Difficulty": 1,
+    "Explanation": "To solve a quadratic equation, you can use the quadratic formula or factor the equation into two binomials."
+  },
+  {
+    "QuestionText": "What is the probability of rolling a 6 on a standard die?",
+    "Answer": "1\/6",
+    "Difficulty": 1,
+    "Explanation": "The probability of an event is the ratio of the number of favorable outcomes to the total number of possible outcomes."
+  },
+  {
+    "QuestionText": "What is the mean of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The mean of a set of numbers is the sum of all the numbers divided by the total number of numbers."
+  },
+  {
+    "QuestionText": "What is the median of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The median of a set of numbers is the middle value when the numbers are arranged in order."
+  },
+  {
+    "QuestionText": "What is the mode of the numbers 2, 4, 6, and 8?",
+    "Answer": "No mode",
+    "Difficulty": 1,
+    "Explanation": "The mode of a set of numbers is the value that appears most frequently."
+  },
+  {
+    "QuestionText": "What is the range of the numbers 2, 4, 6, and 8?",
+    "Answer": "6",
+    "Difficulty": 1,
+    "Explanation": "The range of a set of numbers is the difference between the largest and smallest values."
+  },
+  {
+    "QuestionText": "What is the standard deviation of the numbers 2, 4, 6, and 8?",
+    "Answer": "2",
+    "Difficulty": 1,
+    "Explanation": "The standard deviation of a set of numbers is a measure of how spread out the numbers are from the mean."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with a base of 6 and a height of 4?",
+    "Answer": "12",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with a radius of 2 and a height of 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area and height."
+  },
+  {
+    "QuestionText": "What is the surface area of a sphere with a radius of 3?",
+    "Answer": "113.097335529",
+    "Difficulty": 1,
+    "Explanation": "The surface area of a sphere is four times the product of its radius squared and pi."
+  },
+  {
+    "QuestionText": "What is the equation of a circle with a center at (2, 3) and a radius of 4?",
+    "Answer": "(x - 2)^2 + (y - 3)^2 = 16",
+    "Difficulty": 1,
+    "Explanation": "The equation of a circle with a center at (h, k) and a radius of r is (x - h)^2 + (y - k)^2 = r^2."
+  },
+  {
+    "QuestionText": "What is the equation of a parabola with a vertex at (2, 3) and a focus at (2, 5)?",
+    "Answer": "(y - 5)^2 = 8(x - 2)",
+    "Difficulty": 2,
+    "Explanation": "The equation of a parabola with a vertex at (h, k) and a focus at (h, k + p) is (y - k)^2 = 4p(x - h)."
+  },
+  {
+    "QuestionText": "What is the equation of a hyperbola with a center at (2, 3), a vertex at (2, 5), and a focus at (2, 7)?",
+    "Answer": "(y - 3)^2 \/ 4 - (x - 2)^2 \/ 3 = 1",
+    "Difficulty": 2,
+    "Explanation": "The equation of a hyperbola with a center at (h, k), a vertex at (h, k + a), and a focus at (h, k + c) is (y - k)^2 \/ a^2 - (x - h)^2 \/ b^2 = 1."
+  },
+  {
+    "QuestionText": "What is the equation of a line that is perpendicular to y = 2x + 3 and passes through the point (4, 5)?",
+    "Answer": "y = -1\/2x + 7",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line perpendicular to another line is the negative reciprocal of the slope of the original line."
+  },
+  {
+    "QuestionText": "What is the equation of a line that is parallel to y = 2x + 3 and passes through the point (4, 5)?",
+    "Answer": "y = 2x - 3",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line parallel to another line is the same as the slope of the original line."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation log(x) = 2?",
+    "Answer": "100",
+    "Difficulty": 2,
+    "Explanation": "The logarithm of a number is the exponent to which a base must be raised to produce that number."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation e^x = 10?",
+    "Answer": "ln(10)",
+    "Difficulty": 2,
+    "Explanation": "The natural logarithm of a number is the logarithm to the base e, where e is a mathematical constant approximately equal to 2.71828."
+  },
+  {
+    "QuestionText": "What is the derivative of f(x) = x^2?",
+    "Answer": "2x",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which the function is changing at any given point."
+  },
+  {
+    "QuestionText": "What is the integral of f(x) = x^2?",
+    "Answer": "1\/3x^3 + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under the curve of the function between two points."
+  },
+  {
+    "QuestionText": "What is the limit of f(x) = 1\/x as x approaches infinity?",
+    "Answer": "0",
+    "Difficulty": 2,
+    "Explanation": "The limit of a function is the value that the function approaches as the input approaches a certain value."
+  },
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 5 and 7?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 3 and 4?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the difference between 10 and 5?",
+    "Answer": "5",
+    "Difficulty": 0,
+    "Explanation": "The difference between two numbers is the result of subtracting one from the other."
+  },
+  {
+    "QuestionText": "What is the quotient of 20 and 5?",
+    "Answer": "4",
+    "Difficulty": 0,
+    "Explanation": "The quotient of two numbers is the result of dividing one by the other."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 5 = 11?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x in an equation, you need to isolate x on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the area of a square with a side length of 6?",
+    "Answer": "36",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side lengths."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with a length of 8 and a width of 5?",
+    "Answer": "26",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of its side lengths."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with a side length of 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side lengths cubed."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with a radius of 4?",
+    "Answer": "25.13274122872",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is the product of its diameter and pi."
+  },
+  {
+    "QuestionText": "What is the slope of the line that passes through the points (2, 3) and (4, 7)?",
+    "Answer": "2",
+    "Difficulty": 1,
+    "Explanation": "The slope of a line is the ratio of the change in y to the change in x between any two points on the line."
+  },
+  {
+    "QuestionText": "What is the equation of the line that passes through the points (2, 3) and (4, 7)?",
+    "Answer": "y = 2x - 1",
+    "Difficulty": 1,
+    "Explanation": "The equation of a line can be found using the slope-intercept form, which is y = mx + b, where m is the slope and b is the y-intercept."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 3x - 2 = 7x + 4?",
+    "Answer": "-1",
+    "Difficulty": 1,
+    "Explanation": "To solve for x in an equation, you need to isolate x on one side of the equation by performing the same operation on both sides."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with a base of 6 and a height of 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with a radius of 2 and a height of 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area and height."
+  },
+  {
+    "QuestionText": "What is the probability of rolling a 6 on a fair six-sided die?",
+    "Answer": "0.16666666667",
+    "Difficulty": 1,
+    "Explanation": "The probability of an event is the number of favorable outcomes divided by the total number of possible outcomes."
+  },
+  {
+    "QuestionText": "What is the mean of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The mean of a set of numbers is the sum of the numbers divided by the total number of numbers."
+  },
+  {
+    "QuestionText": "What is the median of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The median of a set of numbers is the middle value when the numbers are arranged in order."
+  },
+  {
+    "QuestionText": "What is the mode of the numbers 2, 4, 6, and 8?",
+    "Answer": "No mode",
+    "Difficulty": 1,
+    "Explanation": "The mode of a set of numbers is the value that appears most frequently."
+  },
+  {
+    "QuestionText": "What is the range of the numbers 2, 4, 6, and 8?",
+    "Answer": "6",
+    "Difficulty": 1,
+    "Explanation": "The range of a set of numbers is the difference between the largest and smallest values."
+  },
+  {
+    "QuestionText": "What is the standard deviation of the numbers 2, 4, 6, and 8?",
+    "Answer": "2",
+    "Difficulty": 1,
+    "Explanation": "The standard deviation of a set of numbers is a measure of how spread out the numbers are from the mean."
+  },
+  {
+    "QuestionText": "What is the probability of flipping a coin and getting heads?",
+    "Answer": "0.5",
+    "Difficulty": 0,
+    "Explanation": "The probability of an event is the number of favorable outcomes divided by the total number of possible outcomes."
+  },
+  {
+    "QuestionText": "What is the probability of rolling a 7 on two fair six-sided dice?",
+    "Answer": "0.16666666667",
+    "Difficulty": 1,
+    "Explanation": "The probability of an event is the number of favorable outcomes divided by the total number of possible outcomes."
+  },
+  {
+    "QuestionText": "What is the Pythagorean theorem?",
+    "Answer": "a^2 + b^2 = c^2",
+    "Difficulty": 0,
+    "Explanation": "The Pythagorean theorem states that in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides."
+  },
+  {
+    "QuestionText": "What is the equation of a circle with a center at (2, 3) and a radius of 4?",
+    "Answer": "(x - 2)^2 + (y - 3)^2 = 16",
+    "Difficulty": 2,
+    "Explanation": "The equation of a circle with center (h, k) and radius r is (x - h)^2 + (y - k)^2 = r^2."
+  },
+  {
+    "QuestionText": "What is the equation of a parabola with a vertex at (2, 3) and a focus at (2, 5)?",
+    "Answer": "(y - 4)^2 = 2(x - 2)",
+    "Difficulty": 2,
+    "Explanation": "The equation of a parabola with vertex (h, k) and focus (h, k + 1\/4a) is (y - k)^2 = 4a(x - h)."
+  },
+  {
+    "QuestionText": "What is the equation of a line that is perpendicular to y = 2x + 1 and passes through the point (3, 4)?",
+    "Answer": "y = -1\/2x + 5\/2",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line perpendicular to a line with slope m is -1\/m. The equation of a line can be found using the point-slope form, which is y - y1 = m(x - x1), where (x1, y1) is a point on the line."
+  },
+  {
+    "QuestionText": "What is the equation of a line that is parallel to y = 2x + 1 and passes through the point (3, 4)?",
+    "Answer": "y = 2x - 2",
+    "Difficulty": 2,
+    "Explanation": "The slope of a line parallel to a line with slope m is also m. The equation of a line can be found using the point-slope form, which is y - y1 = m(x - x1), where (x1, y1) is a point on the line."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation log(x) = 3?",
+    "Answer": "1000",
+    "Difficulty": 2,
+    "Explanation": "The logarithm of a number is the exponent to which a base must be raised to produce that number. The base of the logarithm is usually written as a subscript."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation e^x = 20?",
+    "Answer": "ln(20)",
+    "Difficulty": 2,
+    "Explanation": "The natural logarithm of a number is the logarithm to the base e, where e is a mathematical constant approximately equal to 2.71828."
+  },
+  {
+    "QuestionText": "What is the derivative of f(x) = x^2?",
+    "Answer": "2x",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which the function is changing at a particular point. It is found by taking the limit of the difference quotient as the change in x approaches zero."
+  },
+  {
+    "QuestionText": "What is the integral of f(x) = x^2?",
+    "Answer": "1\/3x^3 + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under the curve of the function. It is found by taking the antiderivative of the function."
+  },
+  {
+    "QuestionText": "What is the limit of f(x) = 1\/x as x approaches infinity?",
+    "Answer": "0",
+    "Difficulty": 2,
+    "Explanation": "The limit of a function is the value that the function approaches as the input approaches a certain value. It can be found by evaluating the function at values very close to the input value."
+  },
+  {
+    "QuestionText": "What is the limit of f(x) = (x^2 - 1)\/(x - 1) as x approaches 1?",
+    "Answer": "2",
+    "Difficulty": 2,
+    "Explanation": "The limit of a function is the value that the function approaches as the input approaches a certain value. It can be found by evaluating the function at values very close to the input value."
+  },
+  {
+    "QuestionText": "What is the derivative of f(x) = sin(x)?",
+    "Answer": "cos(x)",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which the function is changing at a particular point. It is found by taking the limit of the difference quotient as the change in x approaches zero."
+  },
+  {
+    "QuestionText": "What is the integral of f(x) = cos(x)?",
+    "Answer": "sin(x) + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under the curve of the function. It is found by taking the antiderivative of the function."
+  },
+  {
+    "QuestionText": "What is the limit of f(x) = e^x as x approaches negative infinity?",
+    "Answer": "0",
+    "Difficulty": 2,
+    "Explanation": "The limit of a function is the value that the function approaches as the input approaches a certain value. It can be found by evaluating the function at values very close to the input value."
+  },
+  {
+    "QuestionText": "What is the limit of f(x) = ln(x) as x approaches 0?",
+    "Answer": "undefined",
+    "Difficulty": 2,
+    "Explanation": "The limit of a function is the value that the function approaches as the input approaches a certain value. It can be found by evaluating the function at values very close to the input value."
+  },
+  {
+    "QuestionText": "What is the derivative of f(x) = e^x?",
+    "Answer": "e^x",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which the function is changing at a particular point. It is found by taking the limit of the difference quotient as the change in x approaches zero."
+  },
+  {
+    "QuestionText": "What is the integral of f(x) = 1\/x?",
+    "Answer": "ln|x| + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under the curve of the function. It is found by taking the antiderivative of the function."
+  },
+  {
+    "QuestionText": "What is the value of pi?",
+    "Answer": "3.14159265359",
+    "Difficulty": 0,
+    "Explanation": "Pi is a mathematical constant that represents the ratio of a circle's circumference to its diameter."
+  },
+  {
+    "QuestionText": "What is the square root of 64?",
+    "Answer": "8",
+    "Difficulty": 0,
+    "Explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number."
+  },
+  {
+    "QuestionText": "What is the sum of 2 and 5?",
+    "Answer": "7",
+    "Difficulty": 0,
+    "Explanation": "The sum of two numbers is the result of adding them together."
+  },
+  {
+    "QuestionText": "What is the product of 3 and 4?",
+    "Answer": "12",
+    "Difficulty": 0,
+    "Explanation": "The product of two numbers is the result of multiplying them together."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x + 5 = 11?",
+    "Answer": "3",
+    "Difficulty": 0,
+    "Explanation": "To solve for x, we need to isolate it on one side of the equation. Subtracting 5 from both sides gives us 2x = 6. Dividing both sides by 2 gives us x = 3."
+  },
+  {
+    "QuestionText": "What is the area of a square with side length 6?",
+    "Answer": "36",
+    "Difficulty": 0,
+    "Explanation": "The area of a square is the product of its side lengths."
+  },
+  {
+    "QuestionText": "What is the perimeter of a rectangle with length 8 and width 5?",
+    "Answer": "26",
+    "Difficulty": 0,
+    "Explanation": "The perimeter of a rectangle is the sum of its side lengths."
+  },
+  {
+    "QuestionText": "What is the volume of a cube with side length 3?",
+    "Answer": "27",
+    "Difficulty": 0,
+    "Explanation": "The volume of a cube is the product of its side lengths."
+  },
+  {
+    "QuestionText": "What is the circumference of a circle with radius 4?",
+    "Answer": "25.13274122872",
+    "Difficulty": 0,
+    "Explanation": "The circumference of a circle is the product of its diameter and pi."
+  },
+  {
+    "QuestionText": "What is the slope of the line passing through the points (2, 3) and (4, 7)?",
+    "Answer": "2",
+    "Difficulty": 1,
+    "Explanation": "The slope of a line is the change in y over the change in x between two points on the line. In this case, the change in y is 7 - 3 = 4 and the change in x is 4 - 2 = 2. So the slope is 4\/2 = 2."
+  },
+  {
+    "QuestionText": "What is the equation of the line passing through the points (2, 3) and (4, 7)?",
+    "Answer": "y = 2x - 1",
+    "Difficulty": 1,
+    "Explanation": "To find the equation of a line, we need to know its slope and y-intercept. We already found the slope to be 2 in the previous QuestionText. To find the y-intercept, we can use the point-slope form of the equation: y - y1 = m(x - x1), where (x1, y1) is one of the points on the line. Using (2, 3), we get y - 3 = 2(x - 2). Simplifying gives us y = 2x - 1."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 3x - 2 = 4x + 1?",
+    "Answer": "-3",
+    "Difficulty": 1,
+    "Explanation": "To solve for x, we need to isolate it on one side of the equation. Subtracting 3x from both sides gives us -2 = x + 1. Subtracting 1 from both sides gives us -3 = x."
+  },
+  {
+    "QuestionText": "What is the area of a triangle with base 6 and height 8?",
+    "Answer": "24",
+    "Difficulty": 1,
+    "Explanation": "The area of a triangle is half the product of its base and height."
+  },
+  {
+    "QuestionText": "What is the volume of a cylinder with radius 2 and height 5?",
+    "Answer": "62.8318530718",
+    "Difficulty": 1,
+    "Explanation": "The volume of a cylinder is the product of its base area (pi times the square of the radius) and its height."
+  },
+  {
+    "QuestionText": "What is the surface area of a sphere with radius 3?",
+    "Answer": "113.0973355292",
+    "Difficulty": 1,
+    "Explanation": "The surface area of a sphere is 4 times pi times the square of its radius."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation 2x^2 + 5x - 3 = 0?",
+    "Answer": "0.5 or -3",
+    "Difficulty": 1,
+    "Explanation": "To solve for x, we can use the quadratic formula: x = (-b \u00b1 sqrt(b^2 - 4ac)) \/ 2a, where a, b, and c are the coefficients of the quadratic equation. In this case, a = 2, b = 5, and c = -3. Plugging in these values gives us x = (-5 \u00b1 sqrt(5^2 - 4(2)(-3))) \/ 2(2), which simplifies to x = (-5 \u00b1 sqrt(49)) \/ 4. So x = (-5 + 7) \/ 4 = 0.5 or x = (-5 - 7) \/ 4 = -3."
+  },
+  {
+    "QuestionText": "What is the probability of rolling a 6 on a fair six-sided die?",
+    "Answer": "0.16666666667",
+    "Difficulty": 1,
+    "Explanation": "The probability of an event is the number of favorable outcomes divided by the total number of possible outcomes. In this case, there is only one favorable outcome (rolling a 6) out of six possible outcomes (rolling a 1, 2, 3, 4, 5, or 6). So the probability is 1\/6, which is approximately 0.16666666667."
+  },
+  {
+    "QuestionText": "What is the mean of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The mean of a set of numbers is the sum of the numbers divided by the total number of numbers. In this case, the sum is 2 + 4 + 6 + 8 = 20, and there are 4 numbers. So the mean is 20\/4 = 5."
+  },
+  {
+    "QuestionText": "What is the median of the numbers 2, 4, 6, and 8?",
+    "Answer": "5",
+    "Difficulty": 1,
+    "Explanation": "The median of a set of numbers is the middle number when the numbers are arranged in order. In this case, the numbers are already in order, so the median is the average of the two middle numbers, which are 4 and 6. So the median is (4 + 6) \/ 2 = 5."
+  },
+  {
+    "QuestionText": "What is the mode of the numbers 2, 4, 6, and 8?",
+    "Answer": "No mode",
+    "Difficulty": 1,
+    "Explanation": "The mode of a set of numbers is the number that appears most frequently. In this case, there is no number that appears more than once, so there is no mode."
+  },
+  {
+    "QuestionText": "What is the range of the numbers 2, 4, 6, and 8?",
+    "Answer": "6",
+    "Difficulty": 1,
+    "Explanation": "The range of a set of numbers is the difference between the largest and smallest numbers. In this case, the largest number is 8 and the smallest number is 2, so the range is 8 - 2 = 6."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation log(x) = 2?",
+    "Answer": "100",
+    "Difficulty": 2,
+    "Explanation": "The logarithm of a number is the exponent to which a given base must be raised to produce that number. In this case, the base is assumed to be 10 (since there is no subscript), so log(x) = 2 means that 10^2 = x. So x = 100."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation e^x = 20?",
+    "Answer": "ln(20)",
+    "Difficulty": 2,
+    "Explanation": "The natural logarithm of a number is the logarithm to the base e (approximately 2.71828). In this case, we can take the natural logarithm of both sides of the equation to get x = ln(20)."
+  },
+  {
+    "QuestionText": "What is the derivative of x^2 with respect to x?",
+    "Answer": "2x",
+    "Difficulty": 2,
+    "Explanation": "The derivative of a function is the rate at which the function is changing at a given point. In this case, the derivative of x^2 is 2x, which means that the rate of change of x^2 is 2x at any given point."
+  },
+  {
+    "QuestionText": "What is the integral of 2x with respect to x?",
+    "Answer": "x^2 + C",
+    "Difficulty": 2,
+    "Explanation": "The integral of a function is the area under the curve of the function. In this case, the integral of 2x is x^2 + C, where C is the constant of integration."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation sin(x) = 0.5?",
+    "Answer": "pi\/6 or 5pi\/6",
+    "Difficulty": 2,
+    "Explanation": "The sine function is a periodic function that oscillates between -1 and 1. In this case, sin(x) = 0.5 means that x is either pi\/6 or 5pi\/6, since these are the angles for which sin(x) = 0.5."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation cos(x) = -0.8?",
+    "Answer": "2.4980915448 or 4.6831853072",
+    "Difficulty": 2,
+    "Explanation": "The cosine function is a periodic function that oscillates between -1 and 1. In this case, cos(x) = -0.8 means that x is either 2.4980915448 or 4.6831853072 (in radians), since these are the angles for which cos(x) = -0.8."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation tan(x) = 1?",
+    "Answer": "pi\/4 or 5pi\/4",
+    "Difficulty": 2,
+    "Explanation": "The tangent function is a periodic function that has vertical asymptotes at odd multiples of pi\/2. In this case, tan(x) = 1 means that x is either pi\/4 or 5pi\/4, since these are the angles for which tan(x) = 1."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation cot(x) = -1?",
+    "Answer": "3pi\/4 or 7pi\/4",
+    "Difficulty": 2,
+    "Explanation": "The cotangent function is the reciprocal of the tangent function. In this case, cot(x) = -1 means that tan(x) = -1, which means that x is either 3pi\/4 or 7pi\/4, since these are the angles for which tan(x) = -1."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation sec(x) = 2?",
+    "Answer": "pi\/3 or 5pi\/3",
+    "Difficulty": 2,
+    "Explanation": "The secant function is the reciprocal of the cosine function. In this case, sec(x) = 2 means that cos(x) = 1\/2, which means that x is either pi\/3 or 5pi\/3, since these are the angles for which cos(x) = 1\/2."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation csc(x) = 2?",
+    "Answer": "pi\/6 or 5pi\/6",
+    "Difficulty": 2,
+    "Explanation": "The cosecant function is the reciprocal of the sine function. In this case, csc(x) = 2 means that sin(x) = 1\/2, which means that x is either pi\/6 or 5pi\/6, since these are the angles for which sin(x) = 1\/2."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation arctan(x) = pi\/4?",
+    "Answer": "1",
+    "Difficulty": 2,
+    "Explanation": "The arctangent function is the inverse of the tangent function. In this case, arctan(x) = pi\/4 means that x = tan(pi\/4) = 1."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation arcsin(x) = pi\/6?",
+    "Answer": "1\/2",
+    "Difficulty": 2,
+    "Explanation": "The arcsine function is the inverse of the sine function. In this case, arcsin(x) = pi\/6 means that x = sin(pi\/6) = 1\/2."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation arccos(x) = pi\/3?",
+    "Answer": "1\/2",
+    "Difficulty": 2,
+    "Explanation": "The arccosine function is the inverse of the cosine function. In this case, arccos(x) = pi\/3 means that x = cos(pi\/3) = 1\/2."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation sinh(x) = 2?",
+    "Answer": "ln(2 + sqrt(5))",
+    "Difficulty": 2,
+    "Explanation": "The hyperbolic sine function is a function that is similar to the sine function, but with a different formula. In this case, sinh(x) = 2 means that x = ln(2 + sqrt(5))."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation cosh(x) = 3?",
+    "Answer": "cosh^-1(3)",
+    "Difficulty": 2,
+    "Explanation": "The hyperbolic cosine function is a function that is similar to the cosine function, but with a different formula. In this case, cosh(x) = 3 means that x = cosh^-1(3), which is the inverse hyperbolic cosine function."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation tanh(x) = 0.5?",
+    "Answer": "tanh^-1(0.5)",
+    "Difficulty": 2,
+    "Explanation": "The hyperbolic tangent function is a function that is similar to the tangent function, but with a different formula. In this case, tanh(x) = 0.5 means that x = tanh^-1(0.5), which is the inverse hyperbolic tangent function."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation coth(x) = 2?",
+    "Answer": "coth^-1(0.5)",
+    "Difficulty": 2,
+    "Explanation": "The hyperbolic cotangent function is the reciprocal of the hyperbolic tangent function. In this case, coth(x) = 2 means that tanh(x) = 0.5, which means that x = tanh^-1(0.5), which is the inverse hyperbolic tangent function."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation sech(x) = 0.5?",
+    "Answer": "sech^-1(2)",
+    "Difficulty": 2,
+    "Explanation": "The hyperbolic secant function is the reciprocal of the hyperbolic cosine function. In this case, sech(x) = 0.5 means that cosh(x) = 2, which means that x = cosh^-1(2), which is the inverse hyperbolic cosine function."
+  },
+  {
+    "QuestionText": "What is the value of x in the equation csch(x) = 2?",
+    "Answer": "csch^-1(0.5)",
+    "Difficulty": 2,
+    "Explanation": "The hyperbolic cosecant function is the reciprocal of the hyperbolic sine function. In this case, csch(x) = 2 means that sinh(x) = 0.5, which means that x = sinh^-1(0.5), which is the inverse hyperbolic sine function."
+  }
+]
