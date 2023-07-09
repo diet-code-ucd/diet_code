@@ -7,6 +7,7 @@ public class User {
      public int Id { get; set;}
      public string Username { get; set;}
      public string Password { get; set;}
+     public DateOnly DateOfBirth { get; set;}
      public virtual ICollection<Course>? EnrolledCourses { get; set;}
      public virtual ICollection<Test>? Tests { get; set;}
 }

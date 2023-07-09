@@ -1,0 +1,107 @@
+[
+  {
+    "QuestionText": "What is the formula for calculating the acceleration of an object?",
+    "Answer": "a = (v2 - v1) / t",
+    "Difficulty": 1,
+    "Explanation": "Acceleration is the rate of change of velocity over time. The formula for calculating acceleration is a = (v2 - v1) / t, where v2 is the fin
+al velocity, v1 is the initial velocity, and t is the time taken."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the force of an object?",
+    "Answer": "F = m * a",
+    "Difficulty": 1,
+    "Explanation": "Force is the product of mass and acceleration. The formula for calculating force is F = m * a, where m is the mass of the object and a is th
+e acceleration of the object."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the momentum of an object?",
+    "Answer": "p = m * v",
+    "Difficulty": 1,
+    "Explanation": "Momentum is the product of mass and velocity. The formula for calculating momentum is p = m * v, where m is the mass of the object and v is 
+the velocity of the object."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the kinetic energy of an object?",
+    "Answer": "KE = 1/2 * m * v2",
+    "Difficulty": 1,
+    "Explanation": "Kinetic energy is the energy of an object due to its motion. The formula for calculating kinetic energy is KE = 1/2 * m * v2, where m is the
+ mass of the object and v is the velocity of the object."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the potential energy of an object?",
+    "Answer": "PE = m * g * h",
+    "Difficulty": 1,
+    "Explanation": "Potential energy is the energy of an object due to its position. The formula for calculating potential energy is PE = m * g * h, where m is 
+the mass of the object, g is the acceleration due to gravity, and h is the height of the object."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the work done by a force?",
+    "Answer": "W = F * d",
+    "Difficulty": 1,
+    "Explanation": "Work is the product of force and distance. The formula for calculating work is W = F * d, where F is the force applied and d is the distance
+ moved."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the power of an object?",
+    "Answer": "P = W / t",
+    "Difficulty": 1,
+    "Explanation": "Power is the rate of doing work. The formula for calculating power is P = W / t, where W is the work done and t is the time taken."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the speed of an object?",
+    "Answer": "v = d / t",
+    "Difficulty": 1,
+    "Explanation": "Speed is the rate of change of distance. The formula for calculating speed is v = d / t, where d is the distance traveled and t is the time 
+taken."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the gravitational force between two objects?",
+    "Answer": "F = G * (m1 * m2) / r2",
+    "Difficulty": 1,
+    "Explanation": "Gravitational force is the force of attraction between two objects due to their masses. The formula for calculating gravitational force is F
+ = G * (m1 * m2) / r2, where G is the gravitational constant, m1 and m2 are the masses of the two objects, and r is the distance between them."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the centripetal force of an object?",
+    "Answer": "F = m * v2 / r",
+    "Difficulty": 1,
+    "Explanation": "Centripetal force is the force that keeps an object moving in a circular path. The formula for calculating centripetal force is F = m * v2 /
+ r, where m is the mass of the object, v is the velocity of the object, and r is the radius of the circular path."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the angular momentum of an object?",
+    "Answer": "L = m * r * v",
+    "Difficulty": 1,
+    "Explanation": "Angular momentum is the product of mass, radius, and velocity. The formula for calculating angular momentum is L = m * r * v, where m is the
+ mass of the object, r is the radius of the circular path, and v is the velocity of the object."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the period of a pendulum?",
+    "Answer": "T = 2π * √(l / g)",
+    "Difficulty": 1,
+    "Explanation": "The period of a pendulum is the time it takes for the pendulum to complete one full swing. The formula for calculating the period of a pendu
+lum is T = 2π * √(l / g), where l is the length of the pendulum and g is the acceleration due to gravity."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the frequency of a wave?",
+    "Answer": "f = v / λ",
+    "Difficulty": 1,
+    "Explanation": "Frequency is the number of waves that pass a given point in a given time. The formula for calculating frequency is f = v / λ, where v is the
+ velocity of the wave and λ is the wavelength of the wave."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the pressure of a gas?",
+    "Answer": "P = F / A",
+    "Difficulty": 1,
+    "Explanation": "Pressure is the force per unit area. The formula for calculating pressure is P = F / A, where F is the force applied and A is the area over 
+which the force is applied."
+  },
+  {
+    "QuestionText": "What is the formula for calculating the temperature of an object?",
+    "Answer": "T = (Q / m) * c",
+    "Difficulty": 1,
+    "Explanation": "Temperature is the measure of the average kinetic energy of the particles in an object. The formula for calculating temperature is T = (Q / 
+m) * c, where Q is the heat energy, m is the mass of the object, and c is the specific heat capacity of the object."
+  }
+]
+
