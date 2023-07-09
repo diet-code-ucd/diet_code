@@ -1,30 +1,42 @@
 using Backend.Codecs;
 using Backend.Models;
 using Backend.Utils;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Services;
 
 public interface ITestService
 {
-    public Test GenerateTest(Course course, User user, Difficulty difficulty, int numberOfQuestions);
+    public Task<Test> GenerateTest(Course course, User user, Difficulty difficulty, int numberOfQuestions);
     public TestResult GradeTest(TestSubmission test);
 }
+
 public class TestService : ITestService
 {
     private readonly DatabaseContext _context;
-    public TestService(DatabaseContext context)
+    private readonly IMLService _mlService;
+
+    public TestService(DatabaseContext context, IMLService mlService)
     {
         _context = context;
+        _mlService = mlService;
     }
-    public Test GenerateTest(Course course, User user, Difficulty difficulty, int numberOfQuestions)
+
+
+    public async Task<Test> GenerateTest(Course course, User user, Difficulty difficulty, int numberOfQuestions)
     {
         List<Question> availableQuestions = GetAvailableQuestions(course, user, difficulty);
         availableQuestions.ShuffleList();
         List<Question> selectedQuestions = availableQuestions.Take(numberOfQuestions).ToList();
         if (selectedQuestions.Count < numberOfQuestions)
         {
-            throw new Exception("Not enough questions available"); // Replace with OpenAI API call
+          List<Question> newQuestions = await _mlService.GenerateQuestions(course, user, difficulty, numberOfQuestions - selectedQuestions.Count);
+          // Add new questions to the course
+          newQuestions.ForEach(q => course.Questions.Add(q));
+          _context.AddRange(newQuestions);
+          _context.Entry(course).State = EntityState.Modified;
+          await _context.SaveChangesAsync();
+          selectedQuestions.AddRange(newQuestions);
         }
         Test test = new Test{
             Questions = selectedQuestions
