@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<ITestService, TestService>();
+builder.Services.AddScoped<IMLService, MLService>();
 
 builder.Services.AddCors(options =>
 {

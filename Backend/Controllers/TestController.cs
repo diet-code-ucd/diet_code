@@ -103,7 +103,7 @@ namespace Backend.Controllers
                 return NotFound();
             }
             
-            Test test = _testService.GenerateTest(course, user, generateTest.Difficulty, generateTest.NumberOfQuestions);
+            Test test = await _testService.GenerateTest(course, user, generateTest.Difficulty, generateTest.NumberOfQuestions);
             _context.Tests.Add(test);
             
             user.Tests.Add(test);
