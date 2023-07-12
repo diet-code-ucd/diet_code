@@ -1,0 +1,20 @@
+services:
+  its-be:
+    build: 
+      context: ./Backend
+      args:
+        version: Development
+    ports:
+      - 9090:80
+  db:
+    image: mcr.microsoft.com/azure-sql-edge
+    environment:
+      - ACCEPT_EULA=1
+      - MSSQL_SA_PASSWORD=testPW123
+    cap_add:
+      - SYS_PTRACE
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
