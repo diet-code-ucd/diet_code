@@ -481,3 +481,5 @@ $RECYCLE.BIN/
 .vscode
 
 .DS_Store
+
+.azure
