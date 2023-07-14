@@ -2,10 +2,12 @@ services:
   its-be:
     build: 
       context: ./Backend
-      args:
-        version: Development
     ports:
       - 9090:80
+    environment:
+      - DOTNET_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Development
+      - SQLAZURECONNSTR_DatabaseContext=Server=db;Database=master;User Id=sa;Password=testPW123;Encrypt=False;
   db:
     image: mcr.microsoft.com/azure-sql-edge
     environment:
