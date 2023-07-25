@@ -1,0 +1,6 @@
+[DATABASE]
+provider = "mysql"
+host = "localhost:3306"
+user = "its_admin"
+passwd = "test123"
+db = "its-mysql"

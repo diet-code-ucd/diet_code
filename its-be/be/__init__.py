@@ -1,3 +1,4 @@
+import tomllib
 from flask import Flask
 from pony.flask import Pony
 from flask_login import LoginManager, login_required
@@ -5,6 +6,8 @@ from .models.database import db
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
+    app.config.from_file("config.toml", load=tomllib.load, text=False)
+    print(">>>>>>>>" + app.config)
     app.config.update(dict(
         DEBUG = False,
         SECRET_KEY = 'dev',
