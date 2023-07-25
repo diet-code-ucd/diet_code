@@ -8,7 +8,6 @@ def create_app():
     app = Flask(__name__)
     app.config.from_file("config.toml", load=tomllib.load, text=False)
     app.config.from_prefixed_env()
-    print(">>>>>>>>" + app.config.items().__str__())
 
     db.bind(**app.config['DATABASE'])
     db.generate_mapping(create_tables=True)
