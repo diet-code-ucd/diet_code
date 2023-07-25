@@ -1,0 +1,13 @@
+[project]
+name = "its"
+version = "1.0.0"
+description = "Intelligent Tutoring System"
+dependencies = [
+  "flask",
+  "flask-login",
+  "pony"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
