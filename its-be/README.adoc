@@ -1,0 +1,18 @@
+= ITS Python Edition
+== Setup
+[source,bash]
+----
+pip install -e .
+----
+== Running
+[source,bash]
+----
+flask --app be run --debug
+----
+== Build
+[source,bash]
+----
+docker build . -t its-be:latest
+
+docker run -p 8080 --rm its-be:latest
+----
