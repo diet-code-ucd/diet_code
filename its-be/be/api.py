@@ -13,6 +13,6 @@ def get_courses():
 
 @bp.route('/tests', methods=['GET'])
 @login_required
-def get_courses():
+def get_tests():
     user = db.User.get(username=current_user.username)
     return json.dumps([c.to_dict() for c in user.tests])
