@@ -1,0 +1,8 @@
+SECRET_KEY = "dev"
+
+[DATABASE]
+provider = "mysql"
+host = "localhost"
+user = "its_admin"
+password = "test123"
+db = "its-mysql"

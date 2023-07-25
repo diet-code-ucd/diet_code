@@ -1,19 +1,13 @@
+import tomllib
 from flask import Flask
 from pony.flask import Pony
 from flask_login import LoginManager, login_required
 from .models.database import db
 
 def create_app():
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.update(dict(
-        DEBUG = False,
-        SECRET_KEY = 'dev',
-        DATABASE = {
-            'provider': 'sqlite',
-            'filename': 'its.sqlite',
-            'create_db': True
-        }
-    ))
+    app = Flask(__name__)
+    app.config.from_file("config.toml", load=tomllib.load, text=False)
+    app.config.from_prefixed_env()
 
     db.bind(**app.config['DATABASE'])
     db.generate_mapping(create_tables=True)
