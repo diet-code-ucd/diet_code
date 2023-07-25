@@ -16,3 +16,12 @@ docker build . -t its-be:latest
 
 docker run -p 8080 --rm its-be:latest
 ----
+== Tech
+This uses the following technologies:
+* https://flask.palletsprojects.com/[Flask]
+* https://flask-login.readthedocs.io/en/latest/[Flask-Login]
+* https://ponyorm.org/[PonyORM]
+
+Flask handles the web requests and responses, Flask-Login handles the user authentication, and PonyORM handles the database.
+
+The app setup occurs in *be/__init__.py*. All the routes for the login are in *be/auth.py* and the api for interacting with the backend are in *be/api.py*.

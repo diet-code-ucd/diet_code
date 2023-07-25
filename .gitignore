@@ -485,4 +485,6 @@ $RECYCLE.BIN/
 .azure
 
 its.database
+its.sqlite
+pyrightconfig.json
 
