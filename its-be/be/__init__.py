@@ -1,4 +1,3 @@
-import tomllib
 from flask import Flask
 from pony.flask import Pony
 from flask_login import LoginManager, login_required

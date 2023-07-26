@@ -1,0 +1,123 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "answer": "Paris",
+    "options": ["London", "Berlin", "Rome", "Paris"],
+    "tags": ["geography", "capital cities"]
+  },
+  {
+    "question": "Which is the largest ocean in the world?",
+    "answer": "Pacific Ocean",
+    "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+    "tags": ["geography", "oceans"]
+  },
+  {
+    "question": "Which is the longest river in the world?",
+    "answer": "Nile",
+    "options": ["Amazon", "Yangtze", "Mississippi", "Nile"],
+    "tags": ["geography", "rivers"]
+  },
+  {
+    "question": "What is the highest mountain in the world?",
+    "answer": "Mount Everest",
+    "options": ["K2", "Kangchenjunga", "Lhotse", "Mount Everest"],
+    "tags": ["geography", "mountains"]
+  },
+  {
+    "question": "Which country has the largest population in the world?",
+    "answer": "China",
+    "options": ["India", "United States", "Indonesia", "China"],
+    "tags": ["geography", "population"]
+  },
+  {
+    "question": "Which is the largest continent by land area?",
+    "answer": "Asia",
+    "options": ["Africa", "North America", "Europe", "Asia"],
+    "tags": ["geography", "continents"]
+  },
+  {
+    "question": "Which is the smallest country in the world by land area?",
+    "answer": "Vatican City",
+    "options": ["Monaco", "Nauru", "Tuvalu", "Vatican City"],
+    "tags": ["geography", "countries"]
+  },
+  {
+    "question": "Which country has the most number of official languages?",
+    "answer": "Zimbabwe",
+    "options": ["India", "South Africa", "Canada", "Zimbabwe"],
+    "tags": ["geography", "languages"]
+  },
+  {
+    "question": "Which is the largest desert in the world?",
+    "answer": "Sahara",
+    "options": ["Arabian", "Gobi", "Kalahari", "Sahara"],
+    "tags": ["geography", "deserts"]
+  },
+  {
+    "question": "Which is the longest coastline in the world?",
+    "answer": "Canada",
+    "options": ["Australia", "Russia", "Indonesia", "Canada"],
+    "tags": ["geography", "coastlines"]
+  },
+  {
+    "question": "Which is the largest country in the world by land area?",
+    "answer": "Russia",
+    "options": ["Canada", "China", "United States", "Russia"],
+    "tags": ["geography", "countries"]
+  },
+  {
+    "question": "Which is the deepest point in the world's oceans?",
+    "answer": "Mariana Trench",
+    "options": ["Java Trench", "Puerto Rico Trench", "Tonga Trench", "Mariana Trench"],
+    "tags": ["geography", "oceans"]
+  },
+  {
+    "question": "Which is the largest lake in the world by surface area?",
+    "answer": "Caspian Sea",
+    "options": ["Lake Superior", "Lake Victoria", "Lake Huron", "Caspian Sea"],
+    "tags": ["geography", "lakes"]
+  },
+  {
+    "question": "Which is the longest mountain range in the world?",
+    "answer": "Andes",
+    "options": ["Rocky Mountains", "Himalayas", "Alps", "Andes"],
+    "tags": ["geography", "mountains"]
+  },
+  {
+    "question": "Which is the largest island in the world?",
+    "answer": "Greenland",
+    "options": ["New Guinea", "Borneo", "Madagascar", "Greenland"],
+    "tags": ["geography", "islands"]
+  },
+  {
+    "question": "What is the capital of Australia?",
+    "answer": "Canberra",
+    "options": ["Sydney", "Melbourne", "Brisbane", "Canberra"],
+    "tags": ["geography", "capital cities"]
+  },
+  {
+    "question": "Which is the largest rainforest in the world?",
+    "answer": "Amazon Rainforest",
+    "options": ["Congo Rainforest", "Daintree Rainforest", "Sundarbans", "Amazon Rainforest"],
+    "tags": ["geography", "rainforests"]
+  },
+  {
+    "question": "Which is the largest country in Africa by land area?",
+    "answer": "Algeria",
+    "options": ["Democratic Republic of the Congo", "Sudan", "Libya", "Algeria"],
+    "tags": ["geography", "countries"]
+  },
+  {
+    "question": "Which is the smallest ocean in the world?",
+    "answer": "Arctic Ocean",
+    "options": ["Indian Ocean", "Southern Ocean", "Atlantic Ocean", "Arctic Ocean"],
+    "tags": ["geography", "oceans"]
+  },
+  {
+    "question": "Which is the highest waterfall in the world?",
+    "answer": "Angel Falls",
+    "options": ["Niagara Falls", "Victoria Falls", "Iguazu Falls", "Angel Falls"],
+    "tags": ["geography", "waterfalls"]
+  }
+]
+
