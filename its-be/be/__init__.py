@@ -6,7 +6,16 @@ from .models.database import db
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_file("config.toml", load=tomllib.load, text=False)
+    app.config.update(
+        SECRET_KEY = 'dev',
+        DATABASE = {
+            'provider': 'mysql',
+            'host': 'localhost',
+            'user': 'its_admin',
+            'password': 'test123',
+            'db': 'its-mysql'
+        }
+    )
     app.config.from_prefixed_env()
 
     db.bind(**app.config['DATABASE'])

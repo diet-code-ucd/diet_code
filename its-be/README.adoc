@@ -7,14 +7,14 @@ pip install -e .
 == Running
 [source,bash]
 ----
+docker-compose up -d
 flask --app be run --debug
 ----
 == Build
 [source,bash]
 ----
 docker build . -t its-be:latest
-
-docker run -p 8080 --rm its-be:latest
+docker run --network host --rm its-be:latest
 ----
 == Tech
 This uses the following technologies:
