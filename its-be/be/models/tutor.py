@@ -5,6 +5,7 @@ from .user import User
 class Course(db.Entity):
     name = Required(str)
     test = Set('Test')
+    questions = Set('Question')
     enrolled_users = Set(User)
 
 class Test(db.Entity):
@@ -14,10 +15,12 @@ class Test(db.Entity):
     for_user = Set(User)
 
 class Question(db.Entity):
+    course = Required(Course)
     tests = Set(Test)
     question = Required(str)
     answer = Required(str)
     options = Set('Option')
+    difficulty = Required(str)
     tags = Set('Tag')
     user_answers = Set('UserAnswer')
 
@@ -27,7 +30,7 @@ class Option(db.Entity):
 
 class Tag(db.Entity):
     question = Set(Question)
-    tag = Required(str)
+    tag = Required(str, unique=True)
 
 class UserAnswer(db.Entity):
     test = Required(Test)
