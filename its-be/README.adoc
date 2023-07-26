@@ -2,13 +2,13 @@
 == Setup
 [source,bash]
 ----
-pip install -e .
+pip3 install -e .
 ----
 == Running
 [source,bash]
 ----
 docker-compose up -d
-flask --app be run --debug
+flask --debug --app be run
 ----
 == Build
 [source,bash]
