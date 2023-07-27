@@ -15,43 +15,47 @@
             <div class="row">
                 <div class="col-6">
                     <div class="form-floating mb-3">
-                     <input asp-for="Input.FirstName" class="form-control" autocomplete="fisrtname" aria-required="true" placeholder="First Name" />
-                     <label asp-for="Input.FirstName">First Name</label>
-                     <span asp-validation-for="Input.FirstName" class="text-danger"></span>
-                     </div>
+                        <input asp-for="Input.FirstName" class="form-control" autocomplete="fisrtname" aria-required="true" placeholder="First Name" />
+                        <label asp-for="Input.FirstName">First Name</label>
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>
 
-                <div class="col-6">
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Last Name" />
-                    <label asp-for="Input.LastName">Last Name</label>
-                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
-                </div>
-                 </div>
-             </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.UserGoal" class="form-control" autocomplete="UserGoal" aria-required="true" placeholder="Your Goal" />
-                    <label asp-for="Input.UserGoal">Your Goal</label>
-                    <span asp-validation-for="Input.UserGoal" class="text-danger"></span>
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="Last Name" />
+                            <label asp-for="Input.LastName">Last Name</label>
+                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-
-        </div>
-
-             <div class="row">
-                 <div class="col-6">
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="Date of Birth" />
-                    <label asp-for="Input.DateOfBirth">Date of Birth</label>
-                    <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <select asp-for="Input.UserGoal" class="form-control" autocomplete="UserGoal" aria-required="true">
+                                <!-- Add option elements for the available choices -->
+                                <option value="Learn">Learn</option>
+                                <option value="Imporve">Improve</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                            <label asp-for="Input.UserGoal">Your Goal</label>
+                            <span asp-validation-for="Input.UserGoal" class="text-danger"></span>
+                        </div>
+                    </div>
                 </div>
 
-                 </div>
 
-             </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" placeholder="Date of Birth" />
+                            <label asp-for="Input.DateOfBirth">Date of Birth</label>
+                            <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
             <div class="form-floating mb-3">
