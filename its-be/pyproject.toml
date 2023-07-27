@@ -6,7 +6,8 @@ dependencies = [
   "flask",
   "flask-login",
   "pony",
-  "pymysql"
+  "pymysql",
+  "cryptography"
 ]
 
 [build-system]
