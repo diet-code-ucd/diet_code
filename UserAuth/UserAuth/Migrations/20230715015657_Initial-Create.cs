@@ -26,6 +26,22 @@ namespace UserAuth.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserRecord",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    TestCompleted = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    TestScore = table.Column<int>(type: "int", nullable: true),
+                    TestDifficulty = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+
+                },
+                constraints: table=>
+                {
+                    table.PrimaryKey("UserRecord", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
                 {
