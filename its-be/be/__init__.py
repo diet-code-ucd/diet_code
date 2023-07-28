@@ -1,7 +1,7 @@
 from flask import Flask
 from pony.flask import Pony
 from flask_login import LoginManager, login_required
-from .models.database import db
+from .models import db, User
 
 def create_app():
     app = Flask(__name__)
@@ -26,7 +26,7 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(user_id):
-        return db.User.get(id=user_id)
+        return User.get(id=user_id)
 
     @app.route('/ping')
     def ping():
