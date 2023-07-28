@@ -61,7 +61,7 @@ def generate_test():
         course = Course.get(id=request.form['course_id'])
         if course not in current_user.enrolled_courses:
             abort(403)
-        questions = Question.select().filter(course=1)
+        questions = Question.select().filter(course=course)
         available_questions = []
         for q in questions:
             if current_user not in q.tests.for_user:
