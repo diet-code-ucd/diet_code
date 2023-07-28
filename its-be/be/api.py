@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, redirect, request, url_for, abort
+from flask import Blueprint, jsonify, redirect, render_template, request, url_for, abort
 from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
@@ -73,6 +73,32 @@ def generate_test():
             <p><input type=submit value=Generate>
         </form>
     '''
+
+@test_bp.route('/<int:test_id>', methods=['GET', 'POST'])
+@login_required
+@db_session
+def test(test_id):
+    if request.method == 'POST':
+        test = Test.get(id=test_id)
+        if not test:
+            abort(404)
+        if current_user != test.for_user:
+            abort(403)
+        score = 0
+        print(request.form)
+        
+        for q in test.questions:
+            if q.answer == request.form.get(str(q.id)):
+                score += 1
+            
+        return jsonify({"score": score})
+    else:
+        test = Test.get(id=test_id)
+        if not test:
+            abort(404)
+        if current_user != test.for_user:
+            abort(403)
+        return render_template('api/test.html', test=test)
 
 bp.register_blueprint(course_bp)
 bp.register_blueprint(test_bp)
