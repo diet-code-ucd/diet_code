@@ -77,6 +77,7 @@ def generate_test():
     '''
 
 def query_ml():
+    print('hello')
     pass
 
 @test_bp.route('/<int:test_id>', methods=['GET', 'POST'])
