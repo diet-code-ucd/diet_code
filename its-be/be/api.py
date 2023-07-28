@@ -3,9 +3,8 @@ from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
 
-from be.models.tutor import UserAnswer
-
-from .models import Course, Test, Question
+from .models import Course, Test, Question, UserAnswer
+from .ml import generate_quiz
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -66,6 +65,9 @@ def generate_test():
         for q in questions:
             if current_user not in q.tests.for_user:
                 available_questions.append(q)
+        if len(available_questions) < 7:
+            generate_quiz(course.name)
+            abort(503)
         available_questions = random.sample(available_questions, 7)
         new_test = Test(for_user=current_user, course=course, questions=available_questions)
         return jsonify(new_test.to_dict())

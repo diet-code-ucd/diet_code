@@ -22,6 +22,7 @@ class Question(db.Entity):
     options = Set('Option')
     difficulty = Required(str)
     tags = Set('Tag')
+    explanations = Required(str)
     user_answers = Set('UserAnswer')
 
 class Option(db.Entity):
