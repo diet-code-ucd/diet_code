@@ -4,7 +4,7 @@ from .user import User
 
 class Course(db.Entity):
     name = Required(str)
-    test = Set('Test')
+    tests = Set('Test')
     questions = Set('Question')
     enrolled_users = Set(User)
 
@@ -12,7 +12,7 @@ class Test(db.Entity):
     course = Required(Course)
     questions = Set('Question')
     user_answers = Set('UserAnswer')
-    for_user = Set(User)
+    for_user = Required(User)
 
 class Question(db.Entity):
     course = Required(Course)
