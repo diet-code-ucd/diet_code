@@ -76,6 +76,9 @@ def generate_test():
         </form>
     '''
 
+def query_ml():
+    pass
+
 @test_bp.route('/<int:test_id>', methods=['GET', 'POST'])
 @login_required
 @db_session
