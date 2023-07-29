@@ -4,7 +4,7 @@ from pony.flask import db_session
 import random
 
 from .models import Course, Test, Question, UserAnswer
-from .ml import generate_quiz
+from .ml import generate_questions
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -66,8 +66,9 @@ def generate_test():
             if current_user not in q.tests.for_user:
                 available_questions.append(q)
         if len(available_questions) < 7:
-            generate_quiz(course.name)
-            abort(503)
+            #TODO change to async background task
+            generate_questions(course.name)
+            abort(203)
         available_questions = random.sample(available_questions, 7)
         new_test = Test(for_user=current_user, course=course, questions=available_questions)
         return jsonify(new_test.to_dict())

@@ -8,7 +8,10 @@ dependencies = [
   "pony",
   "pymysql",
   "cryptography",
-  "openai"
+  "langchain[all]",
+  "openai",
+  "numpy",
+  "pandas"
 ]
 
 [build-system]
