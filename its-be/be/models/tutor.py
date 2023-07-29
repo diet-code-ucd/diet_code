@@ -13,6 +13,8 @@ class Test(db.Entity):
     questions = Set('Question')
     user_answers = Set('UserAnswer')
     for_user = Required(User)
+    ready = Required(bool, default=False)
+    completed = Required(bool, default=False)
 
 class Question(db.Entity):
     course = Required(Course)

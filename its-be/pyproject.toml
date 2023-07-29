@@ -11,7 +11,8 @@ dependencies = [
   "langchain[all]",
   "openai",
   "numpy",
-  "pandas"
+  "pandas",
+  "celery"
 ]
 
 [build-system]

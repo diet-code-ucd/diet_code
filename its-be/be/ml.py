@@ -1,7 +1,3 @@
-from flask import current_app
-import openai
-from pony.flask import db_session
-
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts.chat import (
