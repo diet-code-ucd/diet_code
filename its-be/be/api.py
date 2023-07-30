@@ -1,11 +1,13 @@
+from celery import shared_task
 from flask import Blueprint, jsonify, redirect, render_template, request, url_for, abort
 from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
 
-from be.models.tutor import UserAnswer
+from pony.orm import commit, flush
 
-from .models import Course, Test, Question
+from .models import Course, Test, Question, UserAnswer
+from .ml import generate_questions
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -61,13 +63,11 @@ def generate_test():
         course = Course.get(id=request.form['course_id'])
         if course not in current_user.enrolled_courses:
             abort(403)
-        questions = Question.select().filter(course=course)
-        available_questions = []
-        for q in questions:
-            if current_user not in q.tests.for_user:
-                available_questions.append(q)
-        available_questions = random.sample(available_questions, 7)
-        new_test = Test(for_user=current_user, course=course, questions=available_questions)
+
+        new_test = Test(for_user=current_user, course=course)
+        commit()
+        #TODO: Actually make this async
+        add_questions_to_test.delay(new_test.id)
         return jsonify(new_test.to_dict())
     return '''
         <form method="post">
@@ -75,6 +75,24 @@ def generate_test():
             <p><input type=submit value=Generate>
         </form>
     '''
+
+@shared_task()
+@db_session
+def add_questions_to_test(test_id):
+    test = Test.get(id=test_id)
+    questions = Question.select().filter(course=test.course)
+    available_questions = []
+    for q in questions:
+        if test.for_user not in q.tests.for_user:
+            available_questions.append(q)
+    if len(available_questions) < 7:
+        generate_result = generate_questions(test.course.name)
+        for q in generate_result.questions:
+            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, difficulty=q.difficulty, explanation=q.explanation))
+        commit()
+    available_questions = random.sample(available_questions, 7)
+    test.questions = available_questions
+    test.ready = True
 
 @test_bp.route('/<int:test_id>', methods=['GET', 'POST'])
 @login_required

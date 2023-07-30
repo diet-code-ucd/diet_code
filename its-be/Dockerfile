@@ -1,4 +1,4 @@
-FROM python:3 as build-env
+FROM python:3.11.4-slim-bookworm as build-env
 WORKDIR /app
 COPY . ./
 RUN python -m venv /opt/venv
@@ -6,13 +6,14 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install build
 RUN python -m build --wheel
 RUN pip install .
-RUN pip install waitress
+RUN pip install langchain[all]
 
-FROM python:3
+FROM python:3.11.4-slim-bookworm
 WORKDIR /app
 RUN useradd -m its
 COPY --from=build-env /opt/venv /opt/venv
+COPY ./launchers/start-app.sh .
 RUN chown -R its:its /opt/venv /app
 USER its
 ENV PATH="/opt/venv/bin:$PATH"
-ENTRYPOINT [ "waitress-serve", "--call", "be:create_app" ]
+ENTRYPOINT [ "/app/start-app.sh" ]

@@ -9,5 +9,7 @@ services:
       MYSQL_PASSWORD: test123
       MYSQL_RANDOM_ROOT_PASSWORD: yes
       MYSQL_DATABASE: its-mysql
-    ports:
-      - 3306:3306
+    network_mode: host
+  kv:
+    image: redis
+    network_mode: host

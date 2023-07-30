@@ -13,6 +13,8 @@ class Test(db.Entity):
     questions = Set('Question')
     user_answers = Set('UserAnswer')
     for_user = Required(User)
+    ready = Required(bool, default=False)
+    completed = Required(bool, default=False)
 
 class Question(db.Entity):
     course = Required(Course)
@@ -22,6 +24,7 @@ class Question(db.Entity):
     options = Set('Option')
     difficulty = Required(str)
     tags = Set('Tag')
+    explanation = Required(str)
     user_answers = Set('UserAnswer')
 
 class Option(db.Entity):
