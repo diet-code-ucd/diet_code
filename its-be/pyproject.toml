@@ -3,16 +3,19 @@ name = "its"
 version = "1.0.0"
 description = "Intelligent Tutoring System"
 dependencies = [
+  "waitress",
   "flask",
   "flask-login",
   "pony",
   "pymysql",
   "cryptography",
+  "langchain",
   "langchain[all]",
   "openai",
   "numpy",
   "pandas",
-  "celery"
+  "celery",
+  "celery-redbeat",
 ]
 
 [build-system]

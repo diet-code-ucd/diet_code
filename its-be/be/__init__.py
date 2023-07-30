@@ -16,9 +16,11 @@ def create_app() -> Flask:
             'db': 'its-mysql'
         },
         QUEUE = {
-            'broker_url': 'redis://localhost',
-            'result_backend': 'redis://localhost',
-            'task_ignore_result': True
+            'broker_url': 'redis://localhost:6379/0',
+            'result_backend': 'redis://localhost:6379/0',
+            'task_ignore_result': True,
+            'task_serializer': 'pickle',
+            'accept_content': ['pickle'],
         }
     )
     app.config.from_prefixed_env()

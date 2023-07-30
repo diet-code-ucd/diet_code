@@ -10,6 +10,6 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: yes
       MYSQL_DATABASE: its-mysql
     network_mode: host
-  queue:
+  kv:
     image: redis
     network_mode: host
