@@ -6,10 +6,54 @@
 <div class="container mt-4">
   <h2>Course Details</h2>
   <ul>
-    <li>Course ID: {{ course.id }}</li>
+    <li id="course_id" data-value="{{ course.id }}">Course ID: {{ course.id }}</li>
     <li>Course Name: {{ course.name }}</li>
-    
+    {{course}}
     <!-- Add more course details as needed -->
   </ul>
+
+  {% if user_is_enrolled %}
+    <p>Enrollment Status: Enrolled</p>
+  {% else %}
+    <p>Enrollment Status: Not Enrolled</p>
+    <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
+    <p id="enrollment-status" class="mt-2"></p>
+  {% endif %}
 </div>
+
+<script>
+  // Function to enroll the user in the course
+  function enrollUserInCourse(course_id) {
+    fetch('/api/course/enroll', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({
+        course_id: course_id
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.id === course_id) {
+        document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
+        document.getElementById('enroll-button').disabled = true;
+      } else {
+        document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
+      }
+    })
+    .catch(error => {
+      console.error('Error enrolling in the course:', error);
+      document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
+    });
+  }
+
+  // Get the course ID from the data-value attribute
+  const course_id = document.getElementById("course_id").getAttribute('data-value');
+
+  // Add event listener for the Enroll button click
+  document.getElementById('enroll-button').addEventListener('click', function() {
+    enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
+  });
+</script>
 {% endblock %}

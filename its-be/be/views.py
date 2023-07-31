@@ -17,6 +17,10 @@ def home():
 @db_session
 def course_details(course_id):
     course = Course.get(id = course_id)
+    enrolled_courses = current_user.enrolled_courses
+    user_is_enrolled = False
+    if course in enrolled_courses:
+        user_is_enrolled = True
     if not course:
         abort(404)  
-    return render_template("course_details.html", course = course.to_dict())
+    return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled)
