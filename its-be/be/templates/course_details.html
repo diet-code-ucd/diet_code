@@ -8,11 +8,9 @@
   <ul>
     <li id="course_id" data-value="{{ course.id }}">Course ID: {{ course.id }}</li>
     <li>Course Name: {{ course.name }}</li>
-    {{course}}
-    <!-- Add more course details as needed -->
   </ul>
 
-  {% if user_is_enrolled %}
+  {% if enrolled %}
     <p>Enrollment Status: Enrolled</p>
   {% else %}
     <p>Enrollment Status: Not Enrolled</p>
