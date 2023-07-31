@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!-- {% block header %}
+  <h1>{% block title %}Test{% endblock %}</h1>
+{% endblock %} -->
+
+{% block content %}
+  <form method="post">
+    <ul>
+      {% for q in test.questions %}
+      <li>
+        <label for="question">{{ q.question }}</label>
+        {% if q.options.is_empty() %}
+        <input type="text" id="question" name="{{q.id}}" required>
+        {% else %}
+        <select id="question" name="{{q.id}}">
+        {% for o in q.options %}
+        <option value="{{o.option}}">{{ o.option }}</option>
+        {% endfor %}
+        </select>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}
