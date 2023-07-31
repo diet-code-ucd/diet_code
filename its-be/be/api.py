@@ -79,36 +79,53 @@ def add_questions_to_test(test_id):
     test.questions = available_questions
     test.ready = True
 
-@test_bp.route('/<int:test_id>', methods=['GET'])
+@test_bp.route('/<int:test_id>', methods=['GET', 'POST'])
 @login_required
 @db_session
 def get_test(test_id):
-    test = Test.get(id=test_id)
-    if not test:
-        abort(404)
-    if current_user != test.for_user:
-        abort(403)
-    test_dict = test.to_dict()
-    if not test.ready:
+    if request.method == 'POST':
+        test = Test.get(id=test_id)
+        if not test:
+            abort(404)
+        if current_user != test.for_user:
+            abort(403)
+        if test.completed or not test.ready:
+            abort(409)
+        for q in request.json['questions']:
+            question = Question.get(id=q['id'])
+            if not question:
+                abort(404)
+            if question not in test.questions:
+                abort(403)
+            UserAnswer(test=test, question=question, answer=q['user_answer'])
+
+    else:
+        test = Test.get(id=test_id)
+        if not test:
+            abort(404)
+        if current_user != test.for_user:
+            abort(403)
+        test_dict = test.to_dict()
+        if not test.ready:
+            return jsonify(test_dict)
+        if test.completed:
+            user_answers = [q for q in test.user_answers]
+            user_answers_dict = []
+            for a in user_answers:
+                q_dict = a.question.to_dict()
+                q_dict['user_answer'] = a.answer
+                del q_dict['course']
+                del q_dict['difficulty']
+                user_answers_dict.append(q_dict)
+            test_dict['questions'] = user_answers_dict
+            return jsonify(test_dict)
+        test_dict['questions'] = [q.to_dict() for q in test.questions]
+        for q in test_dict['questions']:
+            del q['answer']
+            del q['explanation']
+            del q['difficulty']
+            del q['course']
         return jsonify(test_dict)
-    if test.completed:
-        user_answers = [q for q in test.user_answers]
-        user_answers_dict = []
-        for a in user_answers:
-            q_dict = a.question.to_dict()
-            q_dict['user_answer'] = a.answer
-            del q_dict['course']
-            del q_dict['difficulty']
-            user_answers_dict.append(q_dict)
-        test_dict['questions'] = user_answers_dict
-        return jsonify(test_dict)
-    test_dict['questions'] = [q.to_dict() for q in test.questions]
-    for q in test_dict['questions']:
-        del q['answer']
-        del q['explanation']
-        del q['difficulty']
-        del q['course']
-    return jsonify(test_dict)
 
 #TODO move this
 @test_bp.route('/tmp/<int:test_id>', methods=['GET', 'POST'])
