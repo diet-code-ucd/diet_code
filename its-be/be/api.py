@@ -38,7 +38,7 @@ def enroll_course():
         current_user.enrolled_courses.add(course)
         return jsonify(course.to_dict())
     abort(409)
-    
+
  # /api/test
 test_bp = Blueprint('test', __name__, url_prefix='/test')
 
@@ -91,14 +91,17 @@ def get_test(test_id):
             abort(403)
         if test.completed or not test.ready:
             abort(409)
+        user_answers = []
         for q in request.json['questions']:
             question = Question.get(id=q['id'])
             if not question:
                 abort(404)
             if question not in test.questions:
                 abort(403)
-            UserAnswer(test=test, question=question, answer=q['user_answer'])
-
+            user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer']))
+        test.completed = True
+        test.user_answers = user_answers
+        return redirect(url_for('api.get_test', test_id=test_id))
     else:
         test = Test.get(id=test_id)
         if not test:
@@ -126,36 +129,6 @@ def get_test(test_id):
             del q['difficulty']
             del q['course']
         return jsonify(test_dict)
-
-#TODO move this
-@test_bp.route('/tmp/<int:test_id>', methods=['GET', 'POST'])
-@login_required
-@db_session
-def old_test(test_id):
-    if request.method == 'POST':
-        test = Test.get(id=test_id)
-        if not test:
-            abort(404)
-        if current_user != test.for_user:
-            abort(403)
-        answers = []
-        for q in test.questions:
-            answers.append(UserAnswer(test=test, question=q, answer=request.form.get(str(q.id))))
-        test.user_answers = answers
-        test.completed = True
-        score = 0
-        for ua in answers:
-            print(ua.question.answer + " == " + ua.answer + "?")
-            if ua.question.answer == ua.answer:
-                score += 1
-        return jsonify({"score": score})
-    else:
-        test = Test.get(id=test_id)
-        if not test:
-            abort(404)
-        if current_user != test.for_user:
-            abort(403)
-        return render_template('api/test.html', test=test)
 
 bp.register_blueprint(course_bp)
 bp.register_blueprint(test_bp)
