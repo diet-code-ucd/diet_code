@@ -1,24 +1,76 @@
 <!DOCTYPE html>
-<title>{% block title %}{% endblock %}</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<nav>
-  <h1>ITS</h1>
-  <ul>
-    {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    {% else %}
-      <li><a href="{{ url_for('auth.register') }}">Register</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
-    {% endif %}
-  </ul>
-</nav>
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
-</section>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Test{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <body>
+    {% set login_page = 'auth.login' %}
+    {% set register_page = 'auth.register' %}
+    {% set current_page = request.endpoint %}
+    {% set show_navbar = current_page not in [login_page, register_page] %}
+    
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">ITS</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav ml-auto">
+              {% if g.user %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/auth/logout">Logout</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/auth/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/auth/register">Register</a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+          {% block content %}{% endblock %}
+          {% for message in get_flashed_messages() %}
+             <div class="flash">{{ message }}</div>
+           {% endfor %}
+        </main>
+    </div>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

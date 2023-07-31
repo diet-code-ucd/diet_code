@@ -46,9 +46,10 @@ def create_app() -> Flask:
     def ping_auth():
         return 'authenticated pong'
 
-    from . import auth, api
+    from . import auth, api, views
     app.register_blueprint(auth.bp)
     app.register_blueprint(api.bp)
+    app.register_blueprint(views.views)
 
     return app 
 
@@ -63,4 +64,3 @@ def celery_init_app(app: Flask) -> Celery:
     celery_app.set_default()
     app.extensions["celery"] = celery_app
     return celery_app
-
