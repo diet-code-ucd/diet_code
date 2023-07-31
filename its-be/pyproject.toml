@@ -10,7 +10,6 @@ dependencies = [
   "pymysql",
   "cryptography",
   "langchain",
-  "langchain[all]",
   "openai",
   "numpy",
   "pandas",
