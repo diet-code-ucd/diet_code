@@ -19,9 +19,10 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
+
 //TODO: change this to take value from appsettings.json 
 builder.Services.AddDbContext<DatabaseContext>(opt =>
-    opt.UseNpgsql(builder.Configuration.GetConnectionString(nameof(DatabaseContext)))
+    opt.UseSqlServer(builder.Configuration.GetConnectionString(nameof(DatabaseContext)))
 );
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

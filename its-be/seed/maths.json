@@ -1,0 +1,147 @@
+[
+  {
+    "question": "What is the sum of angles in a triangle?",
+    "answer": "The sum of angles in a triangle is 180 degrees.",
+    "options": [],
+    "tags": ["mathematics", "geometry"]
+  },
+  {
+    "question": "What is the value of Pi up to three decimal places?",
+    "answer": "The value of Pi up to three decimal places is 3.142.",
+    "options": [],
+    "tags": ["mathematics", "constants"]
+  },
+  {
+    "question": "What is the square root of 81?",
+    "answer": "The square root of 81 is 9.",
+    "options": [],
+    "tags": ["mathematics", "arithmetic"]
+  },
+  {
+    "question": "What is the derivative of x^2?",
+    "answer": "The derivative of x^2 is 2x.",
+    "options": [],
+    "tags": ["mathematics", "calculus"]
+  },
+  {
+    "question": "What is the integral of x dx from 0 to 1?",
+    "answer": "The integral of x dx from 0 to 1 is 0.5.",
+    "options": [],
+    "tags": ["mathematics", "calculus"]
+  },
+  {
+    "question": "What is the area of a circle with radius r?",
+    "answer": "The area of a circle with radius r is Pi*r^2.",
+    "options": [],
+    "tags": ["mathematics", "geometry"]
+  },
+  {
+    "question": "What is the Pythagorean theorem?",
+    "answer": "The Pythagorean theorem is a^2 + b^2 = c^2, where c is the hypotenuse of a right triangle and a and b are the other two sides.",
+    "options": [],
+    "tags": ["mathematics", "geometry"]
+  },
+  {
+    "question": "What is the formula for the volume of a sphere?",
+    "answer": "The formula for the volume of a sphere is (4/3)Pi*r^3.",
+    "options": [],
+    "tags": ["mathematics", "geometry"]
+  },
+  {
+    "question": "What is the quadratic formula?",
+    "answer": "The quadratic formula is (-b ± sqrt(b^2 - 4ac)) / (2a).",
+    "options": [],
+    "tags": ["mathematics", "algebra"]
+  },
+  {
+    "question": "What is the sine of 90 degrees?",
+    "answer": "The sine of 90 degrees is 1.",
+    "options": [],
+    "tags": ["mathematics", "trigonometry"]
+  },
+  {
+    "question": "What is the cosine of 0 degrees?",
+    "answer": "The cosine of 0 degrees is 1.",
+    "options": [],
+    "tags": ["mathematics", "trigonometry"]
+  },
+  {
+    "question": "What is the tangent of 45 degrees?",
+    "answer": "The tangent of 45 degrees is 1.",
+    "options": [],
+    "tags": ["mathematics", "trigonometry"]
+  },
+  {
+    "question": "What is the natural logarithm of e?",
+    "answer": "The natural logarithm of e is 1.",
+    "options": [],
+    "tags": ["mathematics", "logarithms"]
+  },
+  {
+    "question": "What is the base-10 logarithm of 1000?",
+    "answer": "The base-10 logarithm of 1000 is 3.",
+    "options": [],
+    "tags": ["mathematics", "logarithms"]
+  },
+  {
+    "question": "What is the limit of (1/n) as n approaches infinity?",
+    "answer": "The limit of (1/n) as n approaches infinity is 0.",
+    "options": [],
+    "tags": ["mathematics", "calculus"]
+  },
+  {
+    "question": "What is the sum of the first n natural numbers?",
+    "answer": "The sum of the first n natural numbers is n*(n+1)/2.",
+    "options": [],
+    "tags": ["mathematics", "arithmetic"]
+  },
+  {
+    "question": "What is the sum of the squares of the first n natural numbers?",
+    "answer": "The sum of the squares of the first n natural numbers is n*(n+1)*(2n+1)/6.",
+    "options": [],
+    "tags": ["mathematics", "arithmetic"]
+  },
+  {
+    "question": "What is the sum of the cubes of the first n natural numbers?",
+    "answer": "The sum of the cubes of the first n natural numbers is (n*(n+1)/2)^2.",
+    "options": [],
+    "tags": ["mathematics", "arithmetic"]
+  },
+  {
+    "question": "What is Euler's formula?",
+    "answer": "Euler's formula is e^(ix) = cos(x) + i*sin(x).",
+    "options": [],
+    "tags": ["mathematics", "complex numbers"]
+  },
+  {
+    "question": "What is the binomial theorem?",
+    "answer": "The binomial theorem states that (a+b)^n = Σ (n choose k) * a^(n-k) * b^k, where the sum is from k=0 to n.",
+    "options": [],
+    "tags": ["mathematics", "algebra"]
+  },
+  {
+    "question": "What is the formula for the nth term of an arithmetic sequence?",
+    "answer": "The formula for the nth term of an arithmetic sequence is a + (n-1)d, where a is the first term and d is the common difference.",
+    "options": [],
+    "tags": ["mathematics", "sequences"]
+  },
+  {
+    "question": "What is the formula for the nth term of a geometric sequence?",
+    "answer": "The formula for the nth term of a geometric sequence is ar^(n-1), where a is the first term and r is the common ratio.",
+    "options": [],
+    "tags": ["mathematics", "sequences"]
+  },
+  {
+    "question": "What is the formula for the sum of the first n terms of a geometric series?",
+    "answer": "The formula for the sum of the first n terms of a geometric series is a*(1-r^n)/(1-r), where a is the first term and r is the common ratio.",
+    "options": [],
+    "tags": ["mathematics", "series"]
+  },
+  {
+    "question": "What is the formula for the sum of an infinite geometric series?",
+    "answer": "The formula for the sum of an infinite geometric series is a/(1-r), where a is the first term and r is the common ratio with |r|<1.",
+    "options": [],
+    "tags": ["mathematics", "series"]
+  }
+]
+

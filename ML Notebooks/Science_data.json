@@ -1,0 +1,1269 @@
+[
+  {
+    "question": "What is the smallest unit of life?",
+    "options": [
+      "Cell",
+      "Atom",
+      "Molecule",
+      "Organism"
+    ],
+    "answer": "Cell",
+    "justification": "Cells are the basic unit of life. All living organisms are made up of one or more cells."
+  },
+  {
+    "question": "What is the process by which plants make their own food?",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Digestion",
+      "Fermentation"
+    ],
+    "answer": "Photosynthesis",
+    "justification": "Photosynthesis is the process by which plants use sunlight, carbon dioxide, and water to make their own food."
+  },
+  {
+    "question": "What is the largest organ in the human body?",
+    "options": [
+      "Liver",
+      "Heart",
+      "Skin",
+      "Lungs"
+    ],
+    "answer": "Skin",
+    "justification": "The skin is the largest organ in the human body. It protects the body from external damage and helps regulate body temperature."
+  },
+  {
+    "question": "What is the name of the force that pulls objects towards the center of the Earth?",
+    "options": [
+      "Gravity",
+      "Magnetism",
+      "Friction",
+      "Inertia"
+    ],
+    "answer": "Gravity",
+    "justification": "Gravity is the force that pulls objects towards the center of the Earth. It is what keeps us on the ground and what keeps the planets in orbit around the sun."
+  },
+  {
+    "question": "What is the name of the process by which water changes from a liquid to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which water changes from a liquid to a gas. It occurs when water is heated or when the air is dry."
+  },
+  {
+    "question": "What is the name of the process by which water changes from a gas to a liquid?",
+    "options": [
+      "Condensation",
+      "Evaporation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which water changes from a gas to a liquid. It occurs when water vapor cools and turns into liquid droplets."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly into a gas?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly into a gas. It occurs when the solid is heated and the gas is cooled."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly into a solid?",
+    "options": [
+      "Deposition",
+      "Evaporation",
+      "Condensation",
+      "Freezing"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly into a solid. It occurs when the gas is cooled and the solid is formed."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a solid?",
+    "options": [
+      "Freezing",
+      "Melting",
+      "Evaporation",
+      "Condensation"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid changes into a solid. It occurs when the temperature of the liquid is lowered below its freezing point."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes into a liquid?",
+    "options": [
+      "Melting",
+      "Freezing",
+      "Evaporation",
+      "Condensation"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid changes into a liquid. It occurs when the temperature of the solid is raised above its melting point."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which a liquid changes into a gas. It occurs when the temperature of the liquid is raised and the liquid turns into a gas."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes into a liquid?",
+    "options": [
+      "Condensation",
+      "Evaporation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes into a liquid. It occurs when the temperature of the gas is lowered and the gas turns into a liquid."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly into a gas?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly into a gas. It occurs when the solid is heated and the gas is cooled."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly into a solid?",
+    "options": [
+      "Deposition",
+      "Evaporation",
+      "Condensation",
+      "Freezing"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly into a solid. It occurs when the gas is cooled and the solid is formed."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a solid?",
+    "options": [
+      "Freezing",
+      "Melting",
+      "Evaporation",
+      "Condensation"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid changes into a solid. It occurs when the temperature of the liquid is lowered below its freezing point."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes into a liquid?",
+    "options": [
+      "Melting",
+      "Freezing",
+      "Evaporation",
+      "Condensation"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid changes into a liquid. It occurs when the temperature of the solid is raised above its melting point."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which a liquid changes into a gas. It occurs when the temperature of the liquid is raised and the liquid turns into a gas."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes into a liquid?",
+    "options": [
+      "Condensation",
+      "Evaporation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes into a liquid. It occurs when the temperature of the gas is lowered and the gas turns into a liquid."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly into a gas?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly into a gas. It occurs when the solid is heated and the gas is cooled."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly into a solid?",
+    "options": [
+      "Deposition",
+      "Evaporation",
+      "Condensation",
+      "Freezing"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly into a solid. It occurs when the gas is cooled and the solid is formed."
+  },
+  {
+    "question": "What is the smallest unit of life?",
+    "options": [
+      "Cell",
+      "Atom",
+      "Molecule",
+      "Organism"
+    ],
+    "answer": "Cell",
+    "justification": "Cells are the basic unit of life. All living organisms are made up of one or more cells."
+  },
+  {
+    "question": "What is the process by which plants make their own food?",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Digestion",
+      "Fermentation"
+    ],
+    "answer": "Photosynthesis",
+    "justification": "Photosynthesis is the process by which plants use sunlight, carbon dioxide, and water to make their own food."
+  },
+  {
+    "question": "What is the largest organ in the human body?",
+    "options": [
+      "Liver",
+      "Heart",
+      "Skin",
+      "Brain"
+    ],
+    "answer": "Skin",
+    "justification": "The skin is the largest organ in the human body. It protects the body from external damage and helps regulate body temperature."
+  },
+  {
+    "question": "What is the name of the force that pulls objects towards each other?",
+    "options": [
+      "Gravity",
+      "Magnetism",
+      "Friction",
+      "Inertia"
+    ],
+    "answer": "Gravity",
+    "justification": "Gravity is the force that pulls objects towards each other. It is what keeps planets in orbit around the sun and causes objects to fall towards the ground."
+  },
+  {
+    "question": "What is the name of the process by which water changes from a liquid to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which water changes from a liquid to a gas. It occurs when water is heated or exposed to air."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes to a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes to a liquid. It occurs when water vapor in the air cools and turns into liquid droplets."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly to a gas. Dry ice (frozen carbon dioxide) is an example of a substance that undergoes sublimation."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes to a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid changes to a liquid. It occurs when a substance is heated to its melting point."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes to a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid changes to a solid. It occurs when a substance is cooled to its freezing point."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly to a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly to a solid. It occurs when water vapor in the air freezes onto a surface."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Boiling"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which a liquid changes to a gas. It occurs when the surface of a liquid is heated and turns into vapor."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes to a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes to a liquid. It occurs when the temperature of a gas is lowered and it turns into a liquid."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly to a gas. It occurs when a substance is heated and turns into a gas without passing through the liquid phase."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes to a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid changes to a liquid. It occurs when a substance is heated to its melting point and turns into a liquid."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes to a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid changes to a solid. It occurs when a substance is cooled to its freezing point and turns into a solid."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly to a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly to a solid. It occurs when a gas is cooled and turns into a solid without passing through the liquid phase."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Boiling"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which a liquid changes to a gas. It occurs when the surface of a liquid is heated and turns into vapor."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes to a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes to a liquid. It occurs when the temperature of a gas is lowered and it turns into a liquid."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly to a gas. It occurs when a substance is heated and turns into a gas without passing through the liquid phase."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes to a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid changes to a liquid. It occurs when a substance is heated to its melting point and turns into a liquid."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes to a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid changes to a solid. It occurs when a substance is cooled to its freezing point and turns into a solid."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly to a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly to a solid. It occurs when a gas is cooled and turns into a solid without passing through the liquid phase."
+  },
+  {
+    "question": "What is the smallest unit of life?",
+    "options": [
+      "Cell",
+      "Atom",
+      "Molecule",
+      "Organism"
+    ],
+    "answer": "Cell",
+    "justification": "Cells are the basic unit of life. All living organisms are made up of one or more cells."
+  },
+  {
+    "question": "What is the process by which plants make their own food?",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Digestion",
+      "Fermentation"
+    ],
+    "answer": "Photosynthesis",
+    "justification": "Photosynthesis is the process by which plants use sunlight, carbon dioxide, and water to make their own food."
+  },
+  {
+    "question": "What is the largest organ in the human body?",
+    "options": [
+      "Liver",
+      "Heart",
+      "Skin",
+      "Brain"
+    ],
+    "answer": "Skin",
+    "justification": "The skin is the largest organ in the human body. It protects the body from external damage and helps regulate body temperature."
+  },
+  {
+    "question": "What is the name of the force that pulls objects towards each other?",
+    "options": [
+      "Gravity",
+      "Magnetism",
+      "Friction",
+      "Inertia"
+    ],
+    "answer": "Gravity",
+    "justification": "Gravity is the force that pulls objects towards each other. It is what keeps planets in orbit around the sun and causes objects to fall towards the ground."
+  },
+  {
+    "question": "What is the name of the process by which water changes from a liquid to a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which water changes from a liquid to a gas. It occurs when water is heated or exposed to air."
+  },
+  {
+    "question": "What is the name of the process by which water changes from a gas to a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which water changes from a gas to a liquid. It occurs when water vapor cools and forms droplets."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly into a gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly into a gas. It occurs when the solid is heated and the gas is cooled."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid changes into a solid. It occurs when the temperature of the liquid is lowered below its freezing point."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes into a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes into a liquid. It occurs when the gas is cooled and the particles lose energy."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes into a liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid changes into a liquid. It occurs when the temperature of the solid is raised above its melting point."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a gas at the surface of the liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which a liquid changes into a gas at the surface of the liquid. It occurs when the liquid is heated or exposed to air."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly into a solid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly into a solid. It occurs when the gas is cooled and the particles lose energy."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a gas throughout the liquid?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Boiling"
+    ],
+    "answer": "Boiling",
+    "justification": "Boiling is the process by which a liquid changes into a gas throughout the liquid. It occurs when the temperature of the liquid is raised above its boiling point."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes into a liquid throughout the gas?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes into a liquid throughout the gas. It occurs when the gas is cooled and the particles lose energy."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes directly into a gas without becoming a liquid first?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid changes directly into a gas without becoming a liquid first. It occurs when the solid is heated and the gas is cooled."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a solid without becoming a gas first?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid changes into a solid without becoming a gas first. It occurs when the temperature of the liquid is lowered below its freezing point."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes into a liquid without becoming a solid first?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas changes into a liquid without becoming a solid first. It occurs when the gas is cooled and the particles lose energy."
+  },
+  {
+    "question": "What is the name of the process by which a solid changes into a liquid without becoming a gas first?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid changes into a liquid without becoming a gas first. It occurs when the temperature of the solid is raised above its melting point."
+  },
+  {
+    "question": "What is the name of the process by which a liquid changes into a gas at a temperature below its boiling point?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which a liquid changes into a gas at a temperature below its boiling point. It occurs when the liquid is heated or exposed to air."
+  },
+  {
+    "question": "What is the name of the process by which a gas changes directly into a solid without becoming a liquid first?",
+    "options": [
+      "Evaporation",
+      "Condensation",
+      "Sublimation",
+      "Deposition"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas changes directly into a solid without becoming a liquid first. It occurs when the gas is cooled and the particles lose energy."
+  },
+  {
+    "id": 1,
+    "difficulty": "easy",
+    "question": "What is the largest planet in our solar system?",
+    "options": [
+      "Mars",
+      "Jupiter",
+      "Venus",
+      "Saturn"
+    ],
+    "answer": "Jupiter",
+    "justification": "Jupiter is the largest planet in our solar system, with a diameter of over 86,000 miles."
+  },
+  {
+    "id": 2,
+    "difficulty": "easy",
+    "question": "What is the smallest planet in our solar system?",
+    "options": [
+      "Mars",
+      "Jupiter",
+      "Venus",
+      "Mercury"
+    ],
+    "answer": "Mercury",
+    "justification": "Mercury is the smallest planet in our solar system, with a diameter of just over 3,000 miles."
+  },
+  {
+    "id": 3,
+    "difficulty": "easy",
+    "question": "What is the name of the force that pulls objects towards each other?",
+    "options": [
+      "Gravity",
+      "Magnetism",
+      "Electricity",
+      "Friction"
+    ],
+    "answer": "Gravity",
+    "justification": "Gravity is the force that pulls objects towards each other. It is what keeps planets in orbit around the sun."
+  },
+  {
+    "id": 4,
+    "difficulty": "easy",
+    "question": "What is the process by which plants make their own food?",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Digestion",
+      "Fermentation"
+    ],
+    "answer": "Photosynthesis",
+    "justification": "Photosynthesis is the process by which plants make their own food using sunlight, carbon dioxide, and water."
+  },
+  {
+    "id": 5,
+    "difficulty": "easy",
+    "question": "What is the name of the layer of gas that surrounds the Earth?",
+    "options": [
+      "The Atmosphere",
+      "The Stratosphere",
+      "The Troposphere",
+      "The Mesosphere"
+    ],
+    "answer": "The Atmosphere",
+    "justification": "The Atmosphere is the layer of gas that surrounds the Earth. It is made up of several different layers, each with its own characteristics."
+  },
+  {
+    "id": 6,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which a solid turns directly into a gas?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Melting"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which a solid turns directly into a gas, without passing through the liquid phase."
+  },
+  {
+    "id": 7,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which a gas turns directly into a solid?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Deposition"
+    ],
+    "answer": "Deposition",
+    "justification": "Deposition is the process by which a gas turns directly into a solid, without passing through the liquid phase."
+  },
+  {
+    "id": 8,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which a liquid turns into a gas?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Melting"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which a liquid turns into a gas, usually due to an increase in temperature."
+  },
+  {
+    "id": 9,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which a gas turns into a liquid?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Deposition"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which a gas turns into a liquid, usually due to a decrease in temperature."
+  },
+  {
+    "id": 10,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which a solid turns into a liquid?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Melting"
+    ],
+    "answer": "Melting",
+    "justification": "Melting is the process by which a solid turns into a liquid, usually due to an increase in temperature."
+  },
+  {
+    "id": 11,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which a liquid turns into a solid?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Freezing"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which a liquid turns into a solid, usually due to a decrease in temperature."
+  },
+  {
+    "id": 12,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which a solid turns directly into a liquid?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Fusion"
+    ],
+    "answer": "Fusion",
+    "justification": "Fusion is the process by which a solid turns directly into a liquid, usually due to an increase in temperature."
+  },
+  {
+    "id": 13,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which a liquid turns directly into a gas?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Vaporization"
+    ],
+    "answer": "Vaporization",
+    "justification": "Vaporization is the process by which a liquid turns directly into a gas, usually due to an increase in temperature."
+  },
+  {
+    "id": 14,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which a gas turns directly into a liquid?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Liquefaction"
+    ],
+    "answer": "Liquefaction",
+    "justification": "Liquefaction is the process by which a gas turns directly into a liquid, usually due to a decrease in temperature or an increase in pressure."
+  },
+  {
+    "id": 15,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which a liquid turns into a gas and then back into a liquid?",
+    "options": [
+      "Sublimation",
+      "Evaporation",
+      "Condensation",
+      "Boiling"
+    ],
+    "answer": "Boiling",
+    "justification": "Boiling is the process by which a liquid turns into a gas and then back into a liquid, usually due to an increase in temperature and pressure."
+  },
+  {
+    "id": 1,
+    "difficulty": "easy",
+    "question": "What is the largest planet in our solar system?",
+    "options": [
+      "Mars",
+      "Jupiter",
+      "Venus",
+      "Saturn"
+    ],
+    "answer": "Jupiter",
+    "justification": "Jupiter is the largest planet in our solar system, with a diameter of over 86,000 miles."
+  },
+  {
+    "id": 2,
+    "difficulty": "easy",
+    "question": "What is the smallest planet in our solar system?",
+    "options": [
+      "Mars",
+      "Jupiter",
+      "Venus",
+      "Mercury"
+    ],
+    "answer": "Mercury",
+    "justification": "Mercury is the smallest planet in our solar system, with a diameter of just over 3,000 miles."
+  },
+  {
+    "id": 3,
+    "difficulty": "easy",
+    "question": "What is the name of the force that pulls objects towards each other?",
+    "options": [
+      "Gravity",
+      "Magnetism",
+      "Electricity",
+      "Friction"
+    ],
+    "answer": "Gravity",
+    "justification": "Gravity is the force that pulls objects towards each other. It is what keeps planets in orbit around the sun and causes objects to fall towards the ground."
+  },
+  {
+    "id": 4,
+    "difficulty": "easy",
+    "question": "What is the process by which plants make their own food?",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Digestion",
+      "Fermentation"
+    ],
+    "answer": "Photosynthesis",
+    "justification": "Photosynthesis is the process by which plants make their own food using sunlight, carbon dioxide, and water. This process produces oxygen as a byproduct."
+  },
+  {
+    "id": 5,
+    "difficulty": "easy",
+    "question": "What is the name of the layer of gas that surrounds the Earth?",
+    "options": [
+      "The Stratosphere",
+      "The Troposphere",
+      "The Mesosphere",
+      "The Atmosphere"
+    ],
+    "answer": "The Atmosphere",
+    "justification": "The atmosphere is the layer of gas that surrounds the Earth. It is made up of several layers, including the troposphere, stratosphere, mesosphere, and thermosphere."
+  },
+  {
+    "id": 6,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which water changes from a liquid to a gas?",
+    "options": [
+      "Condensation",
+      "Evaporation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which water changes from a liquid to a gas. This process occurs when water is heated or exposed to air currents."
+  },
+  {
+    "id": 7,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which water changes from a gas to a liquid?",
+    "options": [
+      "Condensation",
+      "Evaporation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Condensation",
+    "justification": "Condensation is the process by which water changes from a gas to a liquid. This process occurs when water vapor cools and forms droplets."
+  },
+  {
+    "id": 8,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which solid ice changes directly to water vapor?",
+    "options": [
+      "Condensation",
+      "Evaporation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Sublimation",
+    "justification": "Sublimation is the process by which solid ice changes directly to water vapor without first becoming a liquid. This process occurs when the temperature and pressure are just right."
+  },
+  {
+    "id": 9,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which water changes from a liquid to a solid?",
+    "options": [
+      "Condensation",
+      "Evaporation",
+      "Sublimation",
+      "Freezing"
+    ],
+    "answer": "Freezing",
+    "justification": "Freezing is the process by which water changes from a liquid to a solid. This process occurs when water is cooled below its freezing point."
+  },
+  {
+    "id": 10,
+    "difficulty": "medium",
+    "question": "What is the name of the process by which plants release water vapor through their leaves?",
+    "options": [
+      "Transpiration",
+      "Respiration",
+      "Photosynthesis",
+      "Fermentation"
+    ],
+    "answer": "Transpiration",
+    "justification": "Transpiration is the process by which plants release water vapor through their leaves. This process helps to regulate the plant's temperature and also helps to transport nutrients throughout the plant."
+  },
+  {
+    "id": 11,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which the Earth's magnetic field reverses direction?",
+    "options": [
+      "Magnetic Reversal",
+      "Polar Shift",
+      "Geomagnetic Flip",
+      "Magnetic Inversion"
+    ],
+    "answer": "Geomagnetic Flip",
+    "justification": "A geomagnetic flip is the process by which the Earth's magnetic field reverses direction. This process has occurred several times throughout Earth's history and can have significant effects on the planet's climate and ecosystems."
+  },
+  {
+    "id": 12,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which stars convert hydrogen into helium?",
+    "options": [
+      "Nuclear Fusion",
+      "Nuclear Fission",
+      "Radioactive Decay",
+      "Electron Capture"
+    ],
+    "answer": "Nuclear Fusion",
+    "justification": "Nuclear fusion is the process by which stars convert hydrogen into helium. This process releases a tremendous amount of energy and is what powers the sun and other stars."
+  },
+  {
+    "id": 13,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which radioactive elements decay and release energy?",
+    "options": [
+      "Nuclear Fusion",
+      "Nuclear Fission",
+      "Radioactive Decay",
+      "Electron Capture"
+    ],
+    "answer": "Radioactive Decay",
+    "justification": "Radioactive decay is the process by which unstable atomic nuclei decay and release energy in the form of radiation. This process occurs naturally in many elements and is also used in nuclear power plants and medical treatments."
+  },
+  {
+    "id": 14,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which a neutron is converted into a proton and an electron?",
+    "options": [
+      "Nuclear Fusion",
+      "Nuclear Fission",
+      "Radioactive Decay",
+      "Electron Capture"
+    ],
+    "answer": "Electron Capture",
+    "justification": "Electron capture is the process by which a neutron is converted into a proton and an electron. This process occurs when an atomic nucleus captures an electron from its surroundings."
+  },
+  {
+    "id": 15,
+    "difficulty": "hard",
+    "question": "What is the name of the process by which a large atomic nucleus is split into smaller nuclei, releasing energy?",
+    "options": [
+      "Nuclear Fusion",
+      "Nuclear Fission",
+      "Radioactive Decay",
+      "Electron Capture"
+    ],
+    "answer": "Nuclear Fission",
+    "justification": "Nuclear fission is the process by which a large atomic nucleus is split into smaller nuclei, releasing a large amount of energy. This process is used in nuclear power plants and also occurs naturally in some radioactive elements."
+  },
+  {
+    "id": 1,
+    "difficulty": "easy",
+    "question": "What is the largest organ in the human body?",
+    "options": [
+      "Heart",
+      "Brain",
+      "Skin",
+      "Liver"
+    ],
+    "answer": "Skin",
+    "justification": "The skin is the largest organ in the human body, covering an area of about 20 square feet."
+  },
+  {
+    "id": 2,
+    "difficulty": "easy",
+    "question": "What is the process by which plants make their own food called?",
+    "options": [
+      "Photosynthesis",
+      "Respiration",
+      "Digestion",
+      "Fermentation"
+    ],
+    "answer": "Photosynthesis",
+    "justification": "Photosynthesis is the process by which plants make their own food using energy from sunlight, carbon dioxide from the air, and water from the soil."
+  },
+  {
+    "id": 3,
+    "difficulty": "easy",
+    "question": "Which planet in our solar system is known as the 'Red Planet'?",
+    "options": [
+      "Jupiter",
+      "Mars",
+      "Venus",
+      "Saturn"
+    ],
+    "answer": "Mars",
+    "justification": "Mars is known as the 'Red Planet' because of its reddish appearance due to the presence of iron oxide or rust on its surface."
+  },
+  {
+    "id": 4,
+    "difficulty": "easy",
+    "question": "What type of energy is produced by the movement of electrons?",
+    "options": [
+      "Nuclear energy",
+      "Thermal energy",
+      "Electrical energy",
+      "Kinetic energy"
+    ],
+    "answer": "Electrical energy",
+    "justification": "Electrical energy is the type of energy that is produced by the movement of electrons, which can be harnessed to power devices and machines."
+  },
+  {
+    "id": 5,
+    "difficulty": "easy",
+    "question": "What is the smallest particle that makes up all matter?",
+    "options": [
+      "Atom",
+      "Molecule",
+      "Cell",
+      "Electron"
+    ],
+    "answer": "Atom",
+    "justification": "An atom is the smallest particle that makes up all matter, consisting of a nucleus of protons and neutrons, surrounded by electrons."
+  },
+  {
+    "id": 6,
+    "difficulty": "medium",
+    "question": "Which of the following is not a greenhouse gas?",
+    "options": [
+      "Carbon dioxide",
+      "Methane",
+      "Oxygen",
+      "Water vapor"
+    ],
+    "answer": "Oxygen",
+    "justification": "Oxygen is not a greenhouse gas, as it does not absorb or emit infrared radiation, which is a key characteristic of greenhouse gases."
+  },
+  {
+    "id": 7,
+    "difficulty": "medium",
+    "question": "What is the process by which water changes from a liquid to a gas?",
+    "options": [
+      "Condensation",
+      "Melting",
+      "Evaporation",
+      "Sublimation"
+    ],
+    "answer": "Evaporation",
+    "justification": "Evaporation is the process by which water changes from a liquid to a gas, usually due to the heat from the sun or other sources."
+  },
+  {
+    "id": 8,
+    "difficulty": "medium",
+    "question": "Which of the following is not a type of rock?",
+    "options": [
+      "Igneous",
+      "Sedimentary",
+      "Plutonic",
+      "Metamorphic"
+    ],
+    "answer": "Plutonic",
+    "justification": "Plutonic is not a type of rock, but rather a term used to describe rocks that form from magma or lava beneath the Earth's surface."
+  },
+  {
+    "id": 9,
+    "difficulty": "medium",
+    "question": "What is the process by which an organism develops from a single cell into a complex organism?",
+    "options": [
+      "Mitosis",
+      "Meiosis",
+      "Fertilization",
+      "Differentiation"
+    ],
+    "answer": "Differentiation",
+    "justification": "Differentiation is the process by which cells in an organism become specialized and take on specific functions, leading to the development of complex structures and organs."
+  },
+  {
+    "id": 10,
+    "difficulty": "medium",
+    "question": "What is the formula for calculating force?",
+    "options": [
+      "F = mv",
+      "F = ma",
+      "F = mgh",
+      "F = 1/2mv^2"
+    ],
+    "answer": "F = ma",
+    "justification": "The formula for calculating force is F = ma, where F is force, m is mass, and a is acceleration."
+  },
+  {
+    "id": 11,
+    "difficulty": "hard",
+    "question": "What is the study of the structure and function of the nervous system called?",
+    "options": [
+      "Neurology",
+      "Neuroscience",
+      "Neurosurgery",
+      "Neuroanatomy"
+    ],
+    "answer": "Neuroscience",
+    "justification": "Neuroscience is the study of the structure and function of the nervous system, including the brain, spinal cord, and peripheral nerves."
+  },
+  {
+    "id": 12,
+    "difficulty": "hard",
+    "question": "What is the process by which cells break down glucose to release energy called?",
+    "options": [
+      "Respiration",
+      "Photosynthesis",
+      "Fermentation",
+      "Digestion"
+    ],
+    "answer": "Respiration",
+    "justification": "Respiration is the process by which cells break down glucose to release energy, using oxygen and producing carbon dioxide as a waste product."
+  },
+  {
+    "id": 13,
+    "difficulty": "hard",
+    "question": "What is the process by which the Earth's magnetic poles switch places called?",
+    "options": [
+      "Magnetic reversal",
+      "Magnetic drift",
+      "Magnetic declination",
+      "Magnetic inversion"
+    ],
+    "answer": "Magnetic reversal",
+    "justification": "Magnetic reversal is the process by which the Earth's magnetic poles switch places, which has occurred many times throughout Earth's history."
+  },
+  {
+    "id": 14,
+    "difficulty": "hard",
+    "question": "What is the process by which a cell divides into two daughter cells called?",
+    "options": [
+      "Mitosis",
+      "Meiosis",
+      "Cytokinesis",
+      "Differentiation"
+    ],
+    "answer": "Cytokinesis",
+    "justification": "Cytokinesis is the process by which a cell divides into two daughter cells, following the process of either mitosis or meiosis."
+  },
+  {
+    "id": 15,
+    "difficulty": "hard",
+    "question": "What is the principle that describes the relationship between the pressure and volume of a gas at a constant temperature?",
+    "options": [
+      "Boyle's Law",
+      "Charles' Law",
+      "Gay-Lussac's Law",
+      "Avogadro's Law"
+    ],
+    "answer": "Boyle's Law",
+    "justification": "Boyle's Law describes the relationship between the pressure and volume of a gas at a constant temperature, stating that as pressure increases, volume decreases, and vice versa."
+  }
+]

@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Welcome Back: @ViewData["UserID"]</p>
+</div>
+
+<div id="Courses" class="course-container justify-content-center"></div>
+
+<script>
+    // Function to fetch data from the API
+    async function fetchCourses() {
+        try {
+            const response = await fetch('https://its-be.azurewebsites.net/api/course');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching courses:', error);
+            return [];
+        }
+    }
+
+    // Function to display the courses on the web page
+    async function displayCourses() {
+        const courseListContainer = document.getElementById('Courses');
+        const courses = await fetchCourses();
+
+        // Check if courses are available
+        if (courses.length > 0) {
+            courses.forEach((course) => {
+                // Create a clickable course box for each course
+                const courseBox = document.createElement('div');
+                courseBox.className = 'course-box';
+                courseBox.textContent = course.name;
+
+                // Add a click event listener to navigate to the course page on click
+                courseBox.addEventListener('click', () => {
+                    // Redirect the user to the course page when the box is clicked
+                    window.location.href = `/course/${course.id}`;
+                });
+
+                // Append the course box to the container element
+                courseListContainer.appendChild(courseBox);
+            });
+        } else {
+            // If no courses available, display a message
+            courseListContainer.textContent = 'No courses available.';
+        }
+    }
+
+    // Call the function to display the courses
+    displayCourses();
+</script>
+
+

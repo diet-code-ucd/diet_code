@@ -40,9 +40,9 @@ public static class DbInitialiser
         context.AddRange(courses);
 
         List<User> users = new List<User> {
-            new User {Username = "user1", Password = "pw1", DateOfBirth = DateOnly.Parse("2010-05-06"), EnrolledCourses = courses, Tests = new List<Test> { test1 } },
-            new User {Username = "user2", Password = "pw2", DateOfBirth = DateOnly.Parse("1993-09-13")},
-            new User {Username = "user3", Password = "pw3", DateOfBirth = DateOnly.Parse("1987-11-19")},
+            new User {Username = "user1", Password = "pw1", DateOfBirth = DateTime.Parse("2010-05-06"), EnrolledCourses = courses, Tests = new List<Test> { test1 } },
+            new User {Username = "user2", Password = "pw2", DateOfBirth = DateTime.Parse("1993-09-13")},
+            new User {Username = "user3", Password = "pw3", DateOfBirth = DateTime.Parse("1987-11-19")},
         };
 
         context.AddRange(users);
