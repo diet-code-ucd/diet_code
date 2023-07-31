@@ -7,7 +7,7 @@ api_key = os.getenv('OPENAI_API_KEY')
 openai.api_key = api_key
 
 
-def generate_notes(quiz_op):   
+def check_quiz(quiz_op):   
     MODEL = "gpt-3.5-turbo-0301"
     prompt= f"Please check the solved quiz {quiz_op} output and please provide detailed feedback and explanations for any wrong answers, along with relevant reference website links to further understand the correct concepts."
 
@@ -42,7 +42,7 @@ quiz_output = [
 
 
 
-result_response = generate_notes(quiz_output)
+result_response = check_quiz(quiz_output)
 
 # Print or process the quiz_response as needed
 print(result_response)
