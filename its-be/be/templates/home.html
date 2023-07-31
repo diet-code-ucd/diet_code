@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="jumbotron text-center mt-5">
-  <h1>Welcome to Your Intelligent Tutoring System</h1>
+  <h1>Welcome to Our Website</h1>
   <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ligula a ligula gravida semper. Aenean bibendum in dolor vel vestibulum.</p>
   <a class="btn btn-primary" href="#" role="button">Learn More</a>
 </div>
@@ -12,13 +12,68 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-6">
-      <h2>About Us</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ligula a ligula gravida semper. Aenean bibendum in dolor vel vestibulum. Etiam nec bibendum erat. Nam ac tincidunt velit, quis facilisis est.</p>
+      <h2>Enrolled Courses</h2>
+      <ul id="enrolled-courses">
+        <!-- Enrolled courses will be dynamically added here -->
+      </ul>
     </div>
     <div class="col-md-6">
-      <h2>Contact Us</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ligula a ligula gravida semper. Aenean bibendum in dolor vel vestibulum. Etiam nec bibendum erat. Nam ac tincidunt velit, quis facilisis est.</p>
+      <h2>Available Courses</h2>
+      <ul id="available-courses">
+        <!-- Enrolled courses will be dynamically added here -->
+      </ul>
     </div>
   </div>
 </div>
+
+<script>
+  
+  function fetchEnrolledCourses() {
+    fetch('api/course/enrolled')
+      .then(response => response.json())
+      .then(data => {
+        const enrolledCoursesList = document.getElementById('enrolled-courses');
+        enrolledCoursesList.innerHTML = '';
+
+        data.forEach(course => {
+          const listItem = document.createElement('li');
+          const link = document.createElement('a'); // Create the anchor element
+          link.href = `/course/${course.id}`; // Set the URL of the course page
+          link.textContent = `ID: ${course.id} - Name: ${course.name}`;
+          link.classList.add('btn', 'btn-link', 'text-left'); // Add Bootstrap classes for a clickable link
+          listItem.appendChild(link);
+          enrolledCoursesList.appendChild(listItem);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching enrolled courses:', error);
+      });
+  }
+
+  function fetchAvailableCourses(){
+    fetch('api/course/available')
+      .then(response => response.json())
+      .then(data => {
+      const availableCourseList = document.getElementById('available-courses');
+      availableCourseList.innerHTML = '';
+
+      data.forEach(course =>{
+        const listItem = document.createElement('li');
+        const link = document.createElement('a'); //create the anchor element
+        link.href = `/course/${course.id}`; // set the URL of the page
+        link.textContent = `ID: ${course.id} - Name: ${course.name}`;
+        link.classList.add('btn', 'btn-link', 'text-left'); // Add Bootstrap classes for a clickable link
+        listItem.appendChild(link);
+        availableCourseList.appendChild(listItem);
+      });
+    })
+    .catch(error => {
+        console.error('Error fetching available courses:', error);
+      });
+  }
+
+  // Call the function to fetch enrolled courses when the page loads
+  document.addEventListener('DOMContentLoaded', fetchEnrolledCourses);
+  document.addEventListener('DOMContentLoaded', fetchAvailableCourses);
+</script>
 {% endblock %}
