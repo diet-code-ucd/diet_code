@@ -47,9 +47,11 @@ def create_app() -> Flask:
         return 'authenticated pong'
 
     from . import auth, api, views
+
     app.register_blueprint(auth.bp)
     app.register_blueprint(api.bp)
     app.register_blueprint(views.views)
+    app.register_blueprint(views.course)
 
     return app 
 

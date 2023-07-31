@@ -28,7 +28,7 @@ def register():
             user = User(username=username, password=generate_password_hash(password))
             db.commit()
             login_user(user)
-            return redirect(url_for('ping_auth'))
+            return redirect(url_for('views.home'))
     return render_template('auth/register.html')
 
 @bp.route('/login', methods=['GET', 'POST'])

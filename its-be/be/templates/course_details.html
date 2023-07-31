@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Course Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Course Details</h2>
+  <ul>
+    <li>Course ID: {{ course.id }}</li>
+    <li>Course Name: {{ course.name }}</li>
+    
+    <!-- Add more course details as needed -->
+  </ul>
+</div>
+{% endblock %}
