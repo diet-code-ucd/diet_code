@@ -25,6 +25,7 @@ class Question(db.Entity):
     difficulty = Required(str)
     tags = Set('Tag')
     explanation = Required(str)
+    age = Required(AgeRange)
     user_answers = Set('UserAnswer')
 
 class Option(db.Entity):
@@ -40,3 +41,5 @@ class UserAnswer(db.Entity):
     question = Required(Question)
     answer = Required(str)
 
+class AgeRange(db.Entity):
+    pass

@@ -6,4 +6,5 @@ class User(db.Entity, UserMixin):
     username = Required(str, unique=True)
     password = Required(str)
     enrolled_courses = Set('Course')
+    dob = Required(date)
     tests = Set('Test')
