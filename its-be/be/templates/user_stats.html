@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Stats{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>User Stats</h1>
+    <div>
+      <canvas id="statsChart"></canvas>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Sample data 
+      const testData = {
+        completed: 10,
+        incomplete: 5,
+      };
+
+      // Create the bar chart
+      const ctx = document.getElementById('statsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Completed', 'Incomplete'],
+          datasets: [{
+            label: 'Number of Tests',
+            data: [testData.completed, testData.incomplete],
+            backgroundColor: [
+              'rgba(54, 162, 235, 0.2)', // Blue color for completed tests
+              'rgba(255, 99, 132, 0.2)', // Red color for incomplete tests
+            ],
+            borderColor: [
+              'rgba(54, 162, 235, 1)', // Blue color for completed tests border
+              'rgba(255, 99, 132, 1)', // Red color for incomplete tests border
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+  </script>
+{% endblock %}

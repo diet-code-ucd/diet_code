@@ -29,3 +29,8 @@ def userTest():
     course_id=request.args.get('course_id')
     test = Test.get(id=1)
     return render_template("user_test.html", user=current_user, course_id=course_id, test=test)
+
+@views.route('/userstats', methods=['GET', 'POST'])
+@login_required
+def userStats():
+    return render_template("user_stats.html")

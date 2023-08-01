@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <body>
@@ -42,6 +43,9 @@
               {% if current_user.is_authenticated %}
                 <li class="nav-item">
                   <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/userstats"><i class="fa fa-user-circle"></i> User Profile</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/auth/logout">Logout</a>
