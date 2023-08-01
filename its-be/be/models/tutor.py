@@ -22,10 +22,10 @@ class Question(db.Entity):
     question = Required(str)
     answer = Required(str)
     options = Set('Option')
-    difficulty = Required('Difficulty')
+    difficulty = Required(int)
     tags = Set('Tag')
     explanation = Required(str)
-    age_range = Required('AgeRange')
+    age_range = Required(str)
     user_answers = Set('UserAnswer')
 
 class Option(db.Entity):
@@ -40,13 +40,3 @@ class UserAnswer(db.Entity):
     test = Required(Test)
     question = Required(Question)
     answer = Required(str)
-
-class AgeRange(db.Entity):
-    start = Required(int)
-    end = Required(int)
-    PrimaryKey(start, end)
-    questions = Set(Question)
-
-class Difficulty(db.Entity):
-    difficulty = PrimaryKey(int)
-    questions = Set(Question)

@@ -10,6 +10,9 @@ from pony.orm import commit, flush
 from .models import Course, Test, Question, UserAnswer
 from .ml import generate_questions
 
+import logging
+logger = logging.getLogger(__name__)
+
 bp = Blueprint('api', __name__, url_prefix='/api')
 
 # /api/course
@@ -58,7 +61,6 @@ def generate_test():
         abort(403)
     new_test = Test(for_user=current_user, course=course)
     commit()
-    #TODO: Actually make this async
     add_questions_to_test.delay(new_test.id)
     return jsonify(new_test.to_dict())
 
@@ -66,19 +68,19 @@ def generate_test():
 @db_session
 def add_questions_to_test(test_id):
     test = Test.get(id=test_id)
-    user_age = date.today().year - test.for_user.dob.year
-    questions = Question.select().filter(course=test.course).filter(lambda q: q.age_range.start >= user_age && q.age_range.end <= user_age)
+    user = test.for_user
+    user_age = date.today().year - user.dob.year
+    questions = Question.select().where(course=test.course)
     available_questions = []
     for q in questions:
         if test.for_user not in q.tests.for_user:
-            available_questions.append(q)
+            age_range = q.age_range.split('-')
+            if int(age_range[0]) <= user_age <= int(age_range[1]):
+                available_questions.append(q)
     if len(available_questions) < 7:
         generate_result = generate_questions(test.course.name)
         for q in generate_result.questions:
-            age_range = q.age_range.split('-')
-            age_range = AgeRange[age_range[0], age_range[1]]
-            difficulty = Difficulty.get(difficulty=q.difficulty)
-            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, age_range=age_range , difficulty=difficulty, explanation=q.explanation))
+            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, age_range=q.ageRange , difficulty=q.difficulty, explanation=q.explanation))
         commit()
     available_questions = random.sample(available_questions, 7)
     test.questions = available_questions
