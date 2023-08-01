@@ -6,7 +6,6 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install build
 RUN python -m build --wheel
 RUN pip install .
-RUN pip install langchain[all]
 
 FROM python:3.11.4-slim-bookworm
 WORKDIR /app
