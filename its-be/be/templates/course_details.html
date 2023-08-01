@@ -21,6 +21,7 @@
 </div>
 
 <script> 
+document.addEventListener('DOMContentLoaded', function() {
 const course_id = document.getElementById('course_id').getAttribute('data-value');
   // Function to enroll the user in the course
   function enrollUserInCourse(course_id) {
@@ -35,7 +36,7 @@ const course_id = document.getElementById('course_id').getAttribute('data-value'
     })
     .then(response => response.json())
     .then(data => {
-      if (data.id === course_id) {
+      if (data.id.toString() === course_id) {
         document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
         document.getElementById('enroll-button').disabled = true;
       } else {
@@ -48,12 +49,29 @@ const course_id = document.getElementById('course_id').getAttribute('data-value'
     });
   }
   // Add event listener for the Enroll button click
-  document.getElementById('enroll-button').addEventListener('click', function() {
-    enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
-  });
-  document.getElementById('take-test').addEventListener('click', function() {
-    window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
-  });
+//   document.getElementById('enroll-button').addEventListener('click', function() {
+//     console.log(course_id);
+//     enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
+
+//   });
+  const enrollButton = document.getElementById('enroll-button');
+  if (enrollButton) {
+    enrollButton.addEventListener('click', function() {
+        console.log(course_id);
+        enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
+    });
+  }
+  // Add event listener for the Take Test button click
+  const takeTestButton = document.getElementById('take-test');
+  if (takeTestButton) {
+    takeTestButton.addEventListener('click', function() {
+        window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+    });
+  }
+//   document.getElementById('take-test').addEventListener('click', function() {
+//     window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+//   });
+});
   
 </script>
 {% endblock %}
