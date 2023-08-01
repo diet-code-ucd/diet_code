@@ -1,4 +1,4 @@
-from pony.orm import Required, Set, Optional
+from pony.orm import Required, Set, Optional, PrimaryKey
 from .database import db
 from .user import User
 
@@ -22,9 +22,10 @@ class Question(db.Entity):
     question = Required(str)
     answer = Required(str)
     options = Set('Option')
-    difficulty = Required(str)
+    difficulty = Required(int)
     tags = Set('Tag')
     explanation = Required(str)
+    age_range = Required(str)
     user_answers = Set('UserAnswer')
 
 class Option(db.Entity):
@@ -32,11 +33,10 @@ class Option(db.Entity):
     option = Required(str)
 
 class Tag(db.Entity):
+    tag = PrimaryKey(str)
     question = Set(Question)
-    tag = Required(str, unique=True)
 
 class UserAnswer(db.Entity):
     test = Required(Test)
     question = Required(Question)
     answer = Required(str)
-

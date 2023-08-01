@@ -15,6 +15,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
+        dob = request.form['dob']
         user = User.get(username=username)
         if user:
             abort(409)
@@ -25,7 +26,7 @@ def register():
             error = "Password must be at least 6 characters with one special character and one uppercase character."
             flash(error, category="error")
         else:
-            user = User(username=username, password=generate_password_hash(password))
+            user = User(username=username, password=generate_password_hash(password), dob=dob)
             db.commit()
             login_user(user)
             return redirect(url_for('views.home'))

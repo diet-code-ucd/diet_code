@@ -34,8 +34,8 @@ def create_app() -> Flask:
     login_manager.login_view = 'auth.login'
 
     @login_manager.user_loader
-    def load_user(user_id):
-        return User.get(id=user_id)
+    def load_user(user_username):
+        return User.get(username=user_username)
 
     @app.route('/ping')
     def ping():

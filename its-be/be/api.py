@@ -3,11 +3,15 @@ from flask import Blueprint, jsonify, redirect, render_template, request, url_fo
 from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
+from datetime import date
 
 from pony.orm import commit, flush
 
 from .models import Course, Test, Question, UserAnswer
 from .ml import generate_questions
+
+import logging
+logger = logging.getLogger(__name__)
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -57,7 +61,6 @@ def generate_test():
         abort(403)
     new_test = Test(for_user=current_user, course=course)
     commit()
-    #TODO: Actually make this async
     add_questions_to_test.delay(new_test.id)
     return jsonify(new_test.to_dict())
 
@@ -65,15 +68,19 @@ def generate_test():
 @db_session
 def add_questions_to_test(test_id):
     test = Test.get(id=test_id)
-    questions = Question.select().filter(course=test.course)
+    user = test.for_user
+    user_age = date.today().year - user.dob.year
+    questions = Question.select().where(course=test.course)
     available_questions = []
     for q in questions:
         if test.for_user not in q.tests.for_user:
-            available_questions.append(q)
+            age_range = q.age_range.split('-')
+            if int(age_range[0]) <= user_age <= int(age_range[1]):
+                available_questions.append(q)
     if len(available_questions) < 7:
         generate_result = generate_questions(test.course.name)
         for q in generate_result.questions:
-            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, difficulty=q.difficulty, explanation=q.explanation))
+            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, age_range=q.ageRange , difficulty=q.difficulty, explanation=q.explanation))
         commit()
     available_questions = random.sample(available_questions, 7)
     test.questions = available_questions
