@@ -3,22 +3,32 @@
 {% block title %} Test {% endblock%}
 
 {% block content %}
-{{user.username}}
+
 {{user.id}}
-<li id="course_id" data-value="{{ course_id }}">Course ID: {{ course_id }}</li>
-<button id="test" class="btn btn-primary mt-3">Start Test</button>
-<div id="loading-icon" class="d-none">
-  <!-- Your loading icon here -->
-  Loading...
-</div>
-<div id="test-content" class="d-none">
-  <!-- Your test content here -->
-  <h3>Test Questions</h3>
-  <form id="test-form">
-    <!-- Questions will be added dynamically here -->
-  </form>
-  <button type="submit" class="btn btn-primary" id="submit-button">Submit Answers</button>
-</div>
+<div class="content-wrapper">
+    <div class="container mt-4">
+      <h2>Test Details</h2>
+      <ul>
+        <li id="username" data-value="{{ user.username }}"><strong>User Name:</strong> {{ user.username }}</li>
+        <li id="course_id" data-value="{{ course_id }}"><strong>Course ID:</strong> {{ course_id }}</li>
+        <li><strong>Course Name:</strong> {{ course.name }}</li>
+      </ul>
+  
+      <button id="test" class="btn btn-primary mt-3">Start Test</button>
+      <div id="loading-icon" class="d-none">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div id="test-content" class="d-none">
+        <h3>Test Questions</h3>
+        <form id="test-form">
+          <!-- Questions will be added dynamically here -->
+        </form>
+        <button type="submit" class="btn btn-primary mt-3" id="submit-button">Submit Answers</button>
+      </div>
+    </div>
+  </div>
 
 <script>
   const course_id = document.getElementById('course_id').getAttribute('data-value');
@@ -154,7 +164,7 @@
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      //window.location.href = '/submit_test'; // Redirect to the "submit_test" page after submission
+      window.location.href = `/submit_test?data=${encodeURIComponent(logval)}`; // Redirect to the "submit_test" page after submission
     })
     .catch(error => {
       console.error('Error submitting answers:', error);
@@ -172,6 +182,61 @@
 //   });
 
 </script>
+
+<style>
+    .content-wrapper {
+      font-family: 'Roboto', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .content-wrapper h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .content-wrapper ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    .content-wrapper li {
+      margin-bottom: 10px;
+    }
+  
+    .content-wrapper strong {
+      font-weight: bold;
+    }
+  
+    #loading-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+  
+    #test-content {
+      margin-top: 20px;
+    }
+  
+    .spinner-border {
+      width: 2rem;
+      height: 2rem;
+      border: 0.25em solid currentColor;
+      border-right-color: transparent;
+    }
+  
+    #submit-button {
+      display: block;
+      margin: 0 auto;
+    }
+  
+    /* Add more custom styles here as needed */
+  </style>
 
 {% endblock %}
 
