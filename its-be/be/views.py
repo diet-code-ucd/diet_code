@@ -22,3 +22,10 @@ def course_details(course_id):
     if not course:
         abort(404)  
     return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled)
+
+@views.route('/userTest', methods=['GET', 'POST'])
+@login_required
+def userTest():
+    course_id=request.args.get('course_id')
+    test = Test.get(id=1)
+    return render_template("user_test.html", user=current_user, course_id=course_id, test=test)

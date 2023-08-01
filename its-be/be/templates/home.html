@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="jumbotron text-center mt-5">
-  <h1>Welcome to Our Website</h1>
+  <h1>Welcome to Your Intelligent Tutoring System</h1>
   <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et ligula a ligula gravida semper. Aenean bibendum in dolor vel vestibulum.</p>
   <a class="btn btn-primary" href="#" role="button">Learn More</a>
 </div>
@@ -13,13 +13,13 @@
   <div class="row">
     <div class="col-md-6">
       <h2>Enrolled Courses</h2>
-      <ul id="enrolled-courses">
+      <ul id="enrolled-courses" class="course-list">
         <!-- Enrolled courses will be dynamically added here -->
       </ul>
     </div>
     <div class="col-md-6">
       <h2>Available Courses</h2>
-      <ul id="available-courses">
+      <ul id="available-courses" class="course-list">
         <!-- Enrolled courses will be dynamically added here -->
       </ul>
     </div>
@@ -27,7 +27,6 @@
 </div>
 
 <script>
-  
   function fetchEnrolledCourses() {
     fetch('api/course/enrolled')
       .then(response => response.json())
@@ -71,9 +70,35 @@
         console.error('Error fetching available courses:', error);
       });
   }
-
   // Call the function to fetch enrolled courses when the page loads
   document.addEventListener('DOMContentLoaded', fetchEnrolledCourses);
   document.addEventListener('DOMContentLoaded', fetchAvailableCourses);
 </script>
+
+<style>
+  /* Custom styling for the course lists */
+  .course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .course-list li {
+    margin-bottom: 10px;
+  }
+
+  .course-list a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .course-list a:hover {
+    background-color: #f2f2f2;
+  }
+</style>
 {% endblock %}

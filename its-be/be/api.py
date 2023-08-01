@@ -108,7 +108,7 @@ def get_test(test_id):
             user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer']))
         test.completed = True
         test.user_answers = user_answers
-        return redirect(url_for('api.get_test', test_id=test_id))
+        return redirect(url_for('api.test.get_test', test_id=test_id))
     else:
         test = Test.get(id=test_id)
         if not test:

@@ -17,9 +17,11 @@
     <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
     <p id="enrollment-status" class="mt-2"></p>
   {% endif %}
+  <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
 </div>
 
-<script>
+<script> 
+const course_id = document.getElementById('course_id').getAttribute('data-value');
   // Function to enroll the user in the course
   function enrollUserInCourse(course_id) {
     fetch('/api/course/enroll', {
@@ -45,13 +47,13 @@
       document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
     });
   }
-
-  // Get the course ID from the data-value attribute
-  const course_id = document.getElementById("course_id").getAttribute('data-value');
-
   // Add event listener for the Enroll button click
   document.getElementById('enroll-button').addEventListener('click', function() {
     enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
   });
+  document.getElementById('take-test').addEventListener('click', function() {
+    window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+  });
+  
 </script>
 {% endblock %}
