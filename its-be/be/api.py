@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify, redirect, render_template, request, url_fo
 from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
+from datetime import date
 
 from pony.orm import commit, flush
 
@@ -65,7 +66,8 @@ def generate_test():
 @db_session
 def add_questions_to_test(test_id):
     test = Test.get(id=test_id)
-    questions = Question.select().filter(course=test.course)
+    user_age = date.today().year - test.for_user.dob.year
+    questions = Question.select().filter(course=test.course).filter(lambda q: q.age_range.start >= user_age && q.age_range.end <= user_age)
     available_questions = []
     for q in questions:
         if test.for_user not in q.tests.for_user:
@@ -73,7 +75,10 @@ def add_questions_to_test(test_id):
     if len(available_questions) < 7:
         generate_result = generate_questions(test.course.name)
         for q in generate_result.questions:
-            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, difficulty=q.difficulty, explanation=q.explanation))
+            age_range = q.age_range.split('-')
+            age_range = AgeRange[age_range[0], age_range[1]]
+            difficulty = Difficulty.get(difficulty=q.difficulty)
+            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, age_range=age_range , difficulty=difficulty, explanation=q.explanation))
         commit()
     available_questions = random.sample(available_questions, 7)
     test.questions = available_questions
