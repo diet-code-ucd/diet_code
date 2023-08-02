@@ -11,8 +11,8 @@ FROM python:3.9 as runtime-env
 WORKDIR /app
 RUN useradd -m its
 COPY --from=build-env /opt/venv /opt/venv
-COPY ./launchers/start-app.sh .
+COPY ./launchers/debug-app.sh .
 RUN chown -R its:its /opt/venv /app
 USER its
 ENV PATH="/opt/venv/bin:$PATH"
-ENTRYPOINT [ "/app/start-app.sh" ]
+ENTRYPOINT [ "/app/debug-app.sh" ]
