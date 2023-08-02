@@ -1,4 +1,4 @@
-FROM python:3.11.4-slim-bookworm as build-env
+FROM python:3.9 as build-env
 WORKDIR /app
 COPY . ./
 RUN python -m venv /opt/venv
@@ -7,7 +7,7 @@ RUN pip install build
 RUN python -m build --wheel
 RUN pip install .
 
-FROM python:3.11.4-slim-bookworm
+FROM python:3.9 as runtime-env
 WORKDIR /app
 RUN useradd -m its
 COPY --from=build-env /opt/venv /opt/venv
