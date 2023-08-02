@@ -1,5 +1,7 @@
 import json
+
 from flask import Blueprint, abort, jsonify, redirect, render_template, request, url_for
+from flask import Blueprint, abort, jsonify, render_template, request
 from flask_login import login_required, current_user
 from pony.flask import db_session
 
@@ -42,9 +44,9 @@ def userStats():
 def submit_test():
     test_id=request.args.get('test_id') 
     return render_template("submit_test.html", test_id=test_id)
+
     
 @views.route('/aboutus', methods=['GET', 'POST'])
 @login_required
 def about_us():
-    
     return render_template("about_us.html")
