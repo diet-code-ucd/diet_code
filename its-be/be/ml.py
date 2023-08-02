@@ -11,7 +11,7 @@ from typing import List, Optional
 
 def generate_questions(subject):
     model_name = "text-davinci-003"
-    temperature = 0.0
+    temperature = 0.3
     llm = OpenAI(model_name=model_name, temperature=temperature, max_tokens=-1)
     
     parser = PydanticOutputParser(pydantic_object=ListQuestions)
@@ -44,7 +44,7 @@ class Question(BaseModel):
     answer: str = Field(description="The answer to the question.")
     explanation: str = Field(description="The explanation of the answer.")
     difficulty: str = Field(description="The difficulty of the question on a scale of 1 to 5.")
-    ageRange: str = Field(description="The age range that the question is appropriate for, should be one of the following <10, 10-15, 16-18, 18-22, 23-29 or 30+.")
+    ageRange: str = Field(description="The age range that the question is appropriate for, should be one of the following 0-10, 10-15, 16-18, 18-22, 23-150.")
     tags: List[str] = Field(description="The tags of the question describing keywords of the topic of question.")
     options: Optional[List[str]] = Field(description="The options of the question if it is a multiple choice question.")
 

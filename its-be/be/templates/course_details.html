@@ -12,17 +12,20 @@
 
   {% if enrolled %}
     <p>Enrollment Status: Enrolled</p>
+    <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
   {% else %}
     <p>Enrollment Status: Not Enrolled</p>
     <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
     <p id="enrollment-status" class="mt-2"></p>
+    <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
   {% endif %}
-  <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
+  
 </div>
 
 <script> 
 document.addEventListener('DOMContentLoaded', function() {
 const course_id = document.getElementById('course_id').getAttribute('data-value');
+const refreshLink = document.getElementById('refresh-link');
   // Function to enroll the user in the course
   function enrollUserInCourse(course_id) {
     fetch('/api/course/enroll', {
@@ -39,6 +42,8 @@ const course_id = document.getElementById('course_id').getAttribute('data-value'
       if (data.id.toString() === course_id) {
         document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
         document.getElementById('enroll-button').disabled = true;
+        refreshLink.href = window.location.href;
+        refreshLink.textContent = "GO to the course"   
       } else {
         document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
       }

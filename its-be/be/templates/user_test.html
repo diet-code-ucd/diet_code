@@ -164,7 +164,8 @@
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      window.location.href = `/submit_test?data=${encodeURIComponent(logval)}`; // Redirect to the "submit_test" page after submission
+      window.location.href = `/submit_test?test_id=${testId}`; // Redirect to the "submit_test" page after submission // `/api/test/${encodeURIComponent(testId)}`
+
     })
     .catch(error => {
       console.error('Error submitting answers:', error);
