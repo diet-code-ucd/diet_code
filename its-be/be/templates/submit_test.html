@@ -1,8 +1,69 @@
 {% extends 'base.html' %}
 
-{% block title %} Submit test {% endblock%}
+{% block title %}Test Result{% endblock%}
 
 {% block content %}
+<div class="container mt-4">
+  <h2>Test Result</h2>
+  <ul class="list-group">
+    <li id="test_id" data-value="{{ test_id }}" class="list-group-item">Test ID: {{ test_id }}</li>
+  </ul>
 
+  <div id="test-result-content" class="mt-4 d-none">
+    <h3>Test Score: <span id="test-score"></span></h3>
+    <ul id="test-result-list" class="list-group">
+      <!-- Content will be populated dynamically here -->
+    </ul>
+  </div>
+</div>
 
+<script>
+  const test_id = document.getElementById('test_id').getAttribute('data-value');
+
+  function showTestResult(test_id) {
+    fetch('/api/test/' + test_id)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+
+        // Populate the test result content
+        const testResultContent = document.getElementById('test-result-content');
+        const testScore = document.getElementById('test-score');
+        testScore.textContent = data.score;
+
+        const testList = document.getElementById('test-result-list');
+        testList.innerHTML = ''; // Clear existing content
+
+        data.questions.forEach(question => {
+          const listItem = document.createElement('li');
+          listItem.classList.add('list-group-item');
+
+          // Check if the answer is correct or wrong and apply appropriate styling
+          if (question.user_answer === question.answer) {
+            listItem.classList.add('list-group-item-success'); // Green background for correct answer
+          } else {
+            listItem.classList.add('list-group-item-danger'); // Red background for wrong answer
+          }
+
+          listItem.innerHTML = `
+            <strong>Question:</strong> ${question.question}<br>
+            <strong>Your Answer:</strong> ${question.user_answer}<br>
+            <strong>Correct Answer:</strong> ${question.answer}<br>
+            <strong>Explanation:</strong> ${question.explanation}<br>
+          `;
+          testList.appendChild(listItem);
+        });
+
+        // Show the test result content
+        testResultContent.classList.remove('d-none');
+      })
+      .catch(error => {
+        console.error('Error getting the result:', error);
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    showTestResult(test_id);
+  });
+</script>
 {% endblock %}

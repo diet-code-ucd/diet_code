@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint, abort, jsonify, render_template, request
+from flask import Blueprint, abort, jsonify, redirect, render_template, request, url_for
 from flask_login import login_required, current_user
 from pony.flask import db_session
 
@@ -40,26 +40,11 @@ def userStats():
 @views.route('/submit_test', methods=['GET', 'POST'])
 @login_required
 def submit_test():
-    if request.method == 'POST':
-        # Get the JSON data from the URL parameter
-        data = request.args.get('data')
-        data = json.loads(data)  # Convert the data to a Python dictionary
-
-        # Process the data as needed
-        questions = data.get('questions', [])
-        for question in questions:
-            question_id = question.get('id')
-            user_answer = question.get('user_answer')
-            # Do something with the question_id and user_answer
-
-        # After processing the data, we can return a response if needed
-        return jsonify({'message': 'Data processed successfully'})
-
-    else:
-        # If the method is GET, you can render the "submit_test.html" template
-        return render_template('submit_test.html')
+    test_id=request.args.get('test_id') 
+    return render_template("submit_test.html", test_id=test_id)
     
 @views.route('/aboutus', methods=['GET', 'POST'])
 @login_required
 def about_us():
+    
     return render_template("about_us.html")
