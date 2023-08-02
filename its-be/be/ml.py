@@ -39,11 +39,6 @@ def generate_questions(subject):
     parsed_response = parser.parse(response)
     return parsed_response
 
-
-#TODO: Implement this function
-def generate_learning_material(subject):
-    pass
-
 class Question(BaseModel):
     question: str = Field(description="The question.")
     answer: str = Field(description="The answer to the question.")
