@@ -4,7 +4,7 @@ from flask_login import LoginManager, login_required
 from .models import db, User
 from celery import Celery, Task
 
-def create_app() -> Flask:
+def init_app() -> Flask:
     app = Flask(__name__)
     app.config.update(
         SECRET_KEY = 'dev',

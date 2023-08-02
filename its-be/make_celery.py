@@ -1,5 +1,5 @@
-from be import create_app
+from be import init_app
 
-flask_app = create_app()
+flask_app = init_app()
 celery_app = flask_app.extensions['celery']
 
