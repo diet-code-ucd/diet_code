@@ -2,7 +2,7 @@
 
 set -m
 
-flask --app be run -p 8080 --debug  &
+flask run -p 8080 --debug  &
 celery -A make_celery worker --loglevel=INFO &
 celery -A make_celery beat -S redbeat.RedBeatScheduler --loglevel=INFO &
 
