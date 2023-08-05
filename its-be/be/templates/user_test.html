@@ -50,7 +50,8 @@
         'Content-Type': 'application/json' 
       },
       body: JSON.stringify({
-        course_id: course_id
+        course_id: course_id,
+        tags: {{ tags }}
       })
     })
     .then(response => {
