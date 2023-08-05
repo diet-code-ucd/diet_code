@@ -10,12 +10,18 @@ from .models import Course, Test, Question, UserAnswer
 views = Blueprint('views', __name__)
 course = Blueprint('course', __name__)
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/', methods=['GET'])
+def default():
+    if current_user.is_authenticated:
+        return redirect(url_for('views.home'))
+    return render_template('auth/login.html')
+
+@views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
     enrolled_courses = current_user.enrolled_courses
     available_courses = Course.select(lambda c: c not in enrolled_courses)
-    return render_template("home.html", enrolled_courses=enrolled_courses, available_courses=available_courses)
+    return render_template("user_home.html", enrolled_courses=enrolled_courses, available_courses=available_courses)
 
 @course.route('/course/<int:course_id>', methods=['GET'])
 @login_required
