@@ -106,14 +106,25 @@
 
   // Function to display the test questions
   function showTestQuestions(questions) {
-    
     questions.forEach(question => {
       const questionDiv = document.createElement('div');
       questionDiv.classList.add('form-group');
       questionDiv.innerHTML = `
-        <label for="question${question.id}">Question: ${question.question}</label>
-        <input type="text" class="form-control" id="question${question.id}" name="question${question.id}">
+        <label for="question${question.id}">${question.question}</label>
       `;
+
+      // Create radio buttons for each question option
+      question.options.forEach(option => {
+        const radioLabel = document.createElement('label');
+        const radioInput = document.createElement('input');
+        radioInput.type = 'radio';
+        radioInput.name = `question${question.id}`;
+        radioInput.value = option;
+        radioLabel.appendChild(radioInput);
+        radioLabel.appendChild(document.createTextNode(option));
+        questionDiv.appendChild(radioLabel);
+      });
+
       testForm.appendChild(questionDiv);
     });
 
@@ -178,10 +189,6 @@
     generateTest(course_id); // Call the generateTest function with the course_id
   });
 
-//   document.getElementById('submit-test').addEventListener('click', function(){
-//     submitAnswers(answers)
-//   });
-
 </script>
 
 <style>
@@ -240,16 +247,3 @@
   </style>
 
 {% endblock %}
-
-
-{
-    "questions":[
-    {"id":45,"user_answer":"2.9*10^3 m/s"},
-    {"id":59,"user_answer":"asd"},
-    {"id":69,"user_answer":"asd"},
-    {"id":54,"user_answer":"fsdf"},
-    {"id":61,"user_answer":"wqer"},
-    {"id":62,"user_answer":"qwe"},
-    {"id":47,"user_answer":"gq"}
-    ]
-}
