@@ -4,8 +4,9 @@ from flask import Blueprint, abort, jsonify, redirect, render_template, request,
 from flask import Blueprint, abort, jsonify, render_template, request
 from flask_login import login_required, current_user
 from pony.flask import db_session
+from pony.orm import select
 
-from .models import Course, Test, Question, UserAnswer
+from .models import Course, Test, Question, UserAnswer, Tag
 
 views = Blueprint('views', __name__)
 course = Blueprint('course', __name__)
@@ -40,7 +41,10 @@ def userTest():
     course_id=request.args.get('course_id')
     course = Course.get(id = course_id)
     test = Test.get(id=1)
-    return render_template("user_test.html", user=current_user, course_id=course_id, test=test, course = course)
+    tags = [] 
+    for t in Tag.select().where(lambda t: t in course.questions.tags):
+        tags.append(t.tag)
+    return render_template("user_test.html", user=current_user, course_id=course_id, test=test, course=course, tags=tags)
 
 @views.route('/userstats', methods=['GET', 'POST'])
 @login_required

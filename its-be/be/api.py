@@ -7,7 +7,7 @@ from datetime import date
 
 from pony.orm import commit, flush
 
-from .models import Course, Test, Question, UserAnswer
+from .models import Course, Test, Question, UserAnswer, Tag, Option
 from .ml import generate_questions
 
 import logging
@@ -57,9 +57,10 @@ def get_tests():
 @db_session
 def generate_test():
     course = Course.get(id=request.json['course_id'])
+    tags = Tag.select().where(lambda t: t.tag in request.json['tags'])
     if course not in current_user.enrolled_courses:
         abort(403)
-    new_test = Test(for_user=current_user, course=course)
+    new_test = Test(for_user=current_user, course=course, tags=tags)
     commit()
     add_questions_to_test.delay(new_test.id)
     return jsonify(new_test.to_dict())
@@ -78,9 +79,19 @@ def add_questions_to_test(test_id):
             if int(age_range[0]) <= user_age <= int(age_range[1]):
                 available_questions.append(q)
     if len(available_questions) < 7:
-        generate_result = generate_questions(test.course.name)
+        generate_result = generate_questions(test.course.name, user_age, test.tags.tag)
         for q in generate_result.questions:
-            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, age_range=q.ageRange , difficulty=q.difficulty, explanation=q.explanation))
+            tags = []
+            for t in q.tags:
+                tag = Tag.get(tag=t)
+                if tag:
+                    tags.append(tag)
+                else:
+                    tags.append(Tag(tag=t))
+            question = Question(course=test.course, question=q.question, answer=q.answer, age_range=q.ageRange, difficulty=q.difficulty, explanation=q.explanation, tags=tags)
+            
+            options = [Option(option=o, question=question) for o in q.options]
+            available_questions.append(question)
         commit()
     available_questions = random.sample(available_questions, 7)
     test.questions = available_questions
@@ -115,26 +126,35 @@ def get_test(test_id):
             abort(404)
         if current_user != test.for_user:
             abort(403)
+
         test_dict = test.to_dict()
         if not test.ready:
             return jsonify(test_dict)
+
         if test.completed:
             user_answers = [q for q in test.user_answers]
             user_answers_dict = []
             for a in user_answers:
                 q_dict = a.question.to_dict()
                 q_dict['user_answer'] = a.answer
+                q_dict['question'] = a.question.question
+                q_dict['options'] = [o.option for o in a.question.options]
                 del q_dict['course']
                 del q_dict['difficulty']
                 user_answers_dict.append(q_dict)
             test_dict['questions'] = user_answers_dict
             return jsonify(test_dict)
-        test_dict['questions'] = [q.to_dict() for q in test.questions]
-        for q in test_dict['questions']:
-            del q['answer']
-            del q['explanation']
-            del q['difficulty']
-            del q['course']
+
+        questions_dict = []
+        for q in test.questions:
+            q_dict = q.to_dict()
+            q_dict['options'] = [o.option for o in q.options]
+            del q_dict['answer']
+            del q_dict['explanation']
+            del q_dict['difficulty']
+            del q_dict['course']
+            questions_dict.append(q_dict)
+        test_dict['questions'] = questions_dict
         return jsonify(test_dict)
 
 bp.register_blueprint(course_bp)
