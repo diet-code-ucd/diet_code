@@ -1,6 +1,6 @@
 FROM python:3.9
 WORKDIR /app
-COPY . ./
+COPY ./its-be ./
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install build
