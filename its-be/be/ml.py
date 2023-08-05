@@ -11,7 +11,7 @@ from typing import List, Optional
 
 
 
-def generate_questions(subject):
+def generate_questions(subject, age, tags):
     model_name = "text-davinci-003"
     temperature = 0.3
     llm = OpenAI(model_name=model_name, temperature=temperature, max_tokens=-1)
@@ -19,32 +19,22 @@ def generate_questions(subject):
     parser = PydanticOutputParser(pydantic_object=ListQuestions)
     
     system_prompt = """You are a helpful assistant.
-    A user will provide you with a subject, and you should generate 10 multiple-choice questions in that subject.
-    For each question, you should provide the following information:
-    - The question itself
-    - The options for the question
-    - The correct answer option
-    - An explanation on why the correct option is the answer
-    - The difficulty of the question on a scale from 1 to 5
-    - Tags, which are keywords related to the topic of the question
-    Please provide the requested data in JSON format, following the given structure:
-    {
-        "question": "What is the capital of France?",
-        "options": ["London", "Berlin", "Paris", "Madrid"],
-        "answer": "Paris",
-        "explanation": "Paris is the capital city of France.",
-        "difficulty": 2,
-        "tags": ["geography"]
-    }
-    Please only include the requested data in the JSON object and nothing more.
+    A user will provide you a subject, their age, and any tags to focus on.
+    You should generate 10 questions in that subject, appropriate to that age and should be related to the tags.
+    At least 3 questions should be from the subject itself, and at least 5 questions should be from the tags.
+    With each question, you should also provide the answer, explaination (how to solve), a difficulty (scale 1 to 5), and tags (keywords of the topic of question).
+    The questions are all MCQ question, you should also provide the options.
+
+    ONLY provide the requested data in JSON a object, and nothing more.
     {format_instructions}
     """
+    human_prompt = "My age is {age}. The suject is {subject} with the tags {tags}"
+
     system_message_prompt = SystemMessagePromptTemplate.from_template(system_prompt)
-    human_prompt = "{text}"
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_prompt)
 
     chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
-    input = {"format_instructions": parser.get_format_instructions(), "text": subject}
+    input = {"format_instructions": parser.get_format_instructions(), "age": age, "subject": subject, "tags": tags}
 
     chain = LLMChain(
         llm=llm, 
@@ -55,46 +45,32 @@ def generate_questions(subject):
     parsed_response = parser.parse(response)
     return parsed_response
 
-#--------------------------------------------------
-'''import openai
-api_key = os.getenv('OPENAI_API_KEY')
-openai.api_key = api_key
-
-#TODO: Implement this function
 def generate_learning_material(tags): # If we get Age of user we can also modify the parameters and give age specific study material.
-    MODEL = "gpt-3.5-turbo-0301"
-
-    # Construct the user prompt based on the subject choice. In "{...}" there can be subject name or tags.
-    prompt = f"Please generate study notes on {tags}. Include key concepts, important details, and any relevant examples and website links to relevant material."
+    model_name = "text-davinci-003"
+    temperature = 0.3
+    llm = OpenAI(model_name=model_name, temperature=temperature, max_tokens=-1)
     
-    #prompt2 = f"Check the quiz result (result after the test is solved), give scores and the correct feedback for the wrong answers"
+    system_prompt = """You are a helpful assistant.
+    A user will provide you a list of tags to focus on.
+    You should generate study material for the user on that topic.
+    The study material should include key concepts, important details, and any relevant examples and website links to relevant material.
+    """
+    human_prompt = "The tags are {tags}"
+
+    system_message_prompt = SystemMessagePromptTemplate.from_template(system_prompt)
+    human_message_prompt = HumanMessagePromptTemplate.from_template(human_prompt)
+
+    chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
+    input = {"tags": tags}
+
+    chain = LLMChain(
+            llm=llm, 
+            prompt=chat_prompt,
+        )
     
-    response = openai.ChatCompletion.create(
-        model=MODEL,
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            #{"role": "user", "content": prompt2},
-            {"role": "user", "content": prompt},
-            {"role": "user", "content": "Give the requested data in text format"}
-        ],
-        temperature=0.3,
-        max_tokens=1000
-    )
+    response = chain.run(input)
 
-    # Process the API response as needed
-    # ...
-
-    return response['choices'][0]['message']['content']'''
-
-'''# Example usage: Get quiz questions for the subject "Science"
-tags_choice = "Photosynthesis"
-notes_response = generate_notes(tags_choice)
-
-# Print or process the quiz_response as needed
-print(notes_response)'''
-
-#--------------------------------------------------
-
+    return response
 
 class Question(BaseModel):
     question: str = Field(description="The question.")
