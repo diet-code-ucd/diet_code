@@ -19,10 +19,24 @@ def generate_questions(subject):
     parser = PydanticOutputParser(pydantic_object=ListQuestions)
     
     system_prompt = """You are a helpful assistant.
-    A user will provide you a subject, and you should generate 10 questions in that subject.
-    With each question, you should also provide the answer, explaination (how to solve), a difficulty (scale 1 to 5), and tags (keywords of the topic of question).
-    If it's an MCQ question, you should also provide the options.
-    ONLY provide the requested data in JSON a object, and nothing more.
+    A user will provide you with a subject, and you should generate 10 multiple-choice questions in that subject.
+    For each question, you should provide the following information:
+    - The question itself
+    - The options for the question
+    - The correct answer option
+    - An explanation on why the correct option is the answer
+    - The difficulty of the question on a scale from 1 to 5
+    - Tags, which are keywords related to the topic of the question
+    Please provide the requested data in JSON format, following the given structure:
+    {
+        "question": "What is the capital of France?",
+        "options": ["London", "Berlin", "Paris", "Madrid"],
+        "answer": "Paris",
+        "explanation": "Paris is the capital city of France.",
+        "difficulty": 2,
+        "tags": ["geography"]
+    }
+    Please only include the requested data in the JSON object and nothing more.
     {format_instructions}
     """
     system_message_prompt = SystemMessagePromptTemplate.from_template(system_prompt)
