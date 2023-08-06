@@ -7,6 +7,7 @@ class Course(db.Entity):
     tests = Set('Test')
     questions = Set('Question')
     enrolled_users = Set(User)
+    topics = Set('Topic')
 
 class Test(db.Entity):
     course = Required(Course)
@@ -15,7 +16,7 @@ class Test(db.Entity):
     for_user = Required(User)
     ready = Required(bool, default=False)
     completed = Required(bool, default=False)
-    tags = Set('Tag')
+    topics = Set('Topic')
 
 class Question(db.Entity):
     course = Required(Course)
@@ -24,7 +25,7 @@ class Question(db.Entity):
     answer = Required(str)
     options = Set('Option')
     difficulty = Required(int)
-    tags = Set('Tag')
+    topics = Set('Topic')
     explanation = Required(LongStr, lazy=False)
     age_range = Required(str)
     user_answers = Set('UserAnswer')
@@ -33,8 +34,8 @@ class Option(db.Entity):
     question = Required(Question)
     option = Required(str)
 
-class Tag(db.Entity):
-    tag = PrimaryKey(str)
+class Topic(db.Entity):
+    topic = PrimaryKey(str)
     question = Set(Question)
     test = Set(Test)
 

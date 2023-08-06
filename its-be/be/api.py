@@ -9,7 +9,7 @@ from pony.orm import commit, flush
 
 from be.background_tasks import add_questions_to_test
 
-from .models import Course, Test, Question, UserAnswer, Tag, Option
+from .models import Course, Test, Question, UserAnswer, Topic, Option
 from .ml import generate_questions
 
 import logging
@@ -59,7 +59,7 @@ def get_tests():
 @db_session
 def generate_test():
     course = Course.get(id=request.json['course_id'])
-    tags = Tag.select().where(lambda t: t.tag in request.json['tags'])
+    tags = Topic.select().where(lambda t: t.tag in request.json['tags'])
     if course not in current_user.enrolled_courses:
         abort(403)
     new_test = Test(for_user=current_user, course=course, tags=tags)

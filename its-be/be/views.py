@@ -7,9 +7,9 @@ from pony.flask import db_session
 from pony.orm import select
 from be.ml import generate_learning_material
 
-from be.stats import get_tags_for_learning_material
+from be.stats import get_topics_for_learning_material
 
-from .models import Course, Test, Question, UserAnswer, Tag
+from .models import Course, Test, Question, UserAnswer, Topic
 
 views = Blueprint('views', __name__)
 course = Blueprint('course', __name__)
@@ -44,10 +44,10 @@ def userTest():
     course_id=request.args.get('course_id')
     course = Course.get(id = course_id)
     test = Test.get(id=1)
-    tags = [] 
-    for t in Tag.select().where(lambda t: t in course.questions.tags):
-        tags.append(t.tag)
-    return render_template("user_test.html", user=current_user, course_id=course_id, test=test, course=course, tags=tags)
+    topics = [] 
+    for t in Topic.select().where(lambda t: t in course.questions.topics):
+        topics.append(t.topic)
+    return render_template("user_test.html", user=current_user, course_id=course_id, test=test, course=course, topics=topics)
 
 @views.route('/userstats', methods=['GET', 'POST'])
 @login_required
@@ -63,8 +63,8 @@ def learning():
         abort(404)
     if course not in current_user.enrolled_courses:
         abort(403)
-    tags = get_tags_for_learning_material(current_user, course)
-    learning_material = generate_learning_material(course.name, tags)
+    topics = get_topics_for_learning_material(current_user, course)
+    learning_material = generate_learning_material(course.name, topics)
     return render_template("learning.html", learning_material=learning_material, course=course)
 
 @views.route('/submit_test', methods=['GET', 'POST'])
