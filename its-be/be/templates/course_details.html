@@ -12,7 +12,19 @@
 
   {% if enrolled %}
     <p>Enrollment Status: Enrolled</p>
-    <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
+  <p>Selected Topics:</p>
+  <ul>
+    {% for topic in topics %}
+    <li>{{topic.topic}}</li>
+    {% endfor %}
+  </ul>
+  <p>Available Topics:</p>
+  <ul>
+    {% for avt in available_topics %}
+    <li>{{ avt.topic }}</li>
+    {% endfor %}
+  </ul>
+    <button id="learn" class="btn btn-primary mt-3">Learn</button>
   {% else %}
     <p>Enrollment Status: Not Enrolled</p>
     <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
@@ -67,14 +79,14 @@ const refreshLink = document.getElementById('refresh-link');
     });
   }
   // Add event listener for the Take Test button click
-  const takeTestButton = document.getElementById('take-test');
+  const takeTestButton = document.getElementById('learn');
   if (takeTestButton) {
     takeTestButton.addEventListener('click', function() {
-        window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+        window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
     });
   }
-//   document.getElementById('take-test').addEventListener('click', function() {
-//     window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+//   document.getElementById('learn').addEventListener('click', function() {
+//     window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
 //   });
 });
   

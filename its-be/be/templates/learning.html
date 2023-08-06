@@ -10,9 +10,27 @@
     <li>Course Name: {{ course.name }}</li>
   </ul>
 
-  <div>{{ learning_materials }}</div>
+  <p>{{ learning_materials }}</p>
 
   <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
   
 </div>
+
+<script> 
+document.addEventListener('DOMContentLoaded', function() {
+const course_id = document.getElementById('course_id').getAttribute('data-value');
+const refreshLink = document.getElementById('refresh-link');
+  // Add event listener for the Take Test button click
+  const takeTestButton = document.getElementById('take-test');
+  if (takeTestButton) {
+    takeTestButton.addEventListener('click', function() {
+        window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+    });
+  }
+//   document.getElementById('take-test').addEventListener('click', function() {
+//     window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+//   });
+});
+  
+</script>
 {% endblock %}

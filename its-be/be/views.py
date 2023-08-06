@@ -6,6 +6,7 @@ from flask_login import login_required, current_user
 from pony.flask import db_session
 from pony.orm import select
 from be.ml import generate_learning_material
+from be.models.tutor import UserCourseSelection
 
 from be.stats import get_topics_for_learning_material
 
@@ -35,8 +36,15 @@ def course_details(course_id):
     user_is_enrolled = course in current_user.enrolled_courses.course
     print(user_is_enrolled)
     if not course:
-        abort(404)  
-    return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled)
+        abort(404)
+
+    usc = [topic for topic in current_user.enrolled_courses.filter(course=course)]
+    print(usc)
+    topics = usc[0].topics
+    print(topics)
+    available_topics = [topic for topic in course.topics if topic not in topics]
+    print(available_topics)
+    return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled, topics=topics, available_topics=available_topics)
 
 @views.route('/userTest', methods=['GET', 'POST'])
 @login_required
@@ -60,11 +68,12 @@ def learning():
     course = Course.get(id = course_id)
     if not course:
         abort(404)
-    if course not in current_user.enrolled_courses:
+    if course not in current_user.enrolled_courses.course:
         abort(403)
-    topics = get_topics_for_learning_material(current_user, course)
-    learning_material = generate_learning_material(course.name, topics)
-    return render_template("learning.html", learning_material=learning_material, course=course)
+    ucs = UserCourseSelection[current_user, course]
+    print(ucs)
+    learning_materials = generate_learning_material(course.name, ucs.topics)
+    return render_template("learning.html", learning_materials=learning_materials, course=course)
 
 @views.route('/submit_test', methods=['GET', 'POST'])
 @login_required
