@@ -20,17 +20,19 @@ from pony.flask import db_session
 @db_session
 def add_questions_to_test(test_id):
     test = Test.get(id=test_id)
-    user = test.for_user
+    user_course_selection = test.user_course_selection
+    user = user_course_selection.user
+    course = user_course_selection.course
     user_age = date.today().year - user.dob.year
-    questions = Question.select().where(course=test.course)
+    questions = Question.select().where(course=course)
     available_questions = []
     for q in questions:
-        if test.for_user not in q.tests.for_user:
+        if user not in q.tests.user_course_selection.user:
             age_range = q.age_range.split('-')
             if int(age_range[0]) <= user_age <= int(age_range[1]):
                 available_questions.append(q)
     if len(available_questions) < 7:
-        generate_result = generate_questions(test.course.name, user_age, test.topics.topic)
+        generate_result = generate_questions(course.name, user_age, test.topics.topic)
         for q in generate_result.questions:
             topics = []
             for t in q.topics:
@@ -39,7 +41,7 @@ def add_questions_to_test(test_id):
                     topics.append(topic)
                 else:
                     topics.append(Topic(topic=t))
-            question = Question(course=test.course, question=q.question, answer=q.answer, age_range=q.ageRange, difficulty=q.difficulty, explanation=q.explanation, topics=topics)
+            question = Question(course=course, question=q.question, answer=q.answer, age_range=q.ageRange, difficulty=q.difficulty, explanation=q.explanation, topics=topics)
             
             options = [Option(option=o, question=question) for o in q.options]
             available_questions.append(question)

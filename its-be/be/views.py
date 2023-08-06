@@ -23,7 +23,7 @@ def default():
 @views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
-    enrolled_courses = current_user.enrolled_courses
+    enrolled_courses = current_user.enrolled_courses.course
     available_courses = Course.select(lambda c: c not in enrolled_courses)
     return render_template("user_home.html", enrolled_courses=enrolled_courses, available_courses=available_courses)
 
@@ -32,7 +32,7 @@ def home():
 @db_session
 def course_details(course_id):
     course = Course.get(id = course_id)
-    user_is_enrolled = course in current_user.enrolled_courses
+    user_is_enrolled = course in current_user.enrolled_courses.course
     print(user_is_enrolled)
     if not course:
         abort(404)  
@@ -44,9 +44,8 @@ def userTest():
     course_id=request.args.get('course_id')
     course = Course.get(id = course_id)
     test = Test.get(id=1)
-    topics = [] 
-    for t in Topic.select().where(lambda t: t in course.questions.topics):
-        topics.append(t.topic)
+    topics = [topic.topic for topic in course.topics]
+    print(topics)
     return render_template("user_test.html", user=current_user, course_id=course_id, test=test, course=course, topics=topics)
 
 @views.route('/userstats', methods=['GET', 'POST'])
