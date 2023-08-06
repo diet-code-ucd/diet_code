@@ -6,9 +6,8 @@ from .database import db
 class User(db.Entity, UserMixin):
     username = PrimaryKey(str)
     password = Required(str)
-    enrolled_courses = Set('Course')
+    enrolled_courses = Set('UserCourseSelection')
     dob = Required(date)
-    tests = Set('Test')
 
     def get_id(self):
         return self.username

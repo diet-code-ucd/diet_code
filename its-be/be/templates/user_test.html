@@ -51,7 +51,7 @@
       },
       body: JSON.stringify({
         course_id: course_id,
-        tags: {{ tags }}
+        topics: {{ topics|tojson }}
       })
     })
     .then(response => {

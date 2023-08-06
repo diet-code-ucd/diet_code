@@ -4,18 +4,29 @@ from .user import User
 
 class Course(db.Entity):
     name = Required(str)
-    tests = Set('Test')
+    enrolled_users = Set('UserCourseSelection')
     questions = Set('Question')
-    enrolled_users = Set(User)
+    topics = Set('Topic')
+
+class UserCourseSelection(db.Entity):
+    """This entity is used to track which courses a user has enrolled in.
+    It tracks the user, the course, and the topics that the user has selected.
+    Any test generated for this course will be based on the topics selected by the user.
+    """
+    user = Required(User)
+    course = Required(Course)
+    topics = Set('Topic')
+    tests = Set('Test')
+    active = Required(bool, default=True)
+    PrimaryKey(user, course)
 
 class Test(db.Entity):
-    course = Required(Course)
+    user_course_selection = Required(UserCourseSelection)
     questions = Set('Question')
     user_answers = Set('UserAnswer')
-    for_user = Required(User)
     ready = Required(bool, default=False)
     completed = Required(bool, default=False)
-    tags = Set('Tag')
+    topics = Set('Topic')
 
 class Question(db.Entity):
     course = Required(Course)
@@ -24,19 +35,22 @@ class Question(db.Entity):
     answer = Required(str)
     options = Set('Option')
     difficulty = Required(int)
-    tags = Set('Tag')
     explanation = Required(LongStr, lazy=False)
     age_range = Required(str)
     user_answers = Set('UserAnswer')
+    topics = Set('Topic')
 
 class Option(db.Entity):
     question = Required(Question)
     option = Required(str)
 
-class Tag(db.Entity):
-    tag = PrimaryKey(str)
+class Topic(db.Entity):
+    topic = PrimaryKey(str)
     question = Set(Question)
+    course = Set(Course)
     test = Set(Test)
+    user_course_selections = Set(UserCourseSelection)
+
 
 class UserAnswer(db.Entity):
     test = Required(Test)
