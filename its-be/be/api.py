@@ -38,7 +38,7 @@ test_bp = Blueprint('test', __name__, url_prefix='/test')
 @login_required
 @db_session
 def get_tests():
-    return jsonify([c.to_dict() for c in current_user.tests])
+    return jsonify([c.to_dict() for c in current_user.enrolled_courses.tests])
 
 @test_bp.route('/generate', methods=['POST'])
 @login_required
