@@ -15,7 +15,7 @@ class Question(BaseModel):
     explanation: str = Field(description="The explanation of the answer.")
     difficulty: str = Field(description="The difficulty of the question on a scale of 1 to 5.")
     ageRange: str = Field(description="The age range that the question is appropriate for, should be one of the following 0-10, 10-15, 16-18, 18-22, 23-150.")
-    tags: List[str] = Field(description="The tags of the question describing keywords of the topic of question.")
+    topics: List[str] = Field(description="The topics of the question.")
     options: List[str] = Field(description="Answer options.")
 
 class ListQuestions(BaseModel):
@@ -26,7 +26,7 @@ temperature = 0.3
 llm = ChatOpenAI(model_name=model_name, temperature=temperature, max_tokens=2500)
 parser = PydanticOutputParser(pydantic_object=ListQuestions)
 
-def generate_questions(subject, age, tags):
+def generate_questions(subject, age, topics):
     system_prompt = """You are a helpful assistant.
     A user will provide you a subject, their age, and any tags to focus on.
     You should generate 10 questions in that subject, appropriate to that age and should be related to the tags.
@@ -36,13 +36,13 @@ def generate_questions(subject, age, tags):
     ONLY provide the requested data in JSON a object, and nothing more.
     {format_instructions}
     """
-    human_prompt = "My age is {age}. The suject is {subject} with the tags {tags}"
+    human_prompt = "My age is {age}. I want to learn about the the topics {topics} in the {subject}."
 
     system_message_prompt = SystemMessagePromptTemplate.from_template(system_prompt)
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_prompt)
 
     chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
-    input = {"format_instructions": parser.get_format_instructions(), "age": age, "subject": subject, "tags": tags}
+    input = {"format_instructions": parser.get_format_instructions(), "age": age, "subject": subject, "topics": topics}
 
     chain = LLMChain(
         llm=llm, 
@@ -53,20 +53,20 @@ def generate_questions(subject, age, tags):
     parsed_response = parser.parse(response)
     return parsed_response
 
-def generate_learning_material(course, tags): # If we get Age of user we can also modify the parameters and give age specific study material.
+def generate_learning_material(course, topics): # If we get Age of user we can also modify the parameters and give age specific study material.
     system_prompt = """You are a helpful assistant.
-    A user will provide you a list of tags to focus on.
+    A user will provide you a list of topics to focus on.
     You should generate study material for the user on that topic.
     The study material should include key concepts, important details, and any relevant examples and website links to relevant material.
     If no tags are provided, you should generate study material on a random topic for the course.
     """
-    human_prompt = "The course is {course}, The tags are {tags}"
+    human_prompt = "The topics I want to learn about are {topics} in the course {course}."
 
     system_message_prompt = SystemMessagePromptTemplate.from_template(system_prompt)
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_prompt)
 
     chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
-    input = {"course": course, "tags": tags}
+    input = {"course": course, "topics": topics}
 
     chain = LLMChain(
             llm=llm, 

@@ -9,7 +9,7 @@ from pony.orm import commit, flush
 
 from be.background_tasks import add_questions_to_test
 
-from .models import Course, Test, Question, UserAnswer, Tag, Option
+from .models import Course, Test, Question, UserAnswer, Topic, Option, UserCourseSelection
 from .ml import generate_questions
 
 import logging
@@ -20,28 +20,14 @@ bp = Blueprint('api', __name__, url_prefix='/api')
 # /api/course
 course_bp = Blueprint('course', __name__, url_prefix='/course')
 
-@course_bp.route('/enrolled', methods=['GET'])
-@login_required
-@db_session
-def get_courses():
-    return jsonify([c.to_dict() for c in current_user.enrolled_courses])
-
-@course_bp.route('/available', methods=['GET'])
-@login_required
-@db_session
-def get_available_courses():
-    all_courses = Course.select()
-    enrolled_courses = current_user.enrolled_courses
-    courses = [c.to_dict() for c in all_courses if c not in enrolled_courses]
-    return jsonify(courses)
-
 @course_bp.route('/enroll', methods=['POST'])
 @login_required
 @db_session
 def enroll_course():
     course = Course.get(id=request.json['course_id'])
     if course not in current_user.enrolled_courses:
-        current_user.enrolled_courses.add(course)
+        user_course = UserCourseSelection(user=current_user, course=course)
+        current_user.enrolled_courses.add(user_course)
         return jsonify(course.to_dict())
     abort(409)
 
@@ -52,17 +38,18 @@ test_bp = Blueprint('test', __name__, url_prefix='/test')
 @login_required
 @db_session
 def get_tests():
-    return jsonify([c.to_dict() for c in current_user.tests])
+    return jsonify([c.to_dict() for c in current_user.enrolled_courses.tests])
 
 @test_bp.route('/generate', methods=['POST'])
 @login_required
 @db_session
 def generate_test():
     course = Course.get(id=request.json['course_id'])
-    tags = Tag.select().where(lambda t: t.tag in request.json['tags'])
-    if course not in current_user.enrolled_courses:
+    topics = Topic.select().where(lambda t: t.topic in request.json['topics'])
+    if course not in current_user.enrolled_courses.course:
         abort(403)
-    new_test = Test(for_user=current_user, course=course, tags=tags)
+    user_course_selection = UserCourseSelection.get(user=current_user, course=course)
+    new_test = Test(user_course_selection=user_course_selection, topics=topics)
     commit()
     add_questions_to_test.delay(new_test.id)
     return jsonify(new_test.to_dict())
@@ -76,7 +63,7 @@ def get_test(test_id):
         test = Test.get(id=test_id)
         if not test:
             abort(404)
-        if current_user != test.for_user:
+        if current_user != test.user_course_selection.user:
             abort(403)
         if test.completed or not test.ready:
             abort(409)
@@ -87,7 +74,7 @@ def get_test(test_id):
                 abort(404)
             if question not in test.questions:
                 abort(403)
-            user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer']))
+            user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer'], correct=q['user_answer'] == question.answer))
         test.completed = True
         test.user_answers = user_answers
         return redirect(url_for('api.test.get_test', test_id=test_id))
@@ -95,7 +82,7 @@ def get_test(test_id):
         test = Test.get(id=test_id)
         if not test:
             abort(404)
-        if current_user != test.for_user:
+        if current_user != test.user_course_selection.user:
             abort(403)
 
         test_dict = test.to_dict()
