@@ -7,15 +7,46 @@
       <canvas id="statsChart"></canvas>
     </div>
   </div>
+<<<<<<< Updated upstream
+=======
+
+  <div id="chart"></div>
+  <div id="spec"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+>>>>>>> Stashed changes
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
   <script>
+<<<<<<< Updated upstream
     document.addEventListener('DOMContentLoaded', function() {
       // Sample data 
       const testData = {
         completed: 10,
         incomplete: 5,
       };
+=======
+    // Make a request to the API endpoint to fetch data
+    fetch('http://localhost:8080/api/test/')
+      .then(response => response.json())
+      .then(data => {
+        // Define the Vega-Lite specification for the bar chart
+        const spec = {
+          "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+          
+          "data": {
+            "values": data // Use the fetched data as the input
+          },
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "for_user", "type": "ordinal"},
+            "y": {"aggregate": "count", "type": "quantitative"},
+            "color": {"field": "completed", "type": "nominal", "scale": {"domain": [false, true], "range": ["red", "green"]}}
+          }
+        };
+>>>>>>> Stashed changes
 
       // Create the bar chart
       const ctx = document.getElementById('statsChart').getContext('2d');
@@ -47,4 +78,50 @@
       });
     });
   </script>
+
+<script>
+  // Make a request to the API endpoint to fetch data
+  fetch('http://localhost:8080/api/userData')
+    .then(response => response.json())
+    .then(data => {
+      const totalAnswers = data.CorrectAnswers + data.WrongAnswers;
+      const correct_percent = (Math.round(data.CorrectAnswers * 100) / totalAnswers).toFixed(2);
+      const wrong_percent = (Math.round(data.WrongAnswers * 100) / totalAnswers).toFixed(2);
+      // Define the Vega-Lite specification for the bar chart
+      const spec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "description":"Number of correct questions answered.",
+        "width": 400,
+        "height": 400,
+        "data": {
+          "values": [
+            {"answer": "Correct "+correct_percent+"%", "count":data.CorrectAnswers,},
+            {"answer": "Wrong "+wrong_percent+"%", "count":data.WrongAnswers}
+          ]
+        },
+        "transform": [{"calculate": "datum.count / " + totalAnswers, "as": "percentage"}],
+        
+        "mark": "arc",
+        "encoding": {
+          "theta": {"field": "count", "type": "quantitative"},
+          "color": {"field": "answer", "type": "nominal"}
+        },
+        "config":{
+          "legend":{
+            "titleFontSize":20,
+            "labelFontSize":15
+          }
+
+        }
+      };
+
+      // Embed the chart in the 'chart' div
+      vegaEmbed("#spec", spec);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+</script>
+
+  
 {% endblock %}
