@@ -1,9 +1,14 @@
+import json
 from celery import shared_task
 from flask import Blueprint, jsonify, redirect, render_template, request, url_for, abort
 from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
 from datetime import date
+from vega_datasets import data
+from vega import VegaLite
+import requests
+import altair as alt
 
 from pony.orm import commit, flush
 
@@ -16,6 +21,17 @@ import logging
 logger = logging.getLogger(__name__)
 
 bp = Blueprint('api', __name__, url_prefix='/api')
+
+@bp.route('/userData')
+@login_required
+@db_session
+def userData():
+    useranswer = UserAnswer.select().answer
+    actualanswer = Question.select().answer
+    correctanswers = [c.to_dict() for c in useranswer if c in actualanswer]
+    # json_data = chart.to_json()
+    # chart_dict = json.loads(json_data)
+    return jsonify(correctanswers)
 
 # /api/course
 course_bp = Blueprint('course', __name__, url_prefix='/course')

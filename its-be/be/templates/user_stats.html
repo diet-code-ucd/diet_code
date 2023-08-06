@@ -3,48 +3,38 @@
 {% block content %}
 <div class="container">
     <h1>User Stats</h1>
-    <div>
-      <canvas id="statsChart"></canvas>
-    </div>
   </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Sample data 
-      const testData = {
-        completed: 10,
-        incomplete: 5,
-      };
 
-      // Create the bar chart
-      const ctx = document.getElementById('statsChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Completed', 'Incomplete'],
-          datasets: [{
-            label: 'Number of Tests',
-            data: [testData.completed, testData.incomplete],
-            backgroundColor: [
-              'rgba(54, 162, 235, 0.2)', // Blue color for completed tests
-              'rgba(255, 99, 132, 0.2)', // Red color for incomplete tests
-            ],
-            borderColor: [
-              'rgba(54, 162, 235, 1)', // Blue color for completed tests border
-              'rgba(255, 99, 132, 1)', // Red color for incomplete tests border
-            ],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
+  <div id="chart"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  
+  <script>
+    // Make a request to the API endpoint to fetch data
+    fetch('http://localhost:8080/api/test/')
+      .then(response => response.json())
+      .then(data => {
+        // Define the Vega-Lite specification for the bar chart
+        const spec = {
+          "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+          "data": {
+            "values": data // Use the fetched data as the input
+          },
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "for_user", "type": "ordinal"},
+            "y": {"aggregate": "count", "type": "quantitative"},
+            "color": {"field": "completed", "type": "nominal", "scale": {"domain": [false, true], "range": ["red", "green"]}}
           }
-        }
+        };
+
+        // Embed the chart in the 'chart' div
+        vegaEmbed("#chart", spec);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
       });
-    });
   </script>
 {% endblock %}
