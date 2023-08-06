@@ -4,7 +4,7 @@ from flask_login import LoginManager, login_required
 from .models import db, User
 from celery import Celery, Task
 
-def init_app() -> Flask:
+def init_app(worker=False) -> Flask:
     app = Flask(__name__)
     app.config.update(
         SECRET_KEY = 'dev',
@@ -21,39 +21,41 @@ def init_app() -> Flask:
             'task_ignore_result': True,
             'task_serializer': 'pickle',
             'accept_content': ['pickle'],
-        }
+        },
     )
     app.config.from_prefixed_env()
     celery_init_app(app)
 
-    db.bind(**app.config['DATABASE'])
-    db.generate_mapping(create_tables=True)
-    Pony(app)
+    with app.app_context():
+        if not worker:
+            db.bind(**app.config['DATABASE'])
+            db.generate_mapping(create_tables=True)
+            Pony(app)
 
-    login_manager = LoginManager(app)
-    login_manager.login_view = 'auth.login'
+            login_manager = LoginManager(app)
+            login_manager.login_view = 'auth.login'
 
-    @login_manager.user_loader
-    def load_user(user_username):
-        return User.get(username=user_username)
+            @login_manager.user_loader
+            def load_user(user_username):
+                return User.get(username=user_username)
 
-    @app.route('/ping')
-    def ping():
-        return 'pong'
+            @app.route('/ping')
+            def ping():
+                return 'pong'
 
-    @app.route('/ping/auth')
-    @login_required
-    def ping_auth():
-        return 'authenticated pong'
+            @app.route('/ping/auth')
+            @login_required
+            def ping_auth():
+                return 'authenticated pong'
 
-    from . import auth, api, views
+            from . import auth, api, views
 
-    app.register_blueprint(auth.bp)
-    app.register_blueprint(api.bp)
-    app.register_blueprint(views.views)
-    app.register_blueprint(views.course)
+            app.register_blueprint(auth.bp)
+            app.register_blueprint(api.bp)
+            app.register_blueprint(views.views)
+            app.register_blueprint(views.course)
 
-    return app 
+        return app 
 
 def celery_init_app(app: Flask) -> Celery:
     class FlaskTask(Task):

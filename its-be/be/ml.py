@@ -53,19 +53,20 @@ def generate_questions(subject, age, tags):
     parsed_response = parser.parse(response)
     return parsed_response
 
-def generate_learning_material(tags): # If we get Age of user we can also modify the parameters and give age specific study material.
+def generate_learning_material(course, tags): # If we get Age of user we can also modify the parameters and give age specific study material.
     system_prompt = """You are a helpful assistant.
     A user will provide you a list of tags to focus on.
     You should generate study material for the user on that topic.
     The study material should include key concepts, important details, and any relevant examples and website links to relevant material.
+    If no tags are provided, you should generate study material on a random topic for the course.
     """
-    human_prompt = "The tags are {tags}"
+    human_prompt = "The course is {course}, The tags are {tags}"
 
     system_message_prompt = SystemMessagePromptTemplate.from_template(system_prompt)
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_prompt)
 
     chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
-    input = {"tags": tags}
+    input = {"course": course, "tags": tags}
 
     chain = LLMChain(
             llm=llm, 
@@ -73,6 +74,8 @@ def generate_learning_material(tags): # If we get Age of user we can also modify
         )
     
     response = chain.run(input)
+
+    print(response)
 
     return response
 

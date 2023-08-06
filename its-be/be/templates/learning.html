@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Course Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Course Details</h2>
+  <ul>
+    <li id="course_id" data-value="{{ course.id }}">Course ID: {{ course.id }}</li>
+    <li>Course Name: {{ course.name }}</li>
+  </ul>
+
+  <div>{{ learning_materials }}</div>
+
+  <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
+  
+</div>
+{% endblock %}

@@ -5,6 +5,9 @@ from flask import Blueprint, abort, jsonify, render_template, request
 from flask_login import login_required, current_user
 from pony.flask import db_session
 from pony.orm import select
+from be.ml import generate_learning_material
+
+from be.stats import get_tags_for_learning_material
 
 from .models import Course, Test, Question, UserAnswer, Tag
 
@@ -50,6 +53,19 @@ def userTest():
 @login_required
 def userStats():
     return render_template("user_stats.html")
+
+@views.route('/learning', methods=['GET'])
+@login_required
+def learning():
+    course_id=request.args.get('course_id')
+    course = Course.get(id = course_id)
+    if not course:
+        abort(404)
+    if course not in current_user.enrolled_courses:
+        abort(403)
+    tags = get_tags_for_learning_material(current_user, course)
+    learning_material = generate_learning_material(course.name, tags)
+    return render_template("learning.html", learning_material=learning_material, course=course)
 
 @views.route('/submit_test', methods=['GET', 'POST'])
 @login_required
