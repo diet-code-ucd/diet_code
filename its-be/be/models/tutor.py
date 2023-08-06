@@ -42,3 +42,4 @@ class UserAnswer(db.Entity):
     test = Required(Test)
     question = Required(Question)
     answer = Required(str)
+    correct = Required(bool)
