@@ -4,16 +4,12 @@ from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
 from datetime import date
-<<<<<<< Updated upstream
 
-from pony.orm import commit, flush
-=======
 from vega_datasets import data
 from vega import VegaLite
 import requests
 import altair as alt
 from pony.orm import commit, flush, count,select
->>>>>>> Stashed changes
 
 from be.background_tasks import add_questions_to_test
 
@@ -24,10 +20,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 bp = Blueprint('api', __name__, url_prefix='/api')
-
-<<<<<<< Updated upstream
-=======
-
    
 @bp.route('/userData')
 @login_required
@@ -50,9 +42,7 @@ def userData():
     actualanswer_count = count(q.answer for q in Question)
     jsonvalues = {"CorrectAnswers": true_count, "WrongAnswers": false_count}
     return jsonify(jsonvalues)
-   
 
->>>>>>> Stashed changes
 # /api/course
 course_bp = Blueprint('course', __name__, url_prefix='/course')
 

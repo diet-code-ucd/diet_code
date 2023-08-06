@@ -7,8 +7,7 @@
       <canvas id="statsChart"></canvas>
     </div>
   </div>
-<<<<<<< Updated upstream
-=======
+
 
   <div id="chart"></div>
   <div id="spec"></div>
@@ -16,18 +15,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
->>>>>>> Stashed changes
+
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
   <script>
-<<<<<<< Updated upstream
-    document.addEventListener('DOMContentLoaded', function() {
-      // Sample data 
-      const testData = {
-        completed: 10,
-        incomplete: 5,
-      };
-=======
     // Make a request to the API endpoint to fetch data
     fetch('http://localhost:8080/api/test/')
       .then(response => response.json())
@@ -45,43 +36,13 @@
             "y": {"aggregate": "count", "type": "quantitative"},
             "color": {"field": "completed", "type": "nominal", "scale": {"domain": [false, true], "range": ["red", "green"]}}
           }
-        };
->>>>>>> Stashed changes
+        }});
 
-      // Create the bar chart
-      const ctx = document.getElementById('statsChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Completed', 'Incomplete'],
-          datasets: [{
-            label: 'Number of Tests',
-            data: [testData.completed, testData.incomplete],
-            backgroundColor: [
-              'rgba(54, 162, 235, 0.2)', // Blue color for completed tests
-              'rgba(255, 99, 132, 0.2)', // Red color for incomplete tests
-            ],
-            borderColor: [
-              'rgba(54, 162, 235, 1)', // Blue color for completed tests border
-              'rgba(255, 99, 132, 1)', // Red color for incomplete tests border
-            ],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
-    });
-  </script>
+</script>
+      
 
 <script>
-  // Make a request to the API endpoint to fetch data
-  fetch('http://localhost:8080/api/userData')
+    fetch('http://localhost:8080/api/userData')
     .then(response => response.json())
     .then(data => {
       const totalAnswers = data.CorrectAnswers + data.WrongAnswers;
