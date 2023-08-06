@@ -5,6 +5,8 @@
 {% block content %}
 
 {{user.id}}
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
 <div class="content-wrapper">
     <div class="container mt-4">
       <h2>Test Details</h2>
@@ -29,6 +31,7 @@
       </div>
     </div>
   </div>
+  
 
 <script>
   const course_id = document.getElementById('course_id').getAttribute('data-value');
@@ -111,20 +114,43 @@
       const questionDiv = document.createElement('div');
       questionDiv.classList.add('form-group');
       questionDiv.innerHTML = `
-        <label for="question${question.id}">${question.question}</label>
+        <div class="question-wrapper">
+          <label class="question-label" for="question${question.id}">${question.question}</label>
+        </div>
       `;
 
-      // Create radio buttons for each question option
-      question.options.forEach(option => {
-        const radioLabel = document.createElement('label');
-        const radioInput = document.createElement('input');
-        radioInput.type = 'radio';
-        radioInput.name = `question${question.id}`;
-        radioInput.value = option;
-        radioLabel.appendChild(radioInput);
-        radioLabel.appendChild(document.createTextNode(option));
-        questionDiv.appendChild(radioLabel);
-      });
+      // Create radio buttons for each question option or a text input box
+      if (question.options.length > 0) {
+        const optionsDiv = document.createElement('div');
+        optionsDiv.classList.add('options');
+
+        question.options.forEach((option, index) => {
+          const radioLabel = document.createElement('label');
+          radioLabel.classList.add('form-check-label');
+          radioLabel.innerHTML = `
+            <input type="radio" class="form-check-input" name="question${question.id}" value="${option}" id="option-${index}-${question.id}">
+            ${option}
+          `;
+          optionsDiv.appendChild(radioLabel);
+        });
+
+        questionDiv.appendChild(optionsDiv);
+      } else {
+        // If question.options is empty or not an array, create a text input box
+        const textInputDiv = document.createElement('div');
+        textInputDiv.classList.add('answer-input');
+
+        const textInput = document.createElement('input');
+        textInput.type = 'text';
+        textInput.name = `question${question.id}`;
+        textInput.classList.add('form-control'); // Add Bootstrap form-control class
+
+        textInputDiv.appendChild(textInput);
+        questionDiv.appendChild(textInputDiv);
+      }
+
+      testForm.appendChild(questionDiv);
+    });
 
       testForm.appendChild(questionDiv);
     });
@@ -242,6 +268,25 @@
     #submit-button {
       display: block;
       margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .question-label {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .options .form-check-label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .options .form-check-input {
+      margin-right: 5px;
     }
   
     /* Add more custom styles here as needed */
