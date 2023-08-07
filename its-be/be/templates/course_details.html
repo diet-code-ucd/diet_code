@@ -3,6 +3,7 @@
 {% block title %}Course Details{% endblock %}
 
 {% block content %}
+
 <div class="container mt-4">
   <h2>Course Details</h2>
   <ul>
@@ -25,11 +26,16 @@
       <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}"><label for="{{avt.topic}}">{{avt.topic}}</label>
     </div>
     {% endfor %}
+  </ul>
     <input type="hidden" id="course" name="course" value="{{course.id}}" />
     <input type="submit" value="Update">
   </form>
-
   <button id="learn" class="btn btn-primary mt-3">Learn</button>
+  <div id="loading-icon" class="d-none">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   {% else %}
   <p>Enrollment Status: Not Enrolled</p>
   <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
@@ -38,7 +44,6 @@
   {% endif %}
 
 </div>
-
 {% if enrolled %}
 <div class="container mt-4">
   <div class="row">
@@ -70,6 +75,7 @@
 </div>
 {% endif %}
 <script>
+const loadingIcon = document.getElementById('loading-icon');
 document.addEventListener('DOMContentLoaded', function() {
 const course_id = document.getElementById('course_id').getAttribute('data-value');
 const refreshLink = document.getElementById('refresh-link');
@@ -110,6 +116,7 @@ const refreshLink = document.getElementById('refresh-link');
   const takeTestButton = document.getElementById('learn');
   if (takeTestButton) {
     takeTestButton.addEventListener('click', function() {
+      loadingIcon.classList.remove('d-none');
         window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
     });
   }
@@ -118,6 +125,48 @@ const refreshLink = document.getElementById('refresh-link');
 </script>
 
 <style>
+  .content-wrapper {
+      font-family: 'Roboto', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .content-wrapper h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .content-wrapper ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    .content-wrapper li {
+      margin-bottom: 10px;
+    }
+  
+    .content-wrapper strong {
+      font-weight: bold;
+    }
+  
+  .spinner-border {
+      width: 2rem;
+      height: 2rem;
+      border: 0.25em solid currentColor;
+      border-right-color: transparent;
+    }
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Make the container take up the full height */
+  }
+  /* Add more custom styles here as needed */
   /* Custom styling for the course lists */
   .course-list {
     list-style: none;
