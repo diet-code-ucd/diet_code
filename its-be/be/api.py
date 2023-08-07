@@ -1,5 +1,5 @@
 from celery import shared_task
-from flask import Blueprint, jsonify, redirect, render_template, request, url_for, abort
+from flask import Blueprint, flash, jsonify, redirect, render_template, request, url_for, abort
 from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
@@ -41,6 +41,24 @@ def userData():
     actualanswer_count = count(q.answer for q in Question)
     jsonvalues = {"CorrectAnswers": true_count, "WrongAnswers": false_count}
     return jsonify(jsonvalues)
+
+@bp.route('/topics', methods=['POST'])
+@login_required
+@db_session
+def set_topics():
+    form = request.form
+    course_id = form['course']
+    course = Course.get(id=course_id)
+    if course not in current_user.enrolled_courses.course:
+        abort(403)
+    form_topics = [topic for topic in form if topic != 'course']
+    topics = []
+    for topic in form_topics:
+        topics.append(Topic.get(topic=topic))
+    user_course_selection = UserCourseSelection[current_user, course]
+    user_course_selection.topics = topics
+    flash('Topics updated successfully', 'success')
+    return redirect(request.referrer or url_for('home'))
 
 # /api/course
 course_bp = Blueprint('course', __name__, url_prefix='/course')

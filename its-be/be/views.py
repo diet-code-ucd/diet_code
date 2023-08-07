@@ -34,18 +34,21 @@ def home():
 def course_details(course_id):
     course = Course.get(id = course_id)
     user_is_enrolled = course in current_user.enrolled_courses.course
-    print(user_is_enrolled)
     if not course:
         abort(404)
-    topics=[]
+    topics = []
+    completed_tests = []
+    incomplete_tests = []
     if user_is_enrolled:
-        usc = UserCourseSelection[current_user,course]
-        print(usc)
+        usc = UserCourseSelection[current_user, course]
         topics = usc.topics
-    print(topics)
+        for test in usc.tests.filter(lambda t: t.completed):
+            completed_tests.append(test)
+        for test in usc.tests.filter(lambda t: not t.completed):
+            incomplete_tests.append(test)
+        print(completed_tests)
     available_topics = [topic for topic in course.topics if topic not in topics]
-    print(available_topics)
-    return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled, topics=topics, available_topics=available_topics)
+    return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled, topics=topics, available_topics=available_topics, tests_comp=completed_tests, tests_incomp=incomplete_tests)
 
 @views.route('/userTest', methods=['GET', 'POST'])
 @login_required
