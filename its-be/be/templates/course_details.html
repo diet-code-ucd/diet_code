@@ -11,42 +11,48 @@
   </ul>
 
   {% if enrolled %}
-    <p>Enrollment Status: Enrolled</p>
+  <p>Enrollment Status: Enrolled</p>
   <p>Selected Topics:</p>
-  <ul>
+  <form action="/api/topics" method="post">
     {% for topic in topics %}
-    <li>{{topic.topic}}</li>
+    <div>
+      <input type="checkbox" name="{{topic.topic}}" value="{{topic.topic}}" checked><label
+        for="{{topic.topic}}">{{topic.topic}}</label>
+    </div>
     {% endfor %}
-  </ul>
-  <p>Available Topics:</p>
-  <ul>
     {% for avt in available_topics %}
-    <li>{{ avt.topic }}</li>
+    <div>
+      <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}"><label for="{{avt.topic}}">{{avt.topic}}</label>
+    </div>
     {% endfor %}
-  </ul>
-    <button id="learn" class="btn btn-primary mt-3">Learn</button>
+    <input type="hidden" id="course" name="course" value="{{course.id}}" />
+    <input type="submit" value="Update">
+  </form>
+
+  <button id="learn" class="btn btn-primary mt-3">Learn</button>
   {% else %}
-    <p>Enrollment Status: Not Enrolled</p>
-    <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
-    <p id="enrollment-status" class="mt-2"></p>
-    <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
+  <p>Enrollment Status: Not Enrolled</p>
+  <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
+  <p id="enrollment-status" class="mt-2"></p>
+  <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
   {% endif %}
-  
+
 </div>
 
-<script> 
-document.addEventListener('DOMContentLoaded', function() {
-const course_id = document.getElementById('course_id').getAttribute('data-value');
-const refreshLink = document.getElementById('refresh-link');
-  // Function to enroll the user in the course
-  function enrollUserInCourse(course_id) {
-    fetch('/api/course/enroll', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json' 
-      },
-      body: JSON.stringify({
-        course_id: course_id
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const course_id = document.getElementById('course_id').getAttribute('data-value');
+    const refreshLink = document.getElementById('refresh-link');
+    // Function to enroll the user in the course
+    function enrollUserInCourse(course_id) {
+      fetch('/api/course/enroll', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          course_id: course_id
+        })
       })
     })
     .then(response => response.json())
@@ -69,25 +75,25 @@ const refreshLink = document.getElementById('refresh-link');
 //     console.log(course_id);
 //     enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
 
-//   });
-  const enrollButton = document.getElementById('enroll-button');
-  if (enrollButton) {
-    enrollButton.addEventListener('click', function() {
+    //   });
+    const enrollButton = document.getElementById('enroll-button');
+    if (enrollButton) {
+      enrollButton.addEventListener('click', function () {
         console.log(course_id);
         enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
-    });
-  }
-  // Add event listener for the Take Test button click
-  const takeTestButton = document.getElementById('learn');
-  if (takeTestButton) {
-    takeTestButton.addEventListener('click', function() {
+      });
+    }
+    // Add event listener for the Take Test button click
+    const takeTestButton = document.getElementById('learn');
+    if (takeTestButton) {
+      takeTestButton.addEventListener('click', function () {
         window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
-    });
-  }
-//   document.getElementById('learn').addEventListener('click', function() {
-//     window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
-//   });
-});
-  
+      });
+    }
+    //   document.getElementById('learn').addEventListener('click', function() {
+    //     window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
+    //   });
+  });
+
 </script>
 {% endblock %}
