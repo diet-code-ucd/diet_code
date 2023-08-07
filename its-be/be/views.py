@@ -1,11 +1,18 @@
+from be.models.tutor import Course, Test, Question, Tag, UserAnswer
+from flask import render_template
 import json
 
 from flask import Blueprint, abort, jsonify, redirect, render_template, request, url_for
 from flask import Blueprint, abort, jsonify, render_template, request
 from flask_login import login_required, current_user
 from pony.flask import db_session
+<<<<<<< Updated upstream
 
 from .models import Course, Test, Question, UserAnswer
+=======
+from collections import Counter
+from .models import Course, Test, Question, UserAnswer, User
+>>>>>>> Stashed changes
 
 views = Blueprint('views', __name__)
 course = Blueprint('course', __name__)
@@ -39,7 +46,38 @@ def userTest():
 @views.route('/userstats', methods=['GET', 'POST'])
 @login_required
 def userStats():
+<<<<<<< Updated upstream
     return render_template("user_stats.html")
+=======
+    completed_tests = Test.select(
+        lambda t: t.for_user == current_user and t.completed)
+    completed_tests_count = len(completed_tests)
+     # Get incomplete tests count
+    incomplete_tests = Test.select(lambda t: t.for_user == current_user and not t.completed)
+    incomplete_tests_count = incomplete_tests.count()
+    completed_questions = set(
+        q for test in completed_tests for q in test.questions)
+    all_tags = Tag.select()
+    not_completed_tags = [tag for tag in all_tags if tag not in set(
+        tag for q in completed_questions for tag in q.tags)]
+    lowest_not_completed_tags = Counter(
+        [tag for q in Question.select(
+            lambda q: q not in completed_questions) for tag in q.tags]
+    ).most_common(5)
+    top_completed_tags = Counter(
+        [tag for q in completed_questions for tag in q.tags]).most_common(5)
+    total_tests_taken = completed_tests_count + incomplete_tests_count
+
+    return render_template(
+        "user_stats.html.j2",
+        completed_tests=completed_tests_count,
+        total_tests_taken=total_tests_taken,
+        incomplete_tests=incomplete_tests_count,
+        top_completed_tags=top_completed_tags,
+        lowest_not_completed_tags=lowest_not_completed_tags
+    )
+
+>>>>>>> Stashed changes
 
 @views.route('/submit_test', methods=['GET', 'POST'])
 @login_required
