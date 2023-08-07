@@ -6,7 +6,7 @@ import random
 from datetime import date
 
 from vega import VegaLite
-import requests
+import requests,json
 import altair as alt
 from pony.orm import commit, flush, count,select
 
@@ -19,12 +19,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 bp = Blueprint('api', __name__, url_prefix='/api')
-   
-@bp.route('/userData')
+
+
+@bp.route('/userDataCombined')
 @login_required
 @db_session
-def userData():
-    # useranswer_count = count(ua.answer for ua in UserAnswer)
+def userDataCombined():
     counts = current_user.enrolled_courses.tests.user_answers.correct
     true_count = 0
     false_count = 0
@@ -41,6 +41,32 @@ def userData():
     actualanswer_count = count(q.answer for q in Question)
     jsonvalues = {"CorrectAnswers": true_count, "WrongAnswers": false_count}
     return jsonify(jsonvalues)
+   
+@bp.route('/userDataCourses')
+@login_required
+@db_session
+def userDataCourses():
+    course_answer_counts = select((c.name, ua.correct, count(ua))
+                                  for c in Course
+                                  for q in c.questions
+                                  for ua in q.user_answers)
+
+    # Group the results by course name and correctness
+    grouped_results = {}
+    for course_name, correct, ans_count in course_answer_counts:
+        grouped_results.setdefault(course_name, {}).setdefault(correct, 0)
+        grouped_results[course_name][correct] += ans_count
+
+    # Prepare the results dictionary for JSON
+    json_results = {}
+    for course_name, correctness_counts in grouped_results.items():
+        json_results[course_name] = {}
+        for correct, ans_count in correctness_counts.items():
+            correctness = "correct" if correct else "incorrect"
+            json_results[course_name][correctness] = ans_count
+
+    
+    return jsonify(json_results)
 
 @bp.route('/topics', methods=['POST'])
 @login_required
