@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center mt-5">
+  <h1>Welcome to Your Intelligent Tutoring System</h1>
+  <p class="lead">Discover, learn, and grow with us. Happy learning!</p>
+  <a class="btn btn-primary" href="/aboutus" role="button">Learn More</a>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Enrolled Courses</h2>
+      <ul id="enrolled-courses" class="course-list">
+        {% for course in enrolled_courses %}
+        <li>
+          <a href="/course/{{ course.id }}" class="btn btn-link text-left">
+            ID: {{ course.id }} - Name: {{ course.name }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+   <div class="col-md-6">
+      <h2>Available Courses</h2>
+      <ul id="available-courses" class="course-list">
+        {% for course in available_courses %}
+        <li>
+          <a href="/course/{{ course.id }}" class="btn btn-link text-left">
+            ID: {{ course.id }} - Name: {{ course.name }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div> 
+  </div>
+</div>
+
+<style>
+  /* Custom styling for the course lists */
+  .course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .course-list li {
+    margin-bottom: 10px;
+  }
+
+  .course-list a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .course-list a:hover {
+    background-color: #f2f2f2;
+  }
+</style>
+{% endblock %}

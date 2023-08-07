@@ -22,6 +22,10 @@ def default():
     return render_template('auth/login.html')
 
 @views.route('/home', methods=['GET', 'POST'])
+def home():
+    return render_template("home.html")
+
+@views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
     enrolled_courses = current_user.enrolled_courses.course

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+<body>
+{% block title %}
+  COURSES
+ {% endblock %}
+{% block coursecontent %}
+<div class="heading"> 
+    <h1> Courses </h1>
+</div>
+<br>
+  <div class="course-details">
+    <div class="course-maths">
+        <div class="math-wrap">
+            <img
+              class="math-bg"
+              src="static/math-course.avif"
+              alt=""
+            >
+    <h2 class="text-center math-wrap">Mathematics Fundamentals</h2>
+    <p class="course_description">This course is designed to strengthen students' foundational mathematical skills. Students will review and practice concepts in arithmetic, algebra, geometry, and basic statistics. The course aims to improve students' problem-solving abilities and mathematical reasoning.</p>
+    <p class="course_description">Through interactive activities and real-world examples, students will gain a deeper understanding of mathematical principles and their practical applications. The course in future will also include opportunities for group discussions and collaborative problem-solving.</p>
+    <p class="text-center"><b>Duration:</b> 10 weeks &emsp;&emsp;&emsp; <b>Pre-requisites:</b> Basic knowledge of arithmetic</p>
+    </div>
+  </div>
+</div><br>
+  <div class="course-details">
+    <div class="course-earth-science">
+        <div class="earth-wrap">
+            <img
+              class="earth-bg"
+              src="static/earth-science-course.avif"
+              alt=""
+            >
+    <h2 class="text-center earth-wrap">Introduction to Earth Sciences</h2>
+    <p class="course_description">This course offers a comprehensive introduction to Earth sciences, covering topics such as geology, meteorology, and environmental science. Students will explore the Earth's structure, natural processes, weather patterns, and the impact of human activities on the environment.</p>
+    <p class="course_description">The course includes engaging field trips, hands-on experiments, and interactive simulations to enhance students' understanding of Earth's dynamic systems. Students will also learn about sustainability and the importance of responsible environmental stewardship.</p>
+    <p class="text-center"><b>Duration:</b> 12 weeks &emsp;&emsp;&emsp; <b>Pre-requisites:</b> None</p>
+    </div>
+  </div>
+</div>
+  <br>
+  <div class="course-details">
+    <div class="course-english">
+        <div class="english-wrap">
+            <img
+              class="english-bg"
+              src="static/english-course.avif"
+              alt=""
+            >
+    <h2 class="text-center english-wrap">English Language Fundamentals</h2>
+    <p class="course_description">This course is designed to help students improve their English language skills, focusing on reading, writing, speaking, and listening. The course covers essential grammar rules, vocabulary building, and effective communication strategies.</p>
+    <p class="course_description">Students will engage in various activities, including discussions, debates, writing assignments, and reading comprehension exercises. They will also work on pronunciation and language fluency through interactive speaking exercises and language games.</p>
+    <p class="course_description">Whether you're a beginner or looking to enhance your existing English skills, this course provides a supportive learning environment to help you become a more confident and proficient English speaker.</p>
+    <p class="text-center"><b>Duration:</b> 8 weeks &emsp;&emsp;&emsp; <b>Pre-requisites:</b> Basic understanding of English</p>
+    </div>   
+   </div> 
+</div>
+{% endblock %}
+</body>
+</html>

@@ -24,6 +24,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">ITS</a>
+        <a class="navbar-brand" href="/user_home">Dashboard</a>
+        <a class="navbar-brand" href="/course">Courses</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,7 +58,11 @@
     <main role="main" class="pb-3">
 
       {% block content %}{% endblock %}
-
+      {% block testimonials %}{%endblock%}
+      {% block benefits %}{%endblock%}
+      {% block offers %}{%endblock%}
+      {% block features %}{%endblock%}
+      {% block coursecontent%}{%endblock%}
     </main>
   </div>
 
