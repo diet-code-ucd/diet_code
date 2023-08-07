@@ -52,7 +52,7 @@
       <ul id="enrolled-courses" class="course-list">
         {% for test in tests_comp %}
         <li>
-          <a href="/api/test/{{ test.id }}" class="btn btn-link text-left">
+          <a href="/submit_test?test_id={{test.id}}" class="btn btn-link text-left">
             ID: {{ test.id }} 
           </a>
         </li>
@@ -64,7 +64,7 @@
       <ul id="available-courses" class="course-list">
         {% for test in tests_incomp %}
         <li>
-          <a href="/api/test/{{ test.id }}" class="btn btn-link text-left">
+          <a href="/incompTest?test_id={{test.id}}" class="btn btn-link text-left">
             ID: {{ test.id }} 
           </a>
         </li>
