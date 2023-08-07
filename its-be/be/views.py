@@ -37,10 +37,11 @@ def course_details(course_id):
     print(user_is_enrolled)
     if not course:
         abort(404)
-
-    usc = [topic for topic in current_user.enrolled_courses.filter(course=course)]
-    print(usc)
-    topics = usc[0].topics
+    topics=[]
+    if user_is_enrolled:
+        usc = UserCourseSelection[current_user,course]
+        print(usc)
+        topics = usc.topics
     print(topics)
     available_topics = [topic for topic in course.topics if topic not in topics]
     print(available_topics)
