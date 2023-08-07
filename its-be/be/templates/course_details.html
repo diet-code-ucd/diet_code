@@ -40,51 +40,50 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const course_id = document.getElementById('course_id').getAttribute('data-value');
-    const refreshLink = document.getElementById('refresh-link');
-    // Function to enroll the user in the course
-    function enrollUserInCourse(course_id) {
-      fetch('/api/course/enroll', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          course_id: course_id
-        })
+document.addEventListener('DOMContentLoaded', function() {
+const course_id = document.getElementById('course_id').getAttribute('data-value');
+const refreshLink = document.getElementById('refresh-link');
+  // Function to enroll the user in the course
+  function enrollUserInCourse(course_id) {
+    fetch('/api/course/enroll', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({
+        course_id: course_id
       })
-    }
+    })
     .then(response => response.json())
-      .then(data => {
-        if (data.id.toString() === course_id) {
-          document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
-          document.getElementById('enroll-button').disabled = true;
-          window.location.reload();
-        } else {
-          document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
-        }
-      })
-      .catch(error => {
-        console.error('Error enrolling in the course:', error);
+    .then(data => {
+      if (data.id.toString() === course_id) {
+        document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
+        document.getElementById('enroll-button').disabled = true;
+        window.location.reload(); 
+      } else {
         document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
-      });
-
-    const enrollButton = document.getElementById('enroll-button');
-    if (enrollButton) {
-      enrollButton.addEventListener('click', function () {
+      }
+    })
+    .catch(error => {
+      console.error('Error enrolling in the course:', error);
+      document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
+    });
+  }
+  const enrollButton = document.getElementById('enroll-button');
+  if (enrollButton) {
+    enrollButton.addEventListener('click', function() {
         console.log(course_id);
         enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
-      });
-    }
-    // Add event listener for the Take Test button click
-    const takeTestButton = document.getElementById('learn');
-    if (takeTestButton) {
-      takeTestButton.addEventListener('click', function () {
+    });
+  }
+  // Add event listener for the Take Test button click
+  const takeTestButton = document.getElementById('learn');
+  if (takeTestButton) {
+    takeTestButton.addEventListener('click', function() {
         window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
-      });
-    }
-  });
+    });
+  }
+});
 
 </script>
 {% endblock %}
