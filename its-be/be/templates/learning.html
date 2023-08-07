@@ -9,9 +9,9 @@
     <li id="course_id" data-value="{{ course.id }}">Course ID: {{ course.id }}</li>
     <li>Course Name: {{ course.name }}</li>
   </ul>
-
-  <p id="learning-materials">{{ learning_materials }}</p>
-
+<pre>
+  <p id="learning-materials">{{ learning_materials|safe }}</p>
+  </pre>
   <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
   
 </div>
