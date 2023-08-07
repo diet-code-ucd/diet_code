@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Stats{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>User Stats</h1>
+  <p>Total Completed Tests: {{ completed_tests }}</p>
+  <p>Total Incomplete Tests: {{ incomplete_tests }}</p>
+  <h2>Top 5 Completed Tags</h2>
+  <ul>
+    {% for tag, count in top_completed_tags %}
+    <li>{{ tag.tag }} ({{ count }})</li>
+    {% endfor %}
+  </ul>
+  <h2>Lowest 5 Not Completed Tags</h2>
+  <ul>
+    {% for tag, count in lowest_not_completed_tags %}
+    <li>{{ tag.tag }} ({{ count }})</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const completedTests = {{ completed_tests }};
+  const totalTestsTaken = {{ total_tests_taken }};
+  const testData = {
+    completed: completedTests,
+    incomplete: totalTestsTaken - completedTests
+    };
+
+  // Create the bar chart
+  const ctx = document.getElementById('statsChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Completed', 'Incomplete'],
+      datasets: [{
+        label: 'Number of Tests',
+        data: [testData.completed, testData.incomplete],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.8)', // Blue color for completed tests
+          'rgba(255, 99, 132, 0.8)', // Red color for incomplete tests
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)', // Blue color for completed tests border
+          'rgba(255, 99, 132, 1)', // Red color for incomplete tests border
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      indexAxis: 'y', // Display bars horizontally
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          beginAtZero: true,
+          stacked: true,
+          grid: {
+            display: false // Hide the x-axis grid lines
+          }
+        },
+        y: {
+          stacked: true,
+          grid: {
+            display: false // Hide the y-axis grid lines
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: false // Hide the legend
+        }
+      }
+    }
+  });
+  });
+</script>
+{% endblock %}
