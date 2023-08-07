@@ -11,11 +11,17 @@ views = Blueprint('views', __name__)
 course = Blueprint('course', __name__)
 
 @views.route('/', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def home():
+    #available_courses = Course.select(all)
+    return render_template("home.html")#, #available_courses)
+
+@views.route('/home_login', methods=['GET', 'POST'])
+@login_required
+def home_login():
     enrolled_courses = current_user.enrolled_courses
     available_courses = Course.select(lambda c: c not in enrolled_courses)
-    return render_template("home.html", enrolled_courses=enrolled_courses, available_courses=available_courses)
+    return render_template("home_login.html", enrolled_courses=enrolled_courses, available_courses=available_courses)
 
 @course.route('/course/<int:course_id>', methods=['GET'])
 @login_required
@@ -27,6 +33,11 @@ def course_details(course_id):
     if not course:
         abort(404)  
     return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled)
+
+@views.route('/course', methods=['GET', 'POST'])
+def availableCourses():
+    return render_template("course.html")
+
 
 @views.route('/userTest', methods=['GET', 'POST'])
 @login_required

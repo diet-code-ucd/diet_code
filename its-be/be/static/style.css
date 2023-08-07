@@ -151,3 +151,60 @@ html {
   input[type='submit']:hover {
     background: #4e90bf;
   }
+  .home-page-image{
+    border-radius: 10%;
+  }
+  .testimonials-section{
+    border: black;
+    border-style: solid;
+    border-radius: 15px;
+  }
+
+  .benefits-section {
+    padding: 40px 0;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+  }
+
+  .benefit-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+  }
+
+  .rounded-img {
+    border-radius: 45%;
+  }
+
+  .benefit-item p {
+    margin: 0;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  @media (max-width: 767px) {
+    .benefit-item {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .benefit-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
