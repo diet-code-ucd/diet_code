@@ -14,6 +14,7 @@ from be.background_tasks import add_questions_to_test
 
 from .models import Course, Test, Question, UserAnswer, Topic, Option, UserCourseSelection
 from .ml import generate_questions
+from datetime import datetime
 
 import logging
 logger = logging.getLogger(__name__)
@@ -146,6 +147,7 @@ def get_test(test_id):
             user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer'], correct=q['user_answer'] == question.answer))
         test.completed = True
         test.user_answers = user_answers
+        test.date_completed = datetime.now()
         return redirect(url_for('api.test.get_test', test_id=test_id))
     else:
         test = Test.get(id=test_id)

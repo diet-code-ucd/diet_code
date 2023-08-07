@@ -1,6 +1,7 @@
 from pony.orm import LongStr, Required, Set, Optional, PrimaryKey
 from .database import db
 from .user import User
+from datetime import datetime
 
 class Course(db.Entity):
     name = Required(str)
@@ -27,6 +28,7 @@ class Test(db.Entity):
     ready = Required(bool, default=False)
     completed = Required(bool, default=False)
     topics = Set('Topic')
+    date_completed = Optional(datetime)
 
 class Question(db.Entity):
     course = Required(Course)
