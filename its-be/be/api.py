@@ -5,7 +5,6 @@ from pony.flask import db_session
 import random
 from datetime import date
 
-from vega_datasets import data
 from vega import VegaLite
 import requests
 import altair as alt
