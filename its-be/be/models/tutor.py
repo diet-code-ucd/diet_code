@@ -1,7 +1,7 @@
 from pony.orm import LongStr, Required, Set, Optional, PrimaryKey
 from .database import db
 from .user import User
-from datetime import datetime
+from datetime import datetime, date
 
 class Course(db.Entity):
     name = Required(str)
@@ -19,7 +19,15 @@ class UserCourseSelection(db.Entity):
     topics = Set('Topic')
     tests = Set('Test')
     active = Required(bool, default=True)
+    exams = Set('ExternalResults')
     PrimaryKey(user, course)
+
+class ExternalResults(db.Entity):
+    user_course_selection = Required(UserCourseSelection)
+    exam = Required(str)
+    date = Required(date)
+    goal = Required(int)
+    result = Optional(int)
 
 class Test(db.Entity):
     user_course_selection = Required(UserCourseSelection)
