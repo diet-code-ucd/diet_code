@@ -19,7 +19,13 @@ class UserCourseSelection(db.Entity):
     topics = Set('Topic')
     tests = Set('Test')
     active = Required(bool, default=True)
+    exams = Set('ExternalResults')
     PrimaryKey(user, course)
+
+class ExternalResults(db.Entity):
+    exam = Required(str)
+    goal = Required(int)
+    result = Optional(int)
 
 class Test(db.Entity):
     user_course_selection = Required(UserCourseSelection)
