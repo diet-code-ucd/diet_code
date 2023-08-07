@@ -20,7 +20,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
   <script>
     // Make a request to the API endpoint to fetch data
-    fetch('http://localhost:8080/api/test/')
+    fetch('/api/test/')
       .then(response => response.json())
       .then(data => {
         // Define the Vega-Lite specification for the bar chart
@@ -42,7 +42,7 @@
       
 
 <script>
-    fetch('http://localhost:8080/api/userData')
+    fetch('/api/userData')
     .then(response => response.json())
     .then(data => {
       const totalAnswers = data.CorrectAnswers + data.WrongAnswers;
