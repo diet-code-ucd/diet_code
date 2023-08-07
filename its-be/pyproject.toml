@@ -15,8 +15,6 @@ dependencies = [
   "numpy",
   "pandas",
   "celery",
-  "altair",
-  "vega",
   "celery-redbeat",
 ]
 

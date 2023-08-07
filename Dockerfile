@@ -10,4 +10,4 @@ RUN useradd -m its
 RUN chown -R its:its /opt/venv /app
 USER its
 ENV PATH="/opt/venv/bin:$PATH"
-ENTRYPOINT [ "/app/launchers/start-app.sh" ]
+ENTRYPOINT [ "/app/launchers/debug-app.sh" ]

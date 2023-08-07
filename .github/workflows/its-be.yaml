@@ -34,7 +34,7 @@ jobs:
       - name: Build and push container image to registry
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./its-be
           push: true
           tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
 
