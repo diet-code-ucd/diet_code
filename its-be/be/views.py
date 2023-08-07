@@ -90,3 +90,9 @@ def submit_test():
 @login_required
 def about_us():
     return render_template("about_us.html")
+
+@views.route('/incompTest', methods=['GET', 'POST'])
+@login_required
+def IncompleteTest():
+    test_id=request.args.get('test_id')
+    return render_template("incomplete_test.html", test_id=test_id)
