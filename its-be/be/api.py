@@ -6,25 +6,27 @@ import random
 from datetime import date
 
 from vega import VegaLite
-import requests
+import requests,json
 import altair as alt
 from pony.orm import commit, flush, count,select
 
 from be.background_tasks import add_questions_to_test
+from be.models.tutor import ExternalResults
 
 from .models import Course, Test, Question, UserAnswer, Topic, Option, UserCourseSelection
 from .ml import generate_questions
+from datetime import datetime
 
 import logging
 logger = logging.getLogger(__name__)
 
 bp = Blueprint('api', __name__, url_prefix='/api')
-   
-@bp.route('/userData')
+
+
+@bp.route('/userDataCombined')
 @login_required
 @db_session
-def userData():
-    # useranswer_count = count(ua.answer for ua in UserAnswer)
+def userDataCombined():
     counts = current_user.enrolled_courses.tests.user_answers.correct
     true_count = 0
     false_count = 0
@@ -41,6 +43,32 @@ def userData():
     actualanswer_count = count(q.answer for q in Question)
     jsonvalues = {"CorrectAnswers": true_count, "WrongAnswers": false_count}
     return jsonify(jsonvalues)
+   
+@bp.route('/userDataCourses')
+@login_required
+@db_session
+def userDataCourses():
+    course_answer_counts = select((c.name, ua.correct, count(ua))
+                                  for c in Course
+                                  for q in c.questions
+                                  for ua in q.user_answers)
+
+    # Group the results by course name and correctness
+    grouped_results = {}
+    for course_name, correct, ans_count in course_answer_counts:
+        grouped_results.setdefault(course_name, {}).setdefault(correct, 0)
+        grouped_results[course_name][correct] += ans_count
+
+    # Prepare the results dictionary for JSON
+    json_results = {}
+    for course_name, correctness_counts in grouped_results.items():
+        json_results[course_name] = {}
+        for correct, ans_count in correctness_counts.items():
+            correctness = "correct" if correct else "incorrect"
+            json_results[course_name][correctness] = ans_count
+
+    
+    return jsonify(json_results)
 
 @bp.route('/topics', methods=['POST'])
 @login_required
@@ -59,6 +87,21 @@ def set_topics():
     user_course_selection.topics = topics
     flash('Topics updated successfully', 'success')
     return redirect(request.referrer or url_for('home'))
+
+@bp.route('/goals', methods=['POST'])
+@login_required
+@db_session
+def set_goals():
+    form = request.form
+    course_id = form['course']
+    course = Course.get(id=course_id)
+    if course not in current_user.enrolled_courses.course:
+        abort(403)
+    user_course_selection = UserCourseSelection[current_user, course]
+    form_goals = [goal for goal in form if goal != 'course']
+    goals = []
+    for goal in form_goals:
+        goals.append(ExternalResults(user_course_selection=user_course_selection, goal=goal['goal'], exam=goal['exam'], date=goal['date']))
 
 # /api/course
 course_bp = Blueprint('course', __name__, url_prefix='/course')
@@ -120,6 +163,7 @@ def get_test(test_id):
             user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer'], correct=q['user_answer'] == question.answer))
         test.completed = True
         test.user_answers = user_answers
+        test.date_completed = datetime.now()
         return redirect(url_for('api.test.get_test', test_id=test_id))
     else:
         test = Test.get(id=test_id)

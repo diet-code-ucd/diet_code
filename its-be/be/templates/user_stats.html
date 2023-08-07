@@ -8,41 +8,15 @@
     </div>
   </div>
 
-
+  <div class="charts-container"></div>
   <div id="chart"></div>
   <div id="spec"></div>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-  <script>
-    // Make a request to the API endpoint to fetch data
-    fetch('/api/test/')
-      .then(response => response.json())
-      .then(data => {
-        // Define the Vega-Lite specification for the bar chart
-        const spec = {
-          "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-          
-          "data": {
-            "values": data // Use the fetched data as the input
-          },
-          "mark": "bar",
-          "encoding": {
-            "x": {"field": "for_user", "type": "ordinal"},
-            "y": {"aggregate": "count", "type": "quantitative"},
-            "color": {"field": "completed", "type": "nominal", "scale": {"domain": [false, true], "range": ["red", "green"]}}
-          }
-        }});
-
-</script>
-      
-
 <script>
-    fetch('/api/userData')
+    fetch('/api/userDataCombined')
     .then(response => response.json())
     .then(data => {
       const totalAnswers = data.CorrectAnswers + data.WrongAnswers;
@@ -52,8 +26,8 @@
       const spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "description":"Number of correct questions answered.",
-        "width": 400,
-        "height": 400,
+        "width": 250,
+        "height": 250,
         "data": {
           "values": [
             {"answer": "Correct "+correct_percent+"%", "count":data.CorrectAnswers,},
@@ -65,7 +39,8 @@
         "mark": "arc",
         "encoding": {
           "theta": {"field": "count", "type": "quantitative"},
-          "color": {"field": "answer", "type": "nominal"}
+          "color": {"field": "answer", "type": "nominal"},
+          "title": {"text": "Distribution of Answers"}
         },
         "config":{
           "legend":{
@@ -83,6 +58,68 @@
       console.error('Error fetching data:', error);
     });
 </script>
+
+<script>
+  async function fetchData() {
+    try {
+      const response = await fetch('/api/userDataCourses');
+      const data = await response.json();
+
+      const subjects = Object.keys(data);
+
+      subjects.forEach(subject => {
+        const total = data[subject].correct + data[subject].incorrect;
+        const correctPercentage = ((data[subject].correct / total) * 100).toFixed(2);
+        const incorrectPercentage = ((data[subject].incorrect / total) * 100).toFixed(2);
+
+        const spec = {
+          "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+          "data": {
+            "values": [
+              {"subject": "Correct "+correctPercentage+"%", "value": data[subject].correct},
+              {"subject": "Incorrect "+incorrectPercentage+"%", "value": data[subject].incorrect}
+            ]
+          },
+          "mark": "arc",
+          "encoding": {
+            "theta": {"field": "value", "type": "quantitative"},
+            "color": {"field": "subject", "type": "nominal"},
+            "tooltip": [
+              {"field": "subject", "type": "nominal"},
+              {"field": "value", "type": "quantitative"},
+              {"field": "value", "type": "quantitative", "aggregate": "sum", "title": "Total"}
+              
+            ]
+          },
+          "title": subject
+        };
+
+        const chartContainer = document.createElement('div');
+        chartContainer.classList.add('chart');
+        document.querySelector('.charts-container').appendChild(chartContainer);
+
+        vegaEmbed(chartContainer, spec);
+      });
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  fetchData();
+</script>
+<style>
+  .charts-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .chart {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+  }
+</style>
+
 
   
 {% endblock %}
