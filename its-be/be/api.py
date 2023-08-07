@@ -11,6 +11,7 @@ import altair as alt
 from pony.orm import commit, flush, count,select
 
 from be.background_tasks import add_questions_to_test
+from be.models.tutor import ExternalResults
 
 from .models import Course, Test, Question, UserAnswer, Topic, Option, UserCourseSelection
 from .ml import generate_questions
@@ -86,6 +87,21 @@ def set_topics():
     user_course_selection.topics = topics
     flash('Topics updated successfully', 'success')
     return redirect(request.referrer or url_for('home'))
+
+@bp.route('/goals', methods=['POST'])
+@login_required
+@db_session
+def set_goals():
+    form = request.form
+    course_id = form['course']
+    course = Course.get(id=course_id)
+    if course not in current_user.enrolled_courses.course:
+        abort(403)
+    user_course_selection = UserCourseSelection[current_user, course]
+    form_goals = [goal for goal in form if goal != 'course']
+    goals = []
+    for goal in form_goals:
+        goals.append(ExternalResults(user_course_selection=user_course_selection, goal=goal['goal'], exam=goal['exam'], date=goal['date']))
 
 # /api/course
 course_bp = Blueprint('course', __name__, url_prefix='/course')

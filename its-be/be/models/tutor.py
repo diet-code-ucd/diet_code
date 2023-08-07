@@ -23,8 +23,9 @@ class UserCourseSelection(db.Entity):
     PrimaryKey(user, course)
 
 class ExternalResults(db.Entity):
+    user_course_selection = Required(UserCourseSelection)
     exam = Required(str)
-    data = Required(date)
+    date = Required(date)
     goal = Required(int)
     result = Optional(int)
 
