@@ -1,0 +1,73 @@
+{
+    "Mathematics": [
+      "Algebra",
+      "Geometry",
+      "Calculus",
+      "Probability and Statistics",
+      "Trigonometry",
+      "Number Theory",
+      "Discrete Mathematics"
+    ],
+    "Science": [
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Environmental Science",
+      "Astronomy",
+      "Earth Science",
+      "Anatomy and Physiology"
+    ],
+    "History": [
+      "Ancient History",
+      "Medieval History",
+      "Modern History",
+      "World History",
+      "European History",
+      "American History",
+      "Asian History"
+    ],
+    "Literature": [
+      "Classical Literature",
+      "Modern Literature",
+      "American Literature",
+      "British Literature",
+      "World Literature",
+      "Poetry",
+      "Drama"
+    ],
+    "Computer Science": [
+      "Programming",
+      "Data Structures and Algorithms",
+      "Operating Systems",
+      "Database Management",
+      "Artificial Intelligence",
+      "Web Development",
+      "Networking"
+    ],
+    "Languages": [
+      "English",
+      "Spanish",
+      "French",
+      "German",
+      "Chinese",
+      "Japanese",
+      "Arabic"
+    ],
+    "Social Studies": [
+      "Civics",
+      "Economics",
+      "Sociology",
+      "Psychology",
+      "Geography",
+      "Anthropology",
+      "Political Science"
+    ],
+    "Physical Education": [
+      "Sports",
+      "Fitness and Exercise",
+      "Health Education",
+      "Nutrition",
+      "Sportsmanship"
+    ]
+  }
+  

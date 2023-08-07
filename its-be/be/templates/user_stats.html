@@ -7,44 +7,119 @@
       <canvas id="statsChart"></canvas>
     </div>
   </div>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Sample data 
-      const testData = {
-        completed: 10,
-        incomplete: 5,
+
+  <div class="charts-container"></div>
+  <div id="chart"></div>
+  <div id="spec"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+    fetch('/api/userDataCombined')
+    .then(response => response.json())
+    .then(data => {
+      const totalAnswers = data.CorrectAnswers + data.WrongAnswers;
+      const correct_percent = (Math.round(data.CorrectAnswers * 100) / totalAnswers).toFixed(2);
+      const wrong_percent = (Math.round(data.WrongAnswers * 100) / totalAnswers).toFixed(2);
+      // Define the Vega-Lite specification for the bar chart
+      const spec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "description":"Number of correct questions answered.",
+        "width": 250,
+        "height": 250,
+        "data": {
+          "values": [
+            {"answer": "Correct "+correct_percent+"%", "count":data.CorrectAnswers,},
+            {"answer": "Wrong "+wrong_percent+"%", "count":data.WrongAnswers}
+          ]
+        },
+        "transform": [{"calculate": "datum.count / " + totalAnswers, "as": "percentage"}],
+        
+        "mark": "arc",
+        "encoding": {
+          "theta": {"field": "count", "type": "quantitative"},
+          "color": {"field": "answer", "type": "nominal"},
+          "title": {"text": "Distribution of Answers"}
+        },
+        "config":{
+          "legend":{
+            "titleFontSize":20,
+            "labelFontSize":15
+          }
+
+        }, "title": "Overall"
       };
 
-      // Create the bar chart
-      const ctx = document.getElementById('statsChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Completed', 'Incomplete'],
-          datasets: [{
-            label: 'Number of Tests',
-            data: [testData.completed, testData.incomplete],
-            backgroundColor: [
-              'rgba(54, 162, 235, 0.2)', // Blue color for completed tests
-              'rgba(255, 99, 132, 0.2)', // Red color for incomplete tests
-            ],
-            borderColor: [
-              'rgba(54, 162, 235, 1)', // Blue color for completed tests border
-              'rgba(255, 99, 132, 1)', // Red color for incomplete tests border
-            ],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
+      // Embed the chart in the 'chart' div
+      vegaEmbed("#spec", spec);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
     });
-  </script>
+</script>
+
+<script>
+  async function fetchData() {
+    try {
+      const response = await fetch('/api/userDataCourses');
+      const data = await response.json();
+
+      const subjects = Object.keys(data);
+
+      subjects.forEach(subject => {
+        const total = data[subject].correct + data[subject].incorrect;
+        const correctPercentage = ((data[subject].correct / total) * 100).toFixed(2);
+        const incorrectPercentage = ((data[subject].incorrect / total) * 100).toFixed(2);
+
+        const spec = {
+          "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+          "data": {
+            "values": [
+              {"subject": "Correct "+correctPercentage+"%", "value": data[subject].correct},
+              {"subject": "Incorrect "+incorrectPercentage+"%", "value": data[subject].incorrect}
+            ]
+          },
+          "mark": "arc",
+          "encoding": {
+            "theta": {"field": "value", "type": "quantitative"},
+            "color": {"field": "subject", "type": "nominal"},
+            "tooltip": [
+              {"field": "subject", "type": "nominal"},
+              {"field": "value", "type": "quantitative"},
+              {"field": "value", "type": "quantitative", "aggregate": "sum", "title": "Total"}
+              
+            ]
+          },
+          "title": subject
+        };
+
+        const chartContainer = document.createElement('div');
+        chartContainer.classList.add('chart');
+        document.querySelector('.charts-container').appendChild(chartContainer);
+
+        vegaEmbed(chartContainer, spec);
+      });
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  fetchData();
+</script>
+<style>
+  .charts-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .chart {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+  }
+</style>
+
+
+  
 {% endblock %}

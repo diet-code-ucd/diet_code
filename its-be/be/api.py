@@ -1,37 +1,110 @@
 from celery import shared_task
-from flask import Blueprint, jsonify, redirect, render_template, request, url_for, abort
+from flask import Blueprint, flash, jsonify, redirect, render_template, request, url_for, abort
 from flask_login import login_required, current_user
 from pony.flask import db_session
 import random
 from datetime import date
 
-from pony.orm import commit, flush
+from vega import VegaLite
+import requests,json
+import altair as alt
+from pony.orm import commit, flush, count,select
 
-from .models import Course, Test, Question, UserAnswer
+from be.background_tasks import add_questions_to_test
+from be.models.tutor import ExternalResults
+
+from .models import Course, Test, Question, UserAnswer, Topic, Option, UserCourseSelection
 from .ml import generate_questions
+from datetime import datetime
 
 import logging
 logger = logging.getLogger(__name__)
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
+
+@bp.route('/userDataCombined')
+@login_required
+@db_session
+def userDataCombined():
+    counts = current_user.enrolled_courses.tests.user_answers.correct
+    true_count = 0
+    false_count = 0
+    for element in counts:
+        if element == True:
+            true_count += 1
+    
+    for element in counts:
+        if element == False:
+            false_count += 1
+
+    print(true_count)
+    print(false_count)
+    actualanswer_count = count(q.answer for q in Question)
+    jsonvalues = {"CorrectAnswers": true_count, "WrongAnswers": false_count}
+    return jsonify(jsonvalues)
+   
+@bp.route('/userDataCourses')
+@login_required
+@db_session
+def userDataCourses():
+    course_answer_counts = select((c.name, ua.correct, count(ua))
+                                  for c in Course
+                                  for q in c.questions
+                                  for ua in q.user_answers)
+
+    # Group the results by course name and correctness
+    grouped_results = {}
+    for course_name, correct, ans_count in course_answer_counts:
+        grouped_results.setdefault(course_name, {}).setdefault(correct, 0)
+        grouped_results[course_name][correct] += ans_count
+
+    # Prepare the results dictionary for JSON
+    json_results = {}
+    for course_name, correctness_counts in grouped_results.items():
+        json_results[course_name] = {}
+        for correct, ans_count in correctness_counts.items():
+            correctness = "correct" if correct else "incorrect"
+            json_results[course_name][correctness] = ans_count
+
+    
+    return jsonify(json_results)
+
+@bp.route('/topics', methods=['POST'])
+@login_required
+@db_session
+def set_topics():
+    form = request.form
+    course_id = form['course']
+    course = Course.get(id=course_id)
+    if course not in current_user.enrolled_courses.course:
+        abort(403)
+    form_topics = [topic for topic in form if topic != 'course']
+    topics = []
+    for topic in form_topics:
+        topics.append(Topic.get(topic=topic))
+    user_course_selection = UserCourseSelection[current_user, course]
+    user_course_selection.topics = topics
+    flash('Topics updated successfully', 'success')
+    return redirect(request.referrer or url_for('home'))
+
+@bp.route('/goals', methods=['POST'])
+@login_required
+@db_session
+def set_goals():
+    form = request.form
+    course_id = form['course']
+    course = Course.get(id=course_id)
+    if course not in current_user.enrolled_courses.course:
+        abort(403)
+    user_course_selection = UserCourseSelection[current_user, course]
+    form_goals = [goal for goal in form if goal != 'course']
+    goals = []
+    for goal in form_goals:
+        goals.append(ExternalResults(user_course_selection=user_course_selection, goal=goal['goal'], exam=goal['exam'], date=goal['date']))
+
 # /api/course
 course_bp = Blueprint('course', __name__, url_prefix='/course')
-
-@course_bp.route('/enrolled', methods=['GET'])
-@login_required
-@db_session
-def get_courses():
-    return jsonify([c.to_dict() for c in current_user.enrolled_courses])
-
-@course_bp.route('/available', methods=['GET'])
-@login_required
-@db_session
-def get_available_courses():
-    all_courses = Course.select()
-    enrolled_courses = current_user.enrolled_courses
-    courses = [c.to_dict() for c in all_courses if c not in enrolled_courses]
-    return jsonify(courses)
 
 @course_bp.route('/enroll', methods=['POST'])
 @login_required
@@ -39,7 +112,8 @@ def get_available_courses():
 def enroll_course():
     course = Course.get(id=request.json['course_id'])
     if course not in current_user.enrolled_courses:
-        current_user.enrolled_courses.add(course)
+        user_course = UserCourseSelection(user=current_user, course=course)
+        current_user.enrolled_courses.add(user_course)
         return jsonify(course.to_dict())
     abort(409)
 
@@ -50,41 +124,22 @@ test_bp = Blueprint('test', __name__, url_prefix='/test')
 @login_required
 @db_session
 def get_tests():
-    return jsonify([c.to_dict() for c in current_user.tests])
+    return jsonify([c.to_dict() for c in current_user.enrolled_courses.tests])
 
 @test_bp.route('/generate', methods=['POST'])
 @login_required
 @db_session
 def generate_test():
     course = Course.get(id=request.json['course_id'])
-    if course not in current_user.enrolled_courses:
+    topics = Topic.select().where(lambda t: t.topic in request.json['topics'])
+    if course not in current_user.enrolled_courses.course:
         abort(403)
-    new_test = Test(for_user=current_user, course=course)
+    user_course_selection = UserCourseSelection.get(user=current_user, course=course)
+    new_test = Test(user_course_selection=user_course_selection, topics=topics)
     commit()
     add_questions_to_test.delay(new_test.id)
     return jsonify(new_test.to_dict())
 
-@shared_task()
-@db_session
-def add_questions_to_test(test_id):
-    test = Test.get(id=test_id)
-    user = test.for_user
-    user_age = date.today().year - user.dob.year
-    questions = Question.select().where(course=test.course)
-    available_questions = []
-    for q in questions:
-        if test.for_user not in q.tests.for_user:
-            age_range = q.age_range.split('-')
-            if int(age_range[0]) <= user_age <= int(age_range[1]):
-                available_questions.append(q)
-    if len(available_questions) < 7:
-        generate_result = generate_questions(test.course.name)
-        for q in generate_result.questions:
-            available_questions.append(Question(course=test.course, question=q.question, answer=q.answer, age_range=q.ageRange , difficulty=q.difficulty, explanation=q.explanation))
-        commit()
-    available_questions = random.sample(available_questions, 7)
-    test.questions = available_questions
-    test.ready = True
 
 @test_bp.route('/<int:test_id>', methods=['GET', 'POST'])
 @login_required
@@ -94,7 +149,7 @@ def get_test(test_id):
         test = Test.get(id=test_id)
         if not test:
             abort(404)
-        if current_user != test.for_user:
+        if current_user != test.user_course_selection.user:
             abort(403)
         if test.completed or not test.ready:
             abort(409)
@@ -105,36 +160,46 @@ def get_test(test_id):
                 abort(404)
             if question not in test.questions:
                 abort(403)
-            user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer']))
+            user_answers.append(UserAnswer(test=test, question=question, answer=q['user_answer'], correct=q['user_answer'] == question.answer))
         test.completed = True
         test.user_answers = user_answers
+        test.date_completed = datetime.now()
         return redirect(url_for('api.test.get_test', test_id=test_id))
     else:
         test = Test.get(id=test_id)
         if not test:
             abort(404)
-        if current_user != test.for_user:
+        if current_user != test.user_course_selection.user:
             abort(403)
+
         test_dict = test.to_dict()
         if not test.ready:
             return jsonify(test_dict)
+
         if test.completed:
             user_answers = [q for q in test.user_answers]
             user_answers_dict = []
             for a in user_answers:
                 q_dict = a.question.to_dict()
                 q_dict['user_answer'] = a.answer
+                q_dict['question'] = a.question.question
+                q_dict['options'] = [o.option for o in a.question.options]
                 del q_dict['course']
                 del q_dict['difficulty']
                 user_answers_dict.append(q_dict)
             test_dict['questions'] = user_answers_dict
             return jsonify(test_dict)
-        test_dict['questions'] = [q.to_dict() for q in test.questions]
-        for q in test_dict['questions']:
-            del q['answer']
-            del q['explanation']
-            del q['difficulty']
-            del q['course']
+
+        questions_dict = []
+        for q in test.questions:
+            q_dict = q.to_dict()
+            q_dict['options'] = [o.option for o in q.options]
+            del q_dict['answer']
+            del q_dict['explanation']
+            del q_dict['difficulty']
+            del q_dict['course']
+            questions_dict.append(q_dict)
+        test_dict['questions'] = questions_dict
         return jsonify(test_dict)
 
 bp.register_blueprint(course_bp)

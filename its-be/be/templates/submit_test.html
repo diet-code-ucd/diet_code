@@ -18,29 +18,30 @@
 </div>
 
 <script>
-  const test_id = document.getElementById('test_id').getAttribute('data-value');
-
+    const test_id = document.getElementById('test_id').getAttribute('data-value');
+    const testResultContent = document.getElementById('test-result-content');
+    const testScore = document.getElementById('test-score');
+    
   function showTestResult(test_id) {
+    let score =0 ;
+    let numberOfQuestion = 0;
     fetch('/api/test/' + test_id)
       .then(response => response.json())
       .then(data => {
         console.log(data);
-
-        // Populate the test result content
-        const testResultContent = document.getElementById('test-result-content');
-        const testScore = document.getElementById('test-score');
-        testScore.textContent = data.score;
-
         const testList = document.getElementById('test-result-list');
         testList.innerHTML = ''; // Clear existing content
 
         data.questions.forEach(question => {
           const listItem = document.createElement('li');
           listItem.classList.add('list-group-item');
+           numberOfQuestion = numberOfQuestion + 1;
 
           // Check if the answer is correct or wrong and apply appropriate styling
           if (question.user_answer === question.answer) {
             listItem.classList.add('list-group-item-success'); // Green background for correct answer
+            score = score +1;
+            console.log('Score incremented:', score);
           } else {
             listItem.classList.add('list-group-item-danger'); // Red background for wrong answer
           }
@@ -52,6 +53,7 @@
             <strong>Explanation:</strong> ${question.explanation}<br>
           `;
           testList.appendChild(listItem);
+          testScore.innerText = `${score}/${numberOfQuestion}`;
         });
 
         // Show the test result content
@@ -64,6 +66,62 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     showTestResult(test_id);
+    
+
   });
 </script>
+<style>
+/* Center the content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  /* background-color: #f7f7f7;
+  border: 1px solid #ddd; */
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.list-group-item-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.list-group-item-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+#test-score {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#test-result-content {
+  margin-top: 30px;
+}
+
+#test-result-list {
+  padding: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* Add more custom styles here as needed */
+
+</style>
 {% endblock %}

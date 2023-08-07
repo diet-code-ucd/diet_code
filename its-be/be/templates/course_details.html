@@ -3,6 +3,7 @@
 {% block title %}Course Details{% endblock %}
 
 {% block content %}
+
 <div class="container mt-4">
   <h2>Course Details</h2>
   <ul>
@@ -11,18 +12,70 @@
   </ul>
 
   {% if enrolled %}
-    <p>Enrollment Status: Enrolled</p>
-    <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
+  <p>Enrollment Status: Enrolled</p>
+  <p>Selected Topics:</p>
+  <form action="/api/topics" method="post">
+    {% for topic in topics %}
+    <div>
+      <input type="checkbox" name="{{topic.topic}}" value="{{topic.topic}}" checked><label
+        for="{{topic.topic}}">{{topic.topic}}</label>
+    </div>
+    {% endfor %}
+    {% for avt in available_topics %}
+    <div>
+      <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}"><label for="{{avt.topic}}">{{avt.topic}}</label>
+    </div>
+    {% endfor %}
+  </ul>
+    <input type="hidden" id="course" name="course" value="{{course.id}}" />
+    <input type="submit" value="Update">
+  </form>
+  <button id="learn" class="btn btn-primary mt-3">Learn</button>
+  <div id="loading-icon" class="d-none">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   {% else %}
-    <p>Enrollment Status: Not Enrolled</p>
-    <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
-    <p id="enrollment-status" class="mt-2"></p>
-    <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
+  <p>Enrollment Status: Not Enrolled</p>
+  <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
+  <p id="enrollment-status" class="mt-2"></p>
+  <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
   {% endif %}
-  
-</div>
 
-<script> 
+</div>
+{% if enrolled %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Complete Tests</h2>
+      <ul id="enrolled-courses" class="course-list">
+        {% for test in tests_comp %}
+        <li>
+          <a href="/submit_test?test_id={{test.id}}" class="btn btn-link text-left">
+            ID: {{ test.id }} 
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Incomplete Tests</h2>
+      <ul id="available-courses" class="course-list">
+        {% for test in tests_incomp %}
+        <li>
+          <a href="/incompTest?test_id={{test.id}}" class="btn btn-link text-left">
+            ID: {{ test.id }} 
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endif %}
+<script>
+const loadingIcon = document.getElementById('loading-icon');
 document.addEventListener('DOMContentLoaded', function() {
 const course_id = document.getElementById('course_id').getAttribute('data-value');
 const refreshLink = document.getElementById('refresh-link');
@@ -42,8 +95,7 @@ const refreshLink = document.getElementById('refresh-link');
       if (data.id.toString() === course_id) {
         document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
         document.getElementById('enroll-button').disabled = true;
-        refreshLink.href = window.location.href;
-        refreshLink.textContent = "GO to the course"   
+        window.location.reload(); 
       } else {
         document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
       }
@@ -53,12 +105,6 @@ const refreshLink = document.getElementById('refresh-link');
       document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
     });
   }
-  // Add event listener for the Enroll button click
-//   document.getElementById('enroll-button').addEventListener('click', function() {
-//     console.log(course_id);
-//     enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
-
-//   });
   const enrollButton = document.getElementById('enroll-button');
   if (enrollButton) {
     enrollButton.addEventListener('click', function() {
@@ -67,16 +113,83 @@ const refreshLink = document.getElementById('refresh-link');
     });
   }
   // Add event listener for the Take Test button click
-  const takeTestButton = document.getElementById('take-test');
+  const takeTestButton = document.getElementById('learn');
   if (takeTestButton) {
     takeTestButton.addEventListener('click', function() {
-        window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+      loadingIcon.classList.remove('d-none');
+        window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
     });
   }
-//   document.getElementById('take-test').addEventListener('click', function() {
-//     window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
-//   });
 });
-  
+
 </script>
+
+<style>
+  .content-wrapper {
+      font-family: 'Roboto', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .content-wrapper h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .content-wrapper ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    .content-wrapper li {
+      margin-bottom: 10px;
+    }
+  
+    .content-wrapper strong {
+      font-weight: bold;
+    }
+  
+  .spinner-border {
+      width: 2rem;
+      height: 2rem;
+      border: 0.25em solid currentColor;
+      border-right-color: transparent;
+    }
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Make the container take up the full height */
+  }
+  /* Add more custom styles here as needed */
+  /* Custom styling for the course lists */
+  .course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .course-list li {
+    margin-bottom: 10px;
+  }
+
+  .course-list a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .course-list a:hover {
+    background-color: #f2f2f2;
+  }
+</style>
 {% endblock %}

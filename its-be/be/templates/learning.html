@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Course Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Course Details</h2>
+  <ul>
+    <li id="course_id" data-value="{{ course.id }}">Course ID: {{ course.id }}</li>
+    <li>Course Name: {{ course.name }}</li>
+  </ul>
+<pre>
+  <p id="learning-materials">{{ learning_materials|safe }}</p>
+  </pre>
+  <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
+  
+</div>
+
+<script> 
+document.addEventListener('DOMContentLoaded', function() {
+const course_id = document.getElementById('course_id').getAttribute('data-value');
+const refreshLink = document.getElementById('refresh-link');
+  // Add event listener for the Take Test button click
+  const takeTestButton = document.getElementById('take-test');
+  if (takeTestButton) {
+    takeTestButton.addEventListener('click', function() {
+        window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+    });
+  }
+//   document.getElementById('take-test').addEventListener('click', function() {
+//     window.location.href = `/userTest?course_id=${course_id}`; // Redirect to the "/userTest" page
+//   });
+  // Get the learning_materials content
+  const learningMaterials = document.getElementById('learning-materials').textContent;
+  // //create a break for new line for every "number."
+  // if (learningMaterials) {
+  //   const learningMaterialContent = learningMaterials.innerHTML;
+  //   const modifiedContent = learningMaterialContent.replace(/\d+\./g, match => match + '<br>');
+    
+  //   learningMaterials.innerHTML = modifiedContent;
+  // }
+  // Create a regular expression to match URLs
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  // Replace URLs with clickable links
+  const learningMaterialsWithLinks = learningMaterials.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
+
+  // Update the learning_materials content with clickable links
+  document.getElementById('learning-materials').innerHTML = learningMaterialsWithLinks;
+});
+  
+</script>
+
+<style>
+  .learning-material {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .learning-material a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .learning-material a:hover {
+    text-decoration: underline;
+  }
+
+  /* Add more custom styles here as needed */
+</style>
+
+{% endblock %}
