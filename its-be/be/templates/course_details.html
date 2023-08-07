@@ -11,30 +11,35 @@
   </ul>
 
   {% if enrolled %}
-    <p>Enrollment Status: Enrolled</p>
+  <p>Enrollment Status: Enrolled</p>
   <p>Selected Topics:</p>
-  <ul>
+  <form action="/api/topics" method="post">
     {% for topic in topics %}
-    <li>{{topic.topic}}</li>
+    <div>
+      <input type="checkbox" name="{{topic.topic}}" value="{{topic.topic}}" checked><label
+        for="{{topic.topic}}">{{topic.topic}}</label>
+    </div>
     {% endfor %}
-  </ul>
-  <p>Available Topics:</p>
-  <ul>
     {% for avt in available_topics %}
-    <li>{{ avt.topic }}</li>
+    <div>
+      <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}"><label for="{{avt.topic}}">{{avt.topic}}</label>
+    </div>
     {% endfor %}
-  </ul>
-    <button id="learn" class="btn btn-primary mt-3">Learn</button>
+    <input type="hidden" id="course" name="course" value="{{course.id}}" />
+    <input type="submit" value="Update">
+  </form>
+
+  <button id="learn" class="btn btn-primary mt-3">Learn</button>
   {% else %}
-    <p>Enrollment Status: Not Enrolled</p>
-    <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
-    <p id="enrollment-status" class="mt-2"></p>
-    <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
+  <p>Enrollment Status: Not Enrolled</p>
+  <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
+  <p id="enrollment-status" class="mt-2"></p>
+  <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
   {% endif %}
-  
+
 </div>
 
-<script> 
+<script>
 document.addEventListener('DOMContentLoaded', function() {
 const course_id = document.getElementById('course_id').getAttribute('data-value');
 const refreshLink = document.getElementById('refresh-link');
@@ -64,12 +69,6 @@ const refreshLink = document.getElementById('refresh-link');
       document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
     });
   }
-  // Add event listener for the Enroll button click
-//   document.getElementById('enroll-button').addEventListener('click', function() {
-//     console.log(course_id);
-//     enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
-
-//   });
   const enrollButton = document.getElementById('enroll-button');
   if (enrollButton) {
     enrollButton.addEventListener('click', function() {
@@ -84,10 +83,7 @@ const refreshLink = document.getElementById('refresh-link');
         window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
     });
   }
-//   document.getElementById('learn').addEventListener('click', function() {
-//     window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
-//   });
 });
-  
+
 </script>
 {% endblock %}
