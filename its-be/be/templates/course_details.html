@@ -54,28 +54,22 @@
           course_id: course_id
         })
       })
-    })
+    }
     .then(response => response.json())
-    .then(data => {
-      if (data.id.toString() === course_id) {
-        document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
-        document.getElementById('enroll-button').disabled = true;
-        window.location.reload(); 
-      } else {
+      .then(data => {
+        if (data.id.toString() === course_id) {
+          document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
+          document.getElementById('enroll-button').disabled = true;
+          window.location.reload();
+        } else {
+          document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
+        }
+      })
+      .catch(error => {
+        console.error('Error enrolling in the course:', error);
         document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
-      }
-    })
-    .catch(error => {
-      console.error('Error enrolling in the course:', error);
-      document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
-    });
-  }
-  // Add event listener for the Enroll button click
-//   document.getElementById('enroll-button').addEventListener('click', function() {
-//     console.log(course_id);
-//     enrollUserInCourse(course_id); // Pass the course ID to the enrollUserInCourse function
+      });
 
-    //   });
     const enrollButton = document.getElementById('enroll-button');
     if (enrollButton) {
       enrollButton.addEventListener('click', function () {
@@ -90,9 +84,6 @@
         window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
       });
     }
-    //   document.getElementById('learn').addEventListener('click', function() {
-    //     window.location.href = `/learning?course_id=${course_id}`; // Redirect to the "/userTest" page
-    //   });
   });
 
 </script>
