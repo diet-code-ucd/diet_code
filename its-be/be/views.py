@@ -6,13 +6,8 @@ from flask import Blueprint, abort, jsonify, redirect, render_template, request,
 from flask import Blueprint, abort, jsonify, render_template, request
 from flask_login import login_required, current_user
 from pony.flask import db_session
-<<<<<<< Updated upstream
-
-from .models import Course, Test, Question, UserAnswer
-=======
 from collections import Counter
 from .models import Course, Test, Question, UserAnswer, User
->>>>>>> Stashed changes
 
 views = Blueprint('views', __name__)
 course = Blueprint('course', __name__)
@@ -46,9 +41,6 @@ def userTest():
 @views.route('/userstats', methods=['GET', 'POST'])
 @login_required
 def userStats():
-<<<<<<< Updated upstream
-    return render_template("user_stats.html")
-=======
     completed_tests = Test.select(
         lambda t: t.for_user == current_user and t.completed)
     completed_tests_count = len(completed_tests)
@@ -77,7 +69,6 @@ def userStats():
         lowest_not_completed_tags=lowest_not_completed_tags
     )
 
->>>>>>> Stashed changes
 
 @views.route('/submit_test', methods=['GET', 'POST'])
 @login_required
