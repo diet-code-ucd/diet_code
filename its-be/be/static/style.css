@@ -151,3 +151,125 @@ html {
   input[type='submit']:hover {
     background: #4e90bf;
   }
+  .home-page-image{
+    border-radius: 10%;
+  }
+  .testimonials-section{
+    border: black;
+    border-style: solid;
+    border-radius: 15px;
+  }
+
+  .benefits-section {
+    padding: 40px 0;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+  }
+
+  .benefit-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+  }
+
+  .rounded-img {
+    border-radius: 45%;
+  }
+
+  .benefit-item p {
+    margin: 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  .course-details {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.course_description{
+  opacity: 100%;
+}
+
+.math-wrap {
+  position: relative;
+}
+
+.math-bg {
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 114%;
+  z-index: -0.5;
+  border-radius: 15px;
+}
+
+.earth-wrap {
+  position: relative;
+}
+
+.earth-bg {
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 114%;
+  z-index: -0.5;
+  border-radius: 15px;
+}
+
+.english-wrap {
+  position: relative;
+}
+
+.english-bg {
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 114%;
+  z-index: -0.5;
+  border-radius: 15px;
+}
+
+.course-earth-science {
+    background-image: url("/earth-science-course.avif");
+}
+
+.course-english {
+    background-image: url("/english-course.avif");
+}
+
+  @media (max-width: 767px) {
+    .benefit-item {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .benefit-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  

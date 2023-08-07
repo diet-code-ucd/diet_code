@@ -15,18 +15,23 @@ from .models import Course, Test, Question, UserAnswer, Topic
 views = Blueprint('views', __name__)
 course = Blueprint('course', __name__)
 
-@views.route('/', methods=['GET'])
-def default():
-    if current_user.is_authenticated:
-        return redirect(url_for('views.home'))
-    return render_template('auth/login.html')
+
+# @views.route('/', methods=['GET'])
+# def default():
+#     if current_user.is_authenticated:
+#         return redirect(url_for('views.dashboard'))
+#     return render_template('auth/login.html')
 
 @views.route('/home', methods=['GET', 'POST'])
-@login_required
 def home():
-    enrolled_courses = current_user.enrolled_courses.course
+    return render_template("home.html")
+
+@views.route('/dashboard', methods=['GET', 'POST'])
+@login_required
+def dashboard():
+    enrolled_courses = current_user.enrolled_courses
     available_courses = Course.select(lambda c: c not in enrolled_courses)
-    return render_template("user_home.html", enrolled_courses=enrolled_courses, available_courses=available_courses)
+    return render_template("dashboard.html", enrolled_courses=enrolled_courses, available_courses=available_courses)
 
 @course.route('/course/<int:course_id>', methods=['GET'])
 @login_required
@@ -49,6 +54,11 @@ def course_details(course_id):
         print(completed_tests)
     available_topics = [topic for topic in course.topics if topic not in topics]
     return render_template("course_details.html", course = course.to_dict(), enrolled=user_is_enrolled, topics=topics, available_topics=available_topics, tests_comp=completed_tests, tests_incomp=incomplete_tests)
+
+@views.route('/course', methods=['GET', 'POST'])
+def availableCourses():
+    return render_template("course.html")
+
 
 @views.route('/userTest', methods=['GET', 'POST'])
 @login_required
