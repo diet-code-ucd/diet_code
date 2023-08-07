@@ -4,68 +4,73 @@
 
 {% block content %}
 
-<div class="container mt-4">
+<div class="content-wrapper">
   <h2>Course Details</h2>
-  <ul>
+  <ul class="course-info">
     <li id="course_id" data-value="{{ course.id }}">Course ID: {{ course.id }}</li>
     <li>Course Name: {{ course.name }}</li>
   </ul>
 
   {% if enrolled %}
-  <p>Enrollment Status: Enrolled</p>
+  <p class="enrollment-status">Enrollment Status: Enrolled</p>
   <p>Selected Topics:</p>
-  <form action="/api/topics" method="post">
+  <form class="topic-form" action="/api/topics" method="post">
     {% for topic in topics %}
-    <div>
-      <input type="checkbox" name="{{topic.topic}}" value="{{topic.topic}}" checked><label
-        for="{{topic.topic}}">{{topic.topic}}</label>
+    <div class="topic">
+      <input type="checkbox" name="{{topic.topic}}" value="{{topic.topic}}" checked>
+      <label for="{{topic.topic}}">{{topic.topic}}</label>
     </div>
     {% endfor %}
     {% for avt in available_topics %}
-    <div>
-      <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}"><label for="{{avt.topic}}">{{avt.topic}}</label>
+    <div class="topic">
+      <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}">
+      <label for="{{avt.topic}}">{{avt.topic}}</label>
     </div>
     {% endfor %}
-  </ul>
     <input type="hidden" id="course" name="course" value="{{course.id}}" />
-    <input type="submit" value="Update">
+    <input class="update-button" type="submit" value="Update">
   </form>
-  <button id="learn" class="btn btn-primary mt-3">Learn</button>
-  <div id="loading-icon" class="d-none">
-      <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-  {% else %}
-  <p>Enrollment Status: Not Enrolled</p>
-  <button id="enroll-button" class="btn btn-primary mt-3">Enroll in Course</button>
-  <p id="enrollment-status" class="mt-2"></p>
-  <p href="#" id="refresh-link" class="btn btn-link mt-3"></p>
-  {% endif %}
 
+  <button id="learn" class="learn-button">Learn</button>
+
+  <div id="loading-icon" class="loading-container d-none">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+  {% else %}
+  <p class="enrollment-status">Enrollment Status: Not Enrolled</p>
+  <button id="enroll-button" class="btn btn-primary mt-3 enroll-button">Enroll in Course</button>
+
+  <p id="enrollment-status" class="enrollment-message"></p>
+  <p href="#" id="refresh-link" class="refresh-link"></p>
+  {% endif %}
 </div>
+
 {% if enrolled %}
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-6">
-      <h2>Complete Tests</h2>
+      <h3>Complete Tests</h3>
       <ul id="enrolled-courses" class="course-list">
         {% for test in tests_comp %}
         <li>
-          <a href="/submit_test?test_id={{test.id}}" class="btn btn-link text-left">
-            ID: {{ test.id }} 
+          <a href="/submit_test?test_id={{test.id}}" class="course-card card">
+            <div class="card-body">
+              <h5 class="card-text">ID: {{ test.id }} </h5>
+            </div>
           </a>
         </li>
         {% endfor %}
       </ul>
     </div>
     <div class="col-md-6">
-      <h2>Incomplete Tests</h2>
+      <h3>Incomplete Tests</h3>
       <ul id="available-courses" class="course-list">
         {% for test in tests_incomp %}
         <li>
-          <a href="/incompTest?test_id={{test.id}}" class="btn btn-link text-left">
-            ID: {{ test.id }} 
+          <a href="/incompTest?test_id={{test.id}}" class="course-card card">
+            <div class="card-body">
+              <h5 class="card-text">ID: {{ test.id }} </h5>
+            </div>
           </a>
         </li>
         {% endfor %}
@@ -74,6 +79,7 @@
   </div>
 </div>
 {% endif %}
+
 <script>
 const loadingIcon = document.getElementById('loading-icon');
 document.addEventListener('DOMContentLoaded', function() {
@@ -125,71 +131,123 @@ const refreshLink = document.getElementById('refresh-link');
 </script>
 
 <style>
-  .content-wrapper {
-      font-family: 'Roboto', sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-    .content-wrapper h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  
-    .content-wrapper ul {
-      list-style: none;
-      padding: 0;
-    }
-  
-    .content-wrapper li {
-      margin-bottom: 10px;
-    }
-  
-    .content-wrapper strong {
-      font-weight: bold;
-    }
-  
-  .spinner-border {
-      width: 2rem;
-      height: 2rem;
-      border: 0.25em solid currentColor;
-      border-right-color: transparent;
-    }
-  
-  .spinner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* Make the container take up the full height */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
   }
-  /* Add more custom styles here as needed */
-  /* Custom styling for the course lists */
-  .course-list {
+
+  .content-wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+  }
+
+  .content-wrapper h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .course-info {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .course-list li {
+  .course-info li {
     margin-bottom: 10px;
   }
 
-  .course-list a {
-    display: block;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    color: #333;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
+  .enrollment-status {
+    font-weight: bold;
+    color: #28a745;
   }
 
-  .course-list a:hover {
-    background-color: #f2f2f2;
+  .topic-form {
+    margin-top: 20px;
   }
+
+  .topic {
+    margin-bottom: 10px;
+  }
+
+  .topic input {
+    margin-right: 10px;
+  }
+
+  .update-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .learn-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .spinner-border {
+    width: 2rem;
+    height: 2rem;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+  }
+
+  /* Custom styling for the course cards */
+  .course-card {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .card {
+    border: none;
+    border-radius: 10px;
+  }
+
+  button-container {
+  display: flex;
+  align-items: center;
+}
+
+.enroll-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.enroll-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
 </style>
 {% endblock %}

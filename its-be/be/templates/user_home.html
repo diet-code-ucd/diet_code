@@ -16,8 +16,10 @@
       <ul id="enrolled-courses" class="course-list">
         {% for course in enrolled_courses %}
         <li>
-          <a href="/course/{{ course.id }}" class="btn btn-link text-left">
-            ID: {{ course.id }} - Name: {{ course.name }}
+          <a href="/course/{{ course.id }}" class="course-card card">
+            <div class="card-body">            
+              <h5 class="card-text">{{ course.name }}</h5>
+            </div>
           </a>
         </li>
         {% endfor %}
@@ -28,8 +30,10 @@
       <ul id="available-courses" class="course-list">
         {% for course in available_courses %}
         <li>
-          <a href="/course/{{ course.id }}" class="btn btn-link text-left">
-            ID: {{ course.id }} - Name: {{ course.name }}
+          <a href="/course/{{ course.id }}" class="course-card card">
+            <div class="card-body">
+              <h5 class="card-text">{{ course.name }}</h5>
+            </div>
           </a>
         </li>
         {% endfor %}
@@ -39,29 +43,28 @@
 </div>
 
 <style>
-  /* Custom styling for the course lists */
-  .course-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .course-list li {
-    margin-bottom: 10px;
-  }
-
-  .course-list a {
+  /* Custom styling for the course cards */
+  .course-card {
     display: block;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    color: #333;
     text-decoration: none;
-    transition: background-color 0.2s ease;
+    color: #333;
+    transition: transform 0.2s ease;
   }
 
-  .course-list a:hover {
-    background-color: #f2f2f2;
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
+
+  .card {
+    border: none;
+    border-radius: 10px;
+  }
+  .course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 </style>
 {% endblock %}
