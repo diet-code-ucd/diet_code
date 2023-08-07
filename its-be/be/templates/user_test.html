@@ -114,43 +114,28 @@
       const questionDiv = document.createElement('div');
       questionDiv.classList.add('form-group');
       questionDiv.innerHTML = `
-        <div class="question-wrapper">
-          <label class="question-label" for="question${question.id}">${question.question}</label>
-        </div>
+        <label for="question${question.id}">${question.question}</label>
       `;
 
-      // Create radio buttons for each question option or a text input box
-      if (question.options.length > 0) {
-        const optionsDiv = document.createElement('div');
-        optionsDiv.classList.add('options');
-
-        question.options.forEach((option, index) => {
+      // Create radio buttons for each question option
+      if(question.options.length > 0){
+      question.options.forEach(option => {
           const radioLabel = document.createElement('label');
-          radioLabel.classList.add('form-check-label');
-          radioLabel.innerHTML = `
-            <input type="radio" class="form-check-input" name="question${question.id}" value="${option}" id="option-${index}-${question.id}">
-            ${option}
-          `;
-          optionsDiv.appendChild(radioLabel);
-        });
-
-        questionDiv.appendChild(optionsDiv);
-      } else {
-        // If question.options is empty or not an array, create a text input box
-        const textInputDiv = document.createElement('div');
-        textInputDiv.classList.add('answer-input');
-
+          const radioInput = document.createElement('input');
+          radioInput.type = 'radio';
+          radioInput.name = `question${question.id}`;
+          radioInput.value = option;
+          radioLabel.appendChild(radioInput);
+          radioLabel.appendChild(document.createTextNode(option));
+          questionDiv.appendChild(radioLabel);
+      });
+    }else{
         const textInput = document.createElement('input');
         textInput.type = 'text';
         textInput.name = `question${question.id}`;
-        textInput.classList.add('form-control'); // Add Bootstrap form-control class
-
-        textInputDiv.appendChild(textInput);
-        questionDiv.appendChild(textInputDiv);
-      }
-
-      testForm.appendChild(questionDiv);
-    });
+        questionDiv.appendChild(textInput);
+      
+    }
 
     // Show the Submit button after adding the questions
     const submitButton = document.getElementById('submit-button');

@@ -54,8 +54,7 @@ const refreshLink = document.getElementById('refresh-link');
       if (data.id.toString() === course_id) {
         document.getElementById('enrollment-status').textContent = 'Successfully Enrolled!';
         document.getElementById('enroll-button').disabled = true;
-        refreshLink.href = window.location.href;
-        refreshLink.textContent = "GO to the course"   
+        window.location.reload(); 
       } else {
         document.getElementById('enrollment-status').textContent = 'Enrollment Failed. Please try again.';
       }
