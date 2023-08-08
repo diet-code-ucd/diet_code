@@ -9,9 +9,19 @@
     <li id="course_id" data-value="{{ course.id }}">Course ID: {{ course.id }}</li>
     <li>Course Name: {{ course.name }}</li>
   </ul>
-<pre>
+  <pre>
   <p id="learning-materials">{{ learning_materials|safe }}</p>
   </pre>
+  <div class="rating">
+    <!-- Thumbs up -->
+    <div class="like grow">
+      <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+    </div>
+    <!-- Thumbs down -->
+    <div class="dislike grow">
+      <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+    </div>
+  </div>
   <button id="take-test" class="btn btn-primary mt-3"> Take a Test!</button>
   
 </div>
@@ -48,6 +58,12 @@ const refreshLink = document.getElementById('refresh-link');
   // Update the learning_materials content with clickable links
   document.getElementById('learning-materials').innerHTML = learningMaterialsWithLinks;
 });
+
+$('.like, .dislike').on('click', function() {
+    event.preventDefault();
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+});
   
 </script>
 
@@ -70,6 +86,32 @@ const refreshLink = document.getElementById('refresh-link');
   .learning-material a:hover {
     text-decoration: underline;
   }
+
+  .rating {
+  display: inline-block;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.like,
+.dislike {
+  display: inline-block;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.dislike:hover,
+.like:hover {
+  color: #2EBDD1;
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.active {
+  color: #2EBDD1;
+}
 
   /* Add more custom styles here as needed */
 </style>
