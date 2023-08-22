@@ -21,7 +21,7 @@ def default():
         return redirect(url_for('views.home'))
     return render_template('auth/login.html')
 
-@views.route('/its', methods=['GET', 'POST'])
+@views.route('/its', methods=['GET'])
 def its():
     return render_template("its.html")
 
@@ -29,11 +29,7 @@ def its():
 def courses():
     return render_template("courses.html")
 
-@views.route('/home', methods=['GET', 'POST'])
-def home():
-    return render_template("home.html")
-
-@views.route('/home', methods=['GET', 'POST'])
+@views.route('/user_home', methods=['GET', 'POST'])
 @login_required
 def home():
     enrolled_courses = current_user.enrolled_courses.course

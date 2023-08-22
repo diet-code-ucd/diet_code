@@ -20,29 +20,30 @@
 {% block testimonials %}
 <div class="testimonials-section">
   <div class="container text-center">
-    <h2>What Our Students Say</h2>
+    <h2>What Our Students might Say</h2>
+    <br>
     <div class="row">
       <div class="col-md-4">
         <div class="testimonial rounded-block">
-          <p>"The Intelligent Tutoring System has revolutionized the way I study. The interactive lessons and instant feedback have made learning enjoyable and effective."</p>
+          <p>"The Intelligent Tutoring System has revolutionized the way I study."</p>
           <div class="testimonial-author">
-            <p>- John Anderson</p>
+            <p>- John </p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="testimonial rounded-block">
-          <p>"As a busy professional, I needed a flexible and efficient way to improve my skills. This tutoring system's adaptive learning has been a game-changer for me."</p>
+          <p>"As a busy person, I needed a flexible and efficient way to improve my skills. "</p>
           <div class="testimonial-author">
-            <p>- Emily Smith</p>
+            <p>- Emily </p>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="testimonial rounded-block">
-          <p>"I was struggling with math concepts, but the tutoring system's step-by-step explanations and practice exercises helped me build a strong foundation. I'm more confident now."</p>
+          <p>"I was struggling with math, but the tutoring system's learning materials and practice exercises helped me. I'm more confident now."</p>
           <div class="testimonial-author">
-            <p>- David Lee</p>
+            <p>- Bob </p>
           </div>
         </div>
       </div>
@@ -59,21 +60,21 @@
       <div class="col-md-6">
         <div class="benefit-item">
           <div class="benefit-icon rounded-circle">
-            <img src="{{ url_for('static', filename='personalised-learning.avif') }}" alt="Personalized Learning" class="rounded-img">
+            <img src="{{ url_for('static', filename='strength.png') }}" alt="Personalized Learning" class="rounded-img">
           </div>
-          <p>Personalized learning plans tailored to your needs</p>
+          <p>Personalized learning to your needs</p>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon rounded-circle">
-            <img src="{{ url_for('static', filename='24-hours.png') }}" alt="24/7 Access" class="rounded-img">
+            <img src="{{ url_for('static', filename='availability.png') }}" alt="24/7 Access" class="rounded-img">
           </div>
-          <p>24/7 access to lessons and practice exercises</p>
+          <p>24/7 access to materials and practice exercises</p>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon rounded-circle">
-            <img src="{{ url_for('static', filename='schedule.png') }}" alt="Self Schedule" class="rounded-img">
+            <img src="{{ url_for('static', filename='working-hours.png') }}" alt="Self Schedule" class="rounded-img">
           </div>
-          <p>Self-schedule your study sessions for ultimate flexibility</p>
+          <p>Study sessions with ultimate flexibility</p>
         </div>
       </div>
       <div class="col-md-6">
@@ -81,19 +82,19 @@
           <div class="benefit-icon rounded-circle">
             <img src="{{ url_for('static', filename='time-tracking.png') }}" alt="Progress Tracking" class="rounded-img">
           </div>
-          <p>Real-time progress tracking and performance analytics</p>
+          <p>Progress tracking and performance analytics</p>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon rounded-circle">
-            <img src="{{ url_for('static', filename='interactive.png') }}" alt="Interactive Quizzes" class="rounded-img">
+            <img src="{{ url_for('static', filename='choose.png') }}" alt="Interactive Quizzes" class="rounded-img">
           </div>
-          <p>Interactive quizzes for better understanding</p>
+          <p>Quizzes for better understanding</p>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon rounded-circle">
-            <img src="{{ url_for('static', filename='professional.png') }}" alt="Expert Tutors" class="rounded-img">
+            <img src="{{ url_for('static', filename='leader.png') }}" alt="Expert Tutors" class="rounded-img">
           </div>
-          <p>Expert tutors available for live online sessions</p>
+          <p>Will have expert tutors available for live online sessions in future</p>
         </div>
       </div>
     </div>
@@ -101,21 +102,4 @@
 </div>
 {% endblock %}
 
-{% block offers %}
-<div class="offers-section">
-  <div class="container text-center">
-    <h2>Special Offers on Courses</h2>
-    <div class="offer">
-      <div class="offer-details">
-        <h3>Mathematics Mastery</h3>
-        <p>Enroll now and get the course.</p>
-        <a href="/auth/register" class="btn btn-primary">Enroll Now</a>
-      </div>
-      <div class="offer-image">
-        <!-- will add some course image here -->
-      </div>
-    </div>
-    <!-- thinking of more offers to add or maybe one is fine -->
-  </div>
-</div>
-{% endblock %}
+
