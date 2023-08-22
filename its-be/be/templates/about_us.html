@@ -1,9 +1,47 @@
 {% extends 'base.html' %}
 
-{% block title %} ABout Us {% endblock %}
+{% block title %} About Us {% endblock %}
 
 {% block content %} 
-<div class="container text-center">
-    <img src="{{ url_for('static', filename='about_us.jpg') }}" alt="About Us Image" class="img-fluid">
-  </div>
+<div class="container text-center my-5">
+    <h1 class="mt-4">Welcome to Our Story</h1>
+    <p class="lead">Discover the journey behind our Intelligent Tutoring System.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2 class="mb-3">Our Mission</h2>
+            <p>We are committed to providing high-quality education and personalized learning experiences to empower individuals in their pursuit of knowledge.</p>
+        </div>
+        <div class="col-lg-6">
+            <h2 class="mb-3">Our Vision</h2>
+            <p>We envision a world where education is accessible to all, leveraging cutting-edge technology and innovative teaching methods.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Meet Our Team</h2>
+            <div class="card-deck">
+                <div class="card shadow">
+                    <img src="{{ url_for('static', filename='team_member1.jpg') }}" alt="Team Member" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">John Doe</h5>
+                        <p class="card-text">Co-Founder & CEO</p>
+                    </div>
+                </div>
+                <div class="card shadow">
+                    <img src="{{ url_for('static', filename='team_member2.jpg') }}" alt="Team Member" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Jane Smith</h5>
+                        <p class="card-text">Co-Founder & CTO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

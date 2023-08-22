@@ -21,6 +21,14 @@ def default():
         return redirect(url_for('views.home'))
     return render_template('auth/login.html')
 
+@views.route('/its', methods=['GET', 'POST'])
+def its():
+    return render_template("its.html")
+
+@views.route('/courses', methods=['GET', 'POST'])
+def courses():
+    return render_template("courses.html")
+
 @views.route('/home', methods=['GET', 'POST'])
 def home():
     return render_template("home.html")

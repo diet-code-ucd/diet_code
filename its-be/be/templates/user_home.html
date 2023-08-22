@@ -3,33 +3,36 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="jumbotron text-center mt-5">
-  <h1>Welcome to Your Intelligent Tutoring System</h1>
-  <p class="lead">Discover, learn, and grow with us. Happy learning!</p>
-  <a class="btn btn-primary" href="/aboutus" role="button">Learn More</a>
+<br>
+<div class="jumbotron container-fluid text-white py-5">
+  <div class="text-center">
+    <h1 class="display-4">Welcome to Your Intelligent Tutoring System</h1>
+    <p class="lead">Discover, learn, and grow with us. Happy learning!</p>
+    <a class="btn btn-secondary btn-lg" href="/aboutus" role="button">Learn More</a>
+  </div>
 </div>
 
-<div class="container mt-4">
+<div class="container my-5">
   <div class="row">
     <div class="col-md-6">
-      <h2>Enrolled Courses</h2>
-      <ul id="enrolled-courses" class="course-list">
+      <h2 class="mb-4">Enrolled Courses</h2>
+      <ul class="list-group">
         {% for course in enrolled_courses %}
-        <li>
-          <a href="/course/{{ course.id }}" class="btn btn-link text-left">
-            ID: {{ course.id }} - Name: {{ course.name }}
+        <li class="list-group-item">
+          <a href="/course/{{ course.id }}" class="text-decoration-none">
+            {{ course.name }}
           </a>
         </li>
         {% endfor %}
       </ul>
     </div>
     <div class="col-md-6">
-      <h2>Available Courses</h2>
-      <ul id="available-courses" class="course-list">
+      <h2 class="mb-4">Available Courses</h2>
+      <ul class="list-group">
         {% for course in available_courses %}
-        <li>
-          <a href="/course/{{ course.id }}" class="btn btn-link text-left">
-            ID: {{ course.id }} - Name: {{ course.name }}
+        <li class="list-group-item">
+          <a href="/course/{{ course.id }}" class="text-decoration-none">
+            {{ course.name }}
           </a>
         </li>
         {% endfor %}
@@ -40,28 +43,21 @@
 
 <style>
   /* Custom styling for the course lists */
-  .course-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .lead{
+    color:black;
+  }
+  .list-group-item {
+    border: none;
+    background-color: transparent;
   }
 
-  .course-list li {
-    margin-bottom: 10px;
-  }
-
-  .course-list a {
-    display: block;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
+  .list-group-item a {
     color: #333;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
   }
 
-  .course-list a:hover {
-    background-color: #f2f2f2;
+  .list-group-item a:hover {
+    color: #007bff;
   }
 </style>
 {% endblock %}
