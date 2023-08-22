@@ -13,17 +13,17 @@
 
   {% if enrolled %}
   <p>Enrollment Status: Enrolled</p>
-  <p>Selected Topics:</p>
+  <p>Select Topics:</p>
   <form action="/api/topics" method="post">
     {% for topic in topics %}
     <div>
       <input type="checkbox" name="{{topic.topic}}" value="{{topic.topic}}" checked><label
-        for="{{topic.topic}}">{{topic.topic}}</label>
+      for="{{topic.topic}}">&emsp;{{topic.topic}}</label>
     </div>
     {% endfor %}
     {% for avt in available_topics %}
     <div>
-      <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}"><label for="{{avt.topic}}">{{avt.topic}}</label>
+      <input type="checkbox" name="{{avt.topic}}" value="{{avt.topic}}"><label for="{{avt.topic}}">&emsp;{{avt.topic}}</label>
     </div>
     {% endfor %}
   </ul>
