@@ -38,6 +38,40 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+        <div class="col-lg-4">
+            <center>
+          <div class="course-details card shadow">
+            <center>  <img src="{{ url_for('static', filename='math.png') }}" alt="Mathematics" class="card-img-top smaller-image">
+            <div class="card-body">
+              <h2 class="card-title">Mathematics</h2>
+              <p class="card-text">Discover the beauty of mathematical concepts through lessons, quizzes and learning materials. Gain problem-solving skills. Strengthen your logical thinking and analytical skills as you dive into the world of mathematics.</p>
+              <center><a href="{{ url_for('course.course_details', course_id=1) }}" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+            <center>
+          <div class="course-details card shadow">
+            <center>  <img src="{{ url_for('static', filename='science.png') }}" alt="Earth Sciences" class="card-img-top smaller-image">
+            <div class="card-body">
+              <h2 class="card-title">Science</h2>
+              <p class="card-text"> Explore the mysteries of physics, chemistry, biology, and more. Engage in hands-on learning, discover the laws that govern our universe, and cultivate a curiosity-driven approach to understanding the world around us.</p>
+              <center><a href="{{ url_for('course.course_details', course_id=2) }}" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+            <center>
+          <div class="course-details card shadow">
+            <center> <img src="{{ url_for('static', filename='literature.png') }}" alt="English" class="card-img-top smaller-image">
+            <div class="card-body">
+              <h2 class="card-title">Literature</h2>
+              <p class="card-text">Journey through literary masterpieces, explore diverse genres, and analyze the nuances of language and expression. Develop a deeper appreciation for the written word and the art of communication.</p>
+            <center><a href="{{ url_for('course.course_details', course_id=4) }}" class="btn btn-primary">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 {% endblock %}
